@@ -1,0 +1,537 @@
+[
+  {
+    "patient_message": "Dr Z, \n\nMy period was due on the 21st and I've taken pregnancy tests that have come back negative. I normally I get severe menstrual cramps that I take Co-codamol to deal with, and I am now getting this pain is similar to what I experience then but in the wrong place. The pain seems to be worse when I urinate, and I am unsure if this is all realted to my period or something else? Would really apprecaite your feedback!!",
+    "demographics": {
+      "age": "Between 25 - 30",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Endometriosis",
+      "Spondyloarthropathy",
+      "Chronic pelvic pain in female",
+      "Ankle instability, left",
+      "Migraine",
+      "Alternating constipation and diarrhea"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Sacral pain",
+        "Non-radiographic axial spondyloarthritis",
+        "High risk medication use",
+        "Chronic migraine without aura without status migrainosus, not intractable",
+        "Nocturnal pain",
+        "Back strain, subsequent encounter",
+        "Sore throat",
+        "Paresthesias",
+        "Tingling in extremities",
+        "Lumbar spondylosis"
+      ],
+      "older": []
+    },
+    "medications": [
+      "CYCLOBENZAPRINE 5 MG TABLET",
+      "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
+      "ONDANSETRON HCL 4 MG TABLET",
+      "KETOROLAC 10 MG TABLET",
+      "TOPIRAMATE 25 MG TABLET",
+      "HUMIRA(CF) PEN 40 MG/0.4 ML SUBCUTANEOUS KIT",
+      "GABAPENTIN 100 MG CAPSULE",
+      "CITALOPRAM 20 MG TABLET",
+      "LORAZEPAM 1 MG TABLET",
+      "LIDOCAINE HCL 2 % MUCOSAL JELLY"
+    ],
+    "level": 3,
+    "relevancy": 5,
+    "id": "INBOX_A-00000-of-00001-03",
+    "problem_list_snomed": [
+      {
+        "input_text": "Endometriosis",
+        "cui": "C0014175",
+        "sctid": "11871002",
+        "snomed_name": "Endometriosis"
+      },
+      {
+        "input_text": "Spondyloarthropathy",
+        "cui": "C0949691",
+        "sctid": "8847002",
+        "snomed_name": "Spondylarthrosis"
+      },
+      {
+        "input_text": "Chronic pelvic pain in female",
+        "cui": "C0404484",
+        "sctid": "237067000",
+        "snomed_name": "Chronic pelvic pain of female"
+      },
+      {
+        "input_text": "Ankle instability, left",
+        "cui": "C2139375",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Migraine",
+        "cui": "C0149931",
+        "sctid": "155046006",
+        "snomed_name": "Migraine (disorder)"
+      },
+      {
+        "input_text": "Alternating constipation and diarrhea",
+        "cui": "C0474495",
+        "sctid": "249517009",
+        "snomed_name": "Constipation alternates with diarrhea"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Sacral pain",
+        "cui": "C0877378",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Non-radiographic axial spondyloarthritis",
+        "cui": "C3889038",
+        "sctid": "713777005",
+        "snomed_name": "Non-radiographic axial spondyloarthritis"
+      },
+      {
+        "input_text": "High risk medication use",
+        "cui": "C0868624",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Chronic migraine without aura without status migrainosus, not intractable",
+        "cui": "C5819133",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Nocturnal pain",
+        "cui": "C1970122",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Back strain, subsequent encounter",
+        "cui": "C2839944",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Sore throat",
+        "cui": "C0242429",
+        "sctid": "266379007",
+        "snomed_name": "Sore throat"
+      },
+      {
+        "input_text": "Paresthesias",
+        "cui": "C0030554",
+        "sctid": "91019004",
+        "snomed_name": "Paresthesia"
+      },
+      {
+        "input_text": "Tingling in extremities",
+        "cui": "C2116349",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Lumbar spondylosis",
+        "cui": "C0149983",
+        "sctid": "268074002",
+        "snomed_name": "Lumbar spondylosis"
+      }
+    ]
+  },
+  {
+    "patient_message": "Hi Doctor, \n\nI am reaching out about some chest and breathing discomfort i've been having the past month or so. The feeling is like a tightness in my upper chest which causes me to feel short of breath, and as a result, I feel the need to take very deep breaths, which will often temporarily help for maybe 20 seconds or so. In other words, my standard breathing doesn't feel like it's enough, and so I feel this discomfort. I honestly felt for a while like it was correlated with my anxiety spikes, but now I am not so sure. Figured this is something I should message you about.",
+    "demographics": {
+      "age": "Between 45 - 50",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Nausea",
+      "Erythema annulare centrifugum",
+      "Vitamin D deficiency",
+      "Morbid obesity with BMI of 50.0-59.9, adult",
+      "Hirsutism",
+      "Immunization not carried out because of patient decision",
+      "Incomplete right bundle branch block (RBBB)",
+      "Weight gain following gastric bypass surgery",
+      "GI bleed",
+      "Stress fracture of right tibia",
+      "OSA (obstructive sleep apnea)",
+      "Obesity",
+      "SVT (supraventricular tachycardia)",
+      "Left-sided low back pain without sciatica",
+      "Chronic diarrhea",
+      "Palpitations",
+      "Dyspareunia, female",
+      "Atopic dermatitis",
+      "Gastroesophageal reflux disease",
+      "Splenomegaly",
+      "Fibroid uterus"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Upper abdominal pain",
+        "Acute left-sided low back pain without sciatica",
+        "Earache on left",
+        "Status post bariatric surgery",
+        "Bilateral impacted cerumen",
+        "Acute UTI (urinary tract infection)",
+        "Atrial fibrillation, unspecified type"
+      ],
+      "older": []
+    },
+    "medications": [
+      "METOPROLOL SUCCINATE ER 50 MG TABLET,EXTENDED RELEASE 24 HR",
+      "NITROFURANTOIN MONOHYDRATE/MACROCRYSTALS 100 MG CAPSULE",
+      "TRAMADOL 50 MG TABLET",
+      "GABAPENTIN 300 MG CAPSULE",
+      "ONDANSETRON 4 MG DISINTEGRATING TABLET",
+      "METOPROLOL SUCCINATE ER 25 MG TABLET,EXTENDED RELEASE 24 HR",
+      "NORTRIPTYLINE 25 MG CAPSULE",
+      "FLECAINIDE 100 MG TABLET",
+      "DULOXETINE 20 MG CAPSULE,DELAYED RELEASE",
+      "PANTOPRAZOLE 40 MG TABLET,DELAYED RELEASE",
+      "FLECAINIDE 50 MG TABLET"
+    ],
+    "level": 1,
+    "relevancy": 10,
+    "id": "INBOX_A-00000-of-00001-04",
+    "problem_list_snomed": [
+      {
+        "input_text": "Nausea",
+        "cui": "C0027497",
+        "sctid": "422587007",
+        "snomed_name": "Nausea"
+      },
+      {
+        "input_text": "Erythema annulare centrifugum",
+        "cui": "C0263358",
+        "sctid": "81542001",
+        "snomed_name": "Erythema annulare centrifugum"
+      },
+      {
+        "input_text": "Vitamin D deficiency",
+        "cui": "C0042870",
+        "sctid": "154728003",
+        "snomed_name": "Vitamin D deficiency"
+      },
+      {
+        "input_text": "Morbid obesity with BMI of 50.0-59.9, adult",
+        "cui": "C0028756",
+        "sctid": "389986000",
+        "snomed_name": "Morbid obesity"
+      },
+      {
+        "input_text": "Hirsutism",
+        "cui": "C0019572",
+        "sctid": "40090008",
+        "snomed_name": "Hirsutism"
+      },
+      {
+        "input_text": "Immunization not carried out because of patient decision",
+        "cui": "C2910678",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Incomplete right bundle branch block (RBBB)",
+        "cui": "C0262525",
+        "sctid": "251124007",
+        "snomed_name": "Incomplete right bundle branch block"
+      },
+      {
+        "input_text": "Weight gain following gastric bypass surgery",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "GI bleed",
+        "cui": "C0017181",
+        "sctid": "155837004",
+        "snomed_name": "Gastrointestinal hemorrhage"
+      },
+      {
+        "input_text": "Stress fracture of right tibia",
+        "cui": "C2900753",
+        "sctid": "11304681000119102",
+        "snomed_name": "Stress fracture of right tibia"
+      },
+      {
+        "input_text": "OSA (obstructive sleep apnea)",
+        "cui": "C0520679",
+        "sctid": "194441007",
+        "snomed_name": "Obstructive sleep apnea"
+      },
+      {
+        "input_text": "Obesity",
+        "cui": "C0028754",
+        "sctid": "5476005",
+        "snomed_name": "Obesity"
+      },
+      {
+        "input_text": "SVT (supraventricular tachycardia)",
+        "cui": "C0039240",
+        "sctid": "266305002",
+        "snomed_name": "Supraventricular tachycardia"
+      },
+      {
+        "input_text": "Left-sided low back pain without sciatica",
+        "cui": "C2895423",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Chronic diarrhea",
+        "cui": "C0401151",
+        "sctid": "197034002",
+        "snomed_name": "Chronic diarrhea"
+      },
+      {
+        "input_text": "Palpitations",
+        "cui": "C0030252",
+        "sctid": "139224009",
+        "snomed_name": "Palpitations"
+      },
+      {
+        "input_text": "Dyspareunia, female",
+        "cui": "C4268943",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Atopic dermatitis",
+        "cui": "C0011615",
+        "sctid": "156331003",
+        "snomed_name": "Atopic dermatitis"
+      },
+      {
+        "input_text": "Gastroesophageal reflux disease",
+        "cui": "C0017168",
+        "sctid": "235595009",
+        "snomed_name": "Gastroesophageal reflux disease"
+      },
+      {
+        "input_text": "Splenomegaly",
+        "cui": "C0038002",
+        "sctid": "16294009",
+        "snomed_name": "Splenomegaly"
+      },
+      {
+        "input_text": "Fibroid uterus",
+        "cui": "C0042133",
+        "sctid": "154616000",
+        "snomed_name": "Uterine fibroid"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Upper abdominal pain",
+        "cui": "C0232492",
+        "sctid": "139327000",
+        "snomed_name": "Upper abdominal pain"
+      },
+      {
+        "input_text": "Acute left-sided low back pain without sciatica",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Earache on left",
+        "cui": "C2199591",
+        "sctid": "1010233001",
+        "snomed_name": "Earache of left ear"
+      },
+      {
+        "input_text": "Status post bariatric surgery",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Bilateral impacted cerumen",
+        "cui": "C2881603",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Acute UTI (urinary tract infection)",
+        "cui": "C0242147",
+        "sctid": "431309003",
+        "snomed_name": "Acute urinary tract infection"
+      },
+      {
+        "input_text": "Atrial fibrillation, unspecified type",
+        "cui": "C0004238",
+        "sctid": "155364009",
+        "snomed_name": "Atrial fibrillation"
+      }
+    ]
+  },
+  {
+    "patient_message": "Hi Doc, \n\nNeed your feedback on something. This week, my urethra occasionally starts to burn. The burning makes me always feel like I have to pee,  so I find it helps to  stand in the shower or sit on the toilet for the duration of it. I also intermittently *do* pee, but it hurts really bad when I do. There is even blood in my urine sometimes when this happens, especially when I am trying extra hard to pee. Let me know if you can prescribe me anything?",
+    "demographics": {
+      "age": "Between 65 - 70",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Arthritis",
+      "Environmental allergies",
+      "OA (osteoarthritis)",
+      "Low back pain",
+      "Coordination impairment",
+      "Meningioma",
+      "Migraine with vertigo",
+      "TIA (transient ischemic attack)",
+      "Low vitamin D level",
+      "IC (interstitial cystitis)",
+      "Family history of colorectal cancer",
+      "Anxiety",
+      "Hypotension",
+      "Healthcare maintenance",
+      "Chronic pain of right knee"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Bug bite of face without infection, subsequent encounter",
+        "Hypotension, unspecified hypotension type",
+        "Depression, unspecified depression type"
+      ],
+      "older": [
+        "Skin rash",
+        "Bilateral asymmetric sensorineural hearing loss",
+        "Upper respiratory tract infection, unspecified type"
+      ]
+    },
+    "medications": [
+      "CALCIUM CARBONATE 500 MG-VITAMIN D3 5 MCG (200 UNIT) TABLET",
+      "CLOPIDOGREL 75 MG TABLET",
+      "CITALOPRAM 20 MG TABLET",
+      "SIMVASTATIN 20 MG TABLET",
+      "CHOLECALCIFEROL (VITAMIN D3) 50,000 UNIT CAPSULE",
+      "PHENAZOPYRIDINE 200 MG TABLET",
+      "TRIAMCINOLONE ACETONIDE 0.1 % TOPICAL CREAM"
+    ],
+    "level": 2,
+    "relevancy": 7,
+    "id": "INBOX_A-00000-of-00001-05",
+    "problem_list_snomed": [
+      {
+        "input_text": "Arthritis",
+        "cui": "C0003864",
+        "sctid": "372091005",
+        "snomed_name": "Arthritis"
+      },
+      {
+        "input_text": "Environmental allergies",
+        "cui": "C0282504",
+        "sctid": "426232007",
+        "snomed_name": "Environmental allergy"
+      },
+      {
+        "input_text": "OA (osteoarthritis)",
+        "cui": "C0029408",
+        "sctid": "396275006",
+        "snomed_name": "Degenerative polyarthritis"
+      },
+      {
+        "input_text": "Low back pain",
+        "cui": "C0024031",
+        "sctid": "202793005",
+        "snomed_name": "Low back pain"
+      },
+      {
+        "input_text": "Coordination impairment",
+        "cui": "C0004134",
+        "sctid": "20262006",
+        "snomed_name": "Ataxia"
+      },
+      {
+        "input_text": "Meningioma",
+        "cui": "C0025286",
+        "sctid": "269643009",
+        "snomed_name": "Meningioma"
+      },
+      {
+        "input_text": "Migraine with vertigo",
+        "cui": "C0395920",
+        "sctid": "232284007",
+        "snomed_name": "Vestibular migraine"
+      },
+      {
+        "input_text": "TIA (transient ischemic attack)",
+        "cui": "C0007787",
+        "sctid": "195196001",
+        "snomed_name": "Transient ischemic attack"
+      },
+      {
+        "input_text": "Low vitamin D level",
+        "cui": "C3279609",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "IC (interstitial cystitis)",
+        "cui": "C0282488",
+        "sctid": "197834003",
+        "snomed_name": "Interstitial cystitis"
+      },
+      {
+        "input_text": "Family history of colorectal cancer",
+        "cui": "C3266797",
+        "sctid": "1421000119104",
+        "snomed_name": "Family history of colorectal cancer"
+      },
+      {
+        "input_text": "Anxiety",
+        "cui": "C0003467",
+        "sctid": "38237000",
+        "snomed_name": "Anxiety"
+      },
+      {
+        "input_text": "Hypotension",
+        "cui": "C0020649",
+        "sctid": "155487000",
+        "snomed_name": "Hypotension"
+      },
+      {
+        "input_text": "Healthcare maintenance",
+        "cui": "C0262500",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Chronic pain of right knee",
+        "cui": "C4509799",
+        "sctid": "12400341000119100",
+        "snomed_name": "Chronic pain following right total knee arthroplasty"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Bug bite of face without infection, subsequent encounter",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Hypotension, unspecified hypotension type",
+        "cui": "C0020649",
+        "sctid": "155487000",
+        "snomed_name": "Hypotension"
+      },
+      {
+        "input_text": "Depression, unspecified depression type",
+        "cui": "C0865315",
+        "sctid": null,
+        "snomed_name": null
+      }
+    ]
+  }
+]

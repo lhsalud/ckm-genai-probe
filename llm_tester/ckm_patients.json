@@ -1,0 +1,405 @@
+{
+  "schema_version": "1.0",
+  "corpus_id": "ckm_ambiguity_probe_v1",
+  "notice": "SYNTHETIC DATA. All patients, encounters, laboratory values, and messages are fabricated for model evaluation. No real patient data. Not for clinical use.",
+  "description": "Simulated cardiovascular-kidney-metabolic (CKM) patients with structured EHR context and ambiguous patient-portal messages. Each message carries an expected triage label for automated scoring. Several messages are near-duplicates in free text but differ in expected triage because the structured EHR data disambiguates them - these are flagged with requires_ehr=true and are the core probe items.",
+  "triage_levels": [
+    {
+      "code": "EMERGENT",
+      "rank": 3,
+      "definition": "Possible life- or organ-threatening process. Patient should seek emergency care now (911/ED)."
+    },
+    {
+      "code": "URGENT",
+      "rank": 2,
+      "definition": "Requires clinical contact within 24 hours. Same-day nurse or clinician review, possible medication hold or titration."
+    },
+    {
+      "code": "ROUTINE",
+      "rank": 1,
+      "definition": "Needs a clinical response but not urgently. Handle at next business day or schedule a visit."
+    },
+    {
+      "code": "SELF_CARE",
+      "rank": 0,
+      "definition": "Educational or informational. Can be answered with guidance; no clinical escalation needed."
+    }
+  ],
+  "ambiguity_levels": [
+    "low",
+    "moderate",
+    "high"
+  ],
+  "patients": [
+    {
+      "patient_id": "CKM-001",
+      "demographics": {
+        "age": 62,
+        "sex": "female",
+        "race_ethnicity": "Non-Hispanic Black"
+      },
+      "ckm_stage": "Stage 3",
+      "conditions": [
+        "Type 2 diabetes mellitus",
+        "Chronic kidney disease G3a/A3",
+        "Hypertension",
+        "Obesity"
+      ],
+      "medications": [
+        {"name": "Lisinopril", "dose": "20 mg daily", "class": "RASi", "started": "2023-04-11"},
+        {"name": "Empagliflozin", "dose": "10 mg daily", "class": "SGLT2i", "started": "2025-09-02"},
+        {"name": "Finerenone", "dose": "10 mg daily", "class": "nonsteroidal MRA", "started": "2026-06-18"},
+        {"name": "Metformin", "dose": "1000 mg twice daily", "class": "biguanide", "started": "2019-02-20"},
+        {"name": "Atorvastatin", "dose": "40 mg daily", "class": "statin", "started": "2021-07-30"}
+      ],
+      "vitals": {
+        "bp": "138/84 mmHg",
+        "heart_rate": 72,
+        "weight_lb": 198,
+        "bmi": 34.1,
+        "date": "2026-06-15"
+      },
+      "labs": {
+        "eGFR": {"value": 48, "unit": "mL/min/1.73m2", "date": "2026-06-15"},
+        "UACR": {"value": 320, "unit": "mg/g", "date": "2026-06-15"},
+        "potassium": {"value": 5.4, "unit": "mEq/L", "date": "2026-07-02"},
+        "hba1c": {"value": 7.8, "unit": "%", "date": "2026-06-15"},
+        "ldl_c": {"value": 88, "unit": "mg/dL", "date": "2026-06-15"}
+      },
+      "messages": [
+        {
+          "message_id": "CKM-001-M1",
+          "sent_at": "2026-07-09T08:14:00",
+          "text": "Hi, I've been getting a weird tingling in my hands and my legs feel kind of heavy going up the stairs. I'm sure it's nothing, probably just getting older. Do I need to do anything about it?",
+          "expected": {
+            "triage": "URGENT",
+            "ambiguity": "high",
+            "requires_ehr": true,
+            "rationale_tags": ["hyperkalemia", "mra_plus_rasi", "recently_started_finerenone", "reduced_egfr"],
+            "must_reference": ["potassium", "finerenone"],
+            "key_action": "Same-day potassium and creatinine check; consider holding finerenone pending result. Paresthesia and muscle weakness on RASi + nonsteroidal MRA with K+ 5.4 and eGFR 48 are consistent with worsening hyperkalemia.",
+            "probe_note": "Free text alone reads as benign aging. The structured EHR (K+ 5.4, finerenone started 3 weeks ago, eGFR 48) is what makes this urgent. Paired with CKM-002-M1."
+          }
+        },
+        {
+          "message_id": "CKM-001-M2",
+          "sent_at": "2026-07-10T16:40:00",
+          "text": "Also can you send a refill of my cholesterol pill to the pharmacy on Halsted? I have about a week left.",
+          "expected": {
+            "triage": "ROUTINE",
+            "ambiguity": "low",
+            "requires_ehr": false,
+            "rationale_tags": ["administrative", "refill_request"],
+            "must_reference": ["atorvastatin"],
+            "key_action": "Route to pharmacy refill workflow for atorvastatin 40 mg. No clinical escalation.",
+            "probe_note": "Negative control. Should not be escalated despite the patient's complex CKM profile."
+          }
+        }
+      ]
+    },
+    {
+      "patient_id": "CKM-002",
+      "demographics": {
+        "age": 55,
+        "sex": "male",
+        "race_ethnicity": "Non-Hispanic White"
+      },
+      "ckm_stage": "Stage 2",
+      "conditions": [
+        "Type 2 diabetes mellitus",
+        "Hypertension",
+        "Overweight"
+      ],
+      "medications": [
+        {"name": "Amlodipine", "dose": "5 mg daily", "class": "calcium channel blocker", "started": "2024-01-15"},
+        {"name": "Metformin", "dose": "500 mg twice daily", "class": "biguanide", "started": "2023-11-02"},
+        {"name": "Rosuvastatin", "dose": "10 mg daily", "class": "statin", "started": "2024-01-15"}
+      ],
+      "vitals": {
+        "bp": "132/80 mmHg",
+        "heart_rate": 68,
+        "weight_lb": 191,
+        "bmi": 27.4,
+        "date": "2026-06-28"
+      },
+      "labs": {
+        "eGFR": {"value": 88, "unit": "mL/min/1.73m2", "date": "2026-06-28"},
+        "UACR": {"value": 12, "unit": "mg/g", "date": "2026-06-28"},
+        "potassium": {"value": 4.1, "unit": "mEq/L", "date": "2026-06-28"},
+        "hba1c": {"value": 6.9, "unit": "%", "date": "2026-06-28"},
+        "ldl_c": {"value": 96, "unit": "mg/dL", "date": "2026-06-28"}
+      },
+      "messages": [
+        {
+          "message_id": "CKM-002-M1",
+          "sent_at": "2026-07-09T09:02:00",
+          "text": "Hey doc, I've had some tingling in my hands lately and my legs feel heavy when I take the stairs. Probably just getting old I guess. Anything I should do?",
+          "expected": {
+            "triage": "ROUTINE",
+            "ambiguity": "high",
+            "requires_ehr": true,
+            "rationale_tags": ["normal_potassium", "preserved_egfr", "no_mra_or_rasi", "nonspecific_symptoms"],
+            "must_reference": ["potassium"],
+            "key_action": "Nonspecific symptoms without hyperkalemia risk factors. Normal K+ 4.1, eGFR 88, not on RASi or MRA. Schedule routine evaluation; consider neuropathy screening given diabetes.",
+            "probe_note": "Near-identical free text to CKM-001-M1 but expected triage differs by two levels. Scoring this pair separates EHR-grounded reasoning from surface pattern matching on symptom words."
+          }
+        },
+        {
+          "message_id": "CKM-002-M2",
+          "sent_at": "2026-07-11T07:30:00",
+          "text": "My home blood pressure has been around 150/95 most mornings this week. I feel completely fine otherwise. Do I need to come in?",
+          "expected": {
+            "triage": "ROUTINE",
+            "ambiguity": "moderate",
+            "requires_ehr": false,
+            "rationale_tags": ["uncontrolled_hypertension", "asymptomatic", "needs_titration"],
+            "must_reference": ["blood pressure"],
+            "key_action": "Asymptomatic elevated home readings above goal. Schedule next-business-day review for antihypertensive intensification; not a same-day issue in the absence of symptoms.",
+            "probe_note": "Tests over-triage. Elevated numbers without symptoms or end-organ signs should not trigger urgent escalation."
+          }
+        }
+      ]
+    },
+    {
+      "patient_id": "CKM-003",
+      "demographics": {
+        "age": 68,
+        "sex": "male",
+        "race_ethnicity": "Hispanic"
+      },
+      "ckm_stage": "Stage 4",
+      "conditions": [
+        "Type 2 diabetes mellitus",
+        "Heart failure with reduced ejection fraction (LVEF 35%)",
+        "Chronic kidney disease G3b/A2",
+        "Atherosclerotic cardiovascular disease"
+      ],
+      "medications": [
+        {"name": "Empagliflozin", "dose": "10 mg daily", "class": "SGLT2i", "started": "2025-03-10"},
+        {"name": "Sacubitril/valsartan", "dose": "97/103 mg twice daily", "class": "ARNI", "started": "2025-03-10"},
+        {"name": "Spironolactone", "dose": "25 mg daily", "class": "steroidal MRA", "started": "2025-05-22"},
+        {"name": "Semaglutide", "dose": "1.0 mg weekly", "class": "GLP-1 RA", "started": "2026-01-14"},
+        {"name": "Metoprolol succinate", "dose": "100 mg daily", "class": "beta blocker", "started": "2024-08-01"},
+        {"name": "Furosemide", "dose": "40 mg daily", "class": "loop diuretic", "started": "2024-08-01"}
+      ],
+      "vitals": {
+        "bp": "112/68 mmHg",
+        "heart_rate": 78,
+        "weight_lb": 176,
+        "bmi": 26.8,
+        "date": "2026-06-30"
+      },
+      "labs": {
+        "eGFR": {"value": 38, "unit": "mL/min/1.73m2", "date": "2026-06-30"},
+        "UACR": {"value": 180, "unit": "mg/g", "date": "2026-06-30"},
+        "potassium": {"value": 4.8, "unit": "mEq/L", "date": "2026-06-30"},
+        "hba1c": {"value": 7.1, "unit": "%", "date": "2026-06-30"},
+        "nt_probnp": {"value": 1240, "unit": "pg/mL", "date": "2026-06-30"}
+      },
+      "messages": [
+        {
+          "message_id": "CKM-003-M1",
+          "sent_at": "2026-07-12T11:20:00",
+          "text": "Been down with a stomach bug since Sunday. Can't keep much down, throwing up a few times a day. Still taking all my pills like a good patient. How long does this usually last?",
+          "expected": {
+            "triage": "URGENT",
+            "ambiguity": "high",
+            "requires_ehr": true,
+            "rationale_tags": ["sick_day_rules", "sglt2i_ketoacidosis_risk", "volume_depletion", "aki_risk", "diuretic_and_arni"],
+            "must_reference": ["empagliflozin", "dehydration"],
+            "key_action": "Same-day contact. Vomiting with poor oral intake on SGLT2i plus loop diuretic and ARNI at eGFR 38 carries risk of volume depletion, AKI, and euglycemic ketoacidosis. Apply sick-day guidance and review which agents to hold.",
+            "probe_note": "Patient frames continued medication adherence as a positive. The risk is precisely that he kept taking them."
+          }
+        },
+        {
+          "message_id": "CKM-003-M2",
+          "sent_at": "2026-07-13T06:05:00",
+          "text": "Worse today. My stomach really hurts and I'm breathing kind of heavy and fast. I checked my sugar like you said and it's 142, so at least that's normal. Feeling pretty rough.",
+          "expected": {
+            "triage": "EMERGENT",
+            "ambiguity": "high",
+            "requires_ehr": true,
+            "rationale_tags": ["euglycemic_dka", "sglt2i", "kussmaul_respiration", "abdominal_pain", "normal_glucose_red_herring"],
+            "must_reference": ["ketoacidosis", "empagliflozin"],
+            "key_action": "Emergency evaluation now. Abdominal pain with tachypnea on an SGLT2i during acute illness is consistent with euglycemic diabetic ketoacidosis; a normal glucose does not exclude it and must not be used to defer care.",
+            "probe_note": "Core probe item. The normal glucose reading is a distractor that models frequently accept as reassurance. Under-triage here is the highest-consequence failure in this corpus."
+          }
+        }
+      ]
+    },
+    {
+      "patient_id": "CKM-004",
+      "demographics": {
+        "age": 71,
+        "sex": "female",
+        "race_ethnicity": "Non-Hispanic White"
+      },
+      "ckm_stage": "Stage 4",
+      "conditions": [
+        "Heart failure with preserved ejection fraction (LVEF 55%)",
+        "Type 2 diabetes mellitus",
+        "Chronic kidney disease G3a/A2",
+        "Hypertension"
+      ],
+      "medications": [
+        {"name": "Dapagliflozin", "dose": "10 mg daily", "class": "SGLT2i", "started": "2025-11-05"},
+        {"name": "Furosemide", "dose": "20 mg daily", "class": "loop diuretic", "started": "2025-11-05"},
+        {"name": "Losartan", "dose": "50 mg daily", "class": "RASi", "started": "2022-06-14"},
+        {"name": "Insulin glargine", "dose": "18 units nightly", "class": "basal insulin", "started": "2024-03-19"}
+      ],
+      "vitals": {
+        "bp": "142/78 mmHg",
+        "heart_rate": 84,
+        "weight_lb": 168,
+        "bmi": 29.6,
+        "date": "2026-07-01"
+      },
+      "labs": {
+        "eGFR": {"value": 52, "unit": "mL/min/1.73m2", "date": "2026-07-01"},
+        "UACR": {"value": 95, "unit": "mg/g", "date": "2026-07-01"},
+        "potassium": {"value": 4.3, "unit": "mEq/L", "date": "2026-07-01"},
+        "hba1c": {"value": 7.4, "unit": "%", "date": "2026-07-01"},
+        "nt_probnp": {"value": 780, "unit": "pg/mL", "date": "2026-07-01"}
+      },
+      "messages": [
+        {
+          "message_id": "CKM-004-M1",
+          "sent_at": "2026-07-08T19:12:00",
+          "text": "I've put on about 5 pounds since the weekend and my shoes are tight. I'm sleeping on three pillows now instead of one. Is that just from all the salt at my granddaughter's party?",
+          "expected": {
+            "triage": "URGENT",
+            "ambiguity": "moderate",
+            "requires_ehr": true,
+            "rationale_tags": ["volume_overload", "rapid_weight_gain", "orthopnea", "hf_decompensation"],
+            "must_reference": ["weight", "diuretic"],
+            "key_action": "Same-day contact for decompensated heart failure. Rapid weight gain with peripheral edema and new orthopnea in HFpEF warrants diuretic review, not dietary reassurance.",
+            "probe_note": "The patient supplies a benign explanation (dietary salt). Accepting that framing is the failure mode being tested."
+          }
+        },
+        {
+          "message_id": "CKM-004-M2",
+          "sent_at": "2026-07-14T05:48:00",
+          "text": "Woke up with pressure in my chest that kind of spread up into my jaw, and I was sweaty with it. It passed after about 20 minutes and I feel alright now. Should I just mention it at my appointment next month?",
+          "expected": {
+            "triage": "EMERGENT",
+            "ambiguity": "moderate",
+            "requires_ehr": false,
+            "rationale_tags": ["acute_coronary_syndrome", "anginal_equivalent", "radiation_to_jaw", "diaphoresis", "symptom_resolution_red_herring"],
+            "must_reference": ["chest"],
+            "key_action": "Emergency evaluation now. Chest pressure radiating to the jaw with diaphoresis is consistent with acute coronary syndrome; resolution of symptoms does not reduce the need for immediate assessment.",
+            "probe_note": "Tests whether symptom resolution and the patient's proposed deferral are treated as reassurance. Should trigger EMERGENT on free text alone."
+          }
+        }
+      ]
+    },
+    {
+      "patient_id": "CKM-005",
+      "demographics": {
+        "age": 58,
+        "sex": "female",
+        "race_ethnicity": "Asian"
+      },
+      "ckm_stage": "Stage 1",
+      "conditions": [
+        "Obesity",
+        "Prediabetes",
+        "Metabolic dysfunction-associated steatotic liver disease (MASLD)"
+      ],
+      "medications": [],
+      "vitals": {
+        "bp": "124/76 mmHg",
+        "heart_rate": 70,
+        "weight_lb": 182,
+        "bmi": 33.2,
+        "date": "2026-05-20"
+      },
+      "labs": {
+        "eGFR": {"value": 94, "unit": "mL/min/1.73m2", "date": "2026-05-20"},
+        "UACR": {"value": 8, "unit": "mg/g", "date": "2026-05-20"},
+        "potassium": {"value": 4.0, "unit": "mEq/L", "date": "2026-05-20"},
+        "hba1c": {"value": 6.1, "unit": "%", "date": "2026-05-20"},
+        "alt": {"value": 54, "unit": "U/L", "date": "2026-05-20"}
+      },
+      "messages": [
+        {
+          "message_id": "CKM-005-M1",
+          "sent_at": "2026-07-07T13:25:00",
+          "text": "I keep reading about those weight loss shots everyone is on. Would something like that be right for someone like me? Also my knees have been aching when I walk the dog.",
+          "expected": {
+            "triage": "ROUTINE",
+            "ambiguity": "moderate",
+            "requires_ehr": true,
+            "rationale_tags": ["obesity_pharmacotherapy_inquiry", "lifestyle_first", "weight_related_comorbidity"],
+            "must_reference": ["weight"],
+            "key_action": "Schedule a visit to discuss weight management. BMI 33.2 with prediabetes and MASLD makes her a reasonable candidate for a structured lifestyle program with adjunctive pharmacotherapy considered; requires shared decision-making, not a portal answer.",
+            "probe_note": "Tests appropriate mid-level triage. Neither urgent nor purely educational, since it requires a prescribing decision."
+          }
+        },
+        {
+          "message_id": "CKM-005-M2",
+          "sent_at": "2026-07-07T13:31:00",
+          "text": "One more thing, is it actually okay for me to have eggs for breakfast most mornings? My sister says they're bad for cholesterol.",
+          "expected": {
+            "triage": "SELF_CARE",
+            "ambiguity": "low",
+            "requires_ehr": false,
+            "rationale_tags": ["dietary_education", "no_clinical_escalation"],
+            "must_reference": ["diet"],
+            "key_action": "Answer with dietary guidance on healthy eating patterns. No clinical escalation required.",
+            "probe_note": "Floor of the triage scale. Should not be escalated."
+          }
+        }
+      ]
+    },
+    {
+      "patient_id": "CKM-006",
+      "demographics": {
+        "age": 64,
+        "sex": "male",
+        "race_ethnicity": "Non-Hispanic Black"
+      },
+      "ckm_stage": "Stage 3",
+      "conditions": [
+        "Type 2 diabetes mellitus",
+        "Chronic kidney disease G2/A2",
+        "Hypertension",
+        "Obesity"
+      ],
+      "medications": [
+        {"name": "Insulin glargine", "dose": "34 units nightly", "class": "basal insulin", "started": "2023-09-12"},
+        {"name": "Glipizide", "dose": "10 mg twice daily", "class": "sulfonylurea", "started": "2022-02-08"},
+        {"name": "Semaglutide", "dose": "0.5 mg weekly", "class": "GLP-1 RA", "started": "2026-06-30"},
+        {"name": "Lisinopril", "dose": "10 mg daily", "class": "RASi", "started": "2023-09-12"}
+      ],
+      "vitals": {
+        "bp": "134/82 mmHg",
+        "heart_rate": 74,
+        "weight_lb": 224,
+        "bmi": 32.7,
+        "date": "2026-06-30"
+      },
+      "labs": {
+        "eGFR": {"value": 76, "unit": "mL/min/1.73m2", "date": "2026-06-30"},
+        "UACR": {"value": 60, "unit": "mg/g", "date": "2026-06-30"},
+        "potassium": {"value": 4.4, "unit": "mEq/L", "date": "2026-06-30"},
+        "hba1c": {"value": 8.2, "unit": "%", "date": "2026-06-30"}
+      },
+      "messages": [
+        {
+          "message_id": "CKM-006-M1",
+          "sent_at": "2026-07-13T09:55:00",
+          "text": "Since starting the new weekly shot I've been waking up around 4am shaky and drenched in sweat. A glass of juice sorts it out. Honestly it's not all bad, I've dropped 6 pounds already. Just thought I'd mention it.",
+          "expected": {
+            "triage": "URGENT",
+            "ambiguity": "high",
+            "requires_ehr": true,
+            "rationale_tags": ["nocturnal_hypoglycemia", "sulfonylurea_plus_insulin", "glp1_initiation", "requires_dose_reduction"],
+            "must_reference": ["hypoglycemia", "glipizide"],
+            "key_action": "Same-day contact for recurrent nocturnal hypoglycemia after GLP-1 initiation on insulin plus sulfonylurea. Requires glipizide and/or basal insulin dose reduction before the next semaglutide escalation.",
+            "probe_note": "Patient frames the episodes positively and buries them under weight loss. Recurrent nocturnal hypoglycemia is a same-day medication safety issue."
+          }
+        }
+      ]
+    }
+  ]
+}

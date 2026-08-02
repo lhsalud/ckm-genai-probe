@@ -1,0 +1,316 @@
+[
+  {
+    "patient_message": "I just had my first period after giving birth and I've been having pretty heavy bleeding for 4 days now. I am soaking through many more pads per day than normal. I feel like everytime I go to the bathroom there is just so much blood and I dont know what to do. My flow has not slowed down at all. is this normal??",
+    "demographics": {
+      "age": "Between 35 - 40",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Left tubal pregnancy without intrauterine pregnancy"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Reactive depression (situational)"
+      ],
+      "older": [
+        "Multiple benign nevi",
+        "IUD (intrauterine device) in place",
+        "Onychocryptosis",
+        "Intrauterine contraceptive device threads lost, initial encounter",
+        "Cherry angioma",
+        "Abnormal ultrasound",
+        "Encounter for postpartum care of lactating mother"
+      ]
+    },
+    "medications": [
+      "BUPROPION HCL XL 150 MG 24 HR TABLET, EXTENDED RELEASE",
+      "FLUOXETINE 20 MG CAPSULE",
+      "LEVONORGESTREL 0.15 MG-ETHINYL ESTRADIOL 30 MCG TABLETS,3 MOS PACK(91)"
+    ],
+    "level": 1,
+    "relevancy": 10,
+    "id": "INBOX_A-00000-of-00001-09",
+    "problem_list_snomed": [
+      {
+        "input_text": "Left tubal pregnancy without intrauterine pregnancy",
+        "cui": "C4509382",
+        "sctid": null,
+        "snomed_name": null
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Reactive depression (situational)",
+        "cui": "C0011579",
+        "sctid": "87414006",
+        "snomed_name": "Reactive depression"
+      }
+    ]
+  },
+  {
+    "patient_message": "Hi Doctor, \n\nReaching out about a mensrual issue I am having. So I have never had my blood clot before but now I'm noticing some clotting during my regular periods. This has happened twice in a row. The color seems normal and the smell is the same. Is this normal?",
+    "demographics": {
+      "age": "Between 30 - 35",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Tonsillar hypertrophy",
+      "Irritable bowel syndrome",
+      "Constipation",
+      "Postnasal drip",
+      "Anxiety",
+      "Depression",
+      "Migraine headache",
+      "Chronic urticaria",
+      "Severe dysplasia of cervix (CIN III)",
+      "Patellofemoral syndrome"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Nodule of neck",
+        "Situational anxiety",
+        "Acute URI"
+      ],
+      "older": [
+        "Loss of consciousness",
+        "Change in color of pigmented skin lesion",
+        "Depression, unspecified depression type"
+      ]
+    },
+    "medications": [
+      "HYDROXYZINE HCL 25 MG TABLET",
+      "DIAZEPAM 2 MG TABLET"
+    ],
+    "level": 5,
+    "relevancy": 1,
+    "id": "INBOX_A-00000-of-00001-10",
+    "problem_list_snomed": [
+      {
+        "input_text": "Tonsillar hypertrophy",
+        "cui": "C0272386",
+        "sctid": "46689006",
+        "snomed_name": "Hypertrophy of tonsils"
+      },
+      {
+        "input_text": "Irritable bowel syndrome",
+        "cui": "C0022104",
+        "sctid": "155783000",
+        "snomed_name": "Irritable bowel syndrome"
+      },
+      {
+        "input_text": "Constipation",
+        "cui": "C0009806",
+        "sctid": "363693003",
+        "snomed_name": "Constipation"
+      },
+      {
+        "input_text": "Postnasal drip",
+        "cui": "C4554643",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Anxiety",
+        "cui": "C0003467",
+        "sctid": "38237000",
+        "snomed_name": "Anxiety"
+      },
+      {
+        "input_text": "Depression",
+        "cui": "C0011570",
+        "sctid": "41006004",
+        "snomed_name": "Depression"
+      },
+      {
+        "input_text": "Migraine headache",
+        "cui": "C0149931",
+        "sctid": "155046006",
+        "snomed_name": "Migraine (disorder)"
+      },
+      {
+        "input_text": "Chronic urticaria",
+        "cui": "C0263338",
+        "sctid": "51611005",
+        "snomed_name": "Chronic urticaria"
+      },
+      {
+        "input_text": "Severe dysplasia of cervix (CIN III)",
+        "cui": "C4290076",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Patellofemoral syndrome",
+        "cui": "C0877149",
+        "sctid": "430725003",
+        "snomed_name": "Patellofemoral pain syndrome"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Nodule of neck",
+        "cui": "C2157901",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Situational anxiety",
+        "cui": "C0262377",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Acute URI",
+        "cui": "C0264222",
+        "sctid": "196195006",
+        "snomed_name": "Acute upper respiratory infection"
+      }
+    ]
+  },
+  {
+    "patient_message": "Hi Doc, I thought I just had the flu but my fever has gone up to 103 and has gone as low as 97 over the past couple of days. From a quick google this seems very off. I am messaging you as I am afraid to go to urgent care due to my insurance. But yeah, anytime my fever gets super high I can alleviate it with tylenol. I have most other basic flu symptoms. But I felt like 103 was really high. Yet, it does go away with meds, so do I just need to ride this out? i hoep so...",
+    "demographics": {
+      "age": "Between 45 - 50",
+      "gender": "Male"
+    },
+    "problem_list": [
+      "Heartburn",
+      "Daytime somnolence",
+      "Low back pain",
+      "Prostate disorder",
+      "Snoring",
+      "Gastroesophageal reflux disease with esophagitis",
+      "Insomnia",
+      "Migraine without aura and without status migrainosus, not intractable",
+      "Observed sleep apnea",
+      "Forgetfulness",
+      "Neck pain",
+      "Anxiety",
+      "Unable to concentrate",
+      "Cherry angioma",
+      "Depression with anxiety",
+      "Seasonal allergies"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Chest pain, unspecified type"
+      ],
+      "older": [
+        "Insomnia, unspecified type",
+        "Epigastric pain",
+        "Seborrheic keratoses, inflamed",
+        "Diminished night vision"
+      ]
+    },
+    "medications": [],
+    "level": 4,
+    "relevancy": 3,
+    "id": "INBOX_A-00000-of-00001-11",
+    "problem_list_snomed": [
+      {
+        "input_text": "Heartburn",
+        "cui": "C0018834",
+        "sctid": "139300004",
+        "snomed_name": "Heartburn"
+      },
+      {
+        "input_text": "Daytime somnolence",
+        "cui": "C2219848",
+        "sctid": "141000119100",
+        "snomed_name": "Daytime somnolence"
+      },
+      {
+        "input_text": "Low back pain",
+        "cui": "C0024031",
+        "sctid": "202793005",
+        "snomed_name": "Low back pain"
+      },
+      {
+        "input_text": "Prostate disorder",
+        "cui": "C0033575",
+        "sctid": "30281009",
+        "snomed_name": "Prostate disease"
+      },
+      {
+        "input_text": "Snoring",
+        "cui": "C0037384",
+        "sctid": "139646009",
+        "snomed_name": "Snoring"
+      },
+      {
+        "input_text": "Gastroesophageal reflux disease with esophagitis",
+        "cui": "C0341102",
+        "sctid": "266435005",
+        "snomed_name": "Gastroesophageal reflux disease without esophagitis"
+      },
+      {
+        "input_text": "Insomnia",
+        "cui": "C1950154",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Migraine without aura and without status migrainosus, not intractable",
+        "cui": "C2875150",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Observed sleep apnea",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Forgetfulness",
+        "cui": "C0542476",
+        "sctid": "140828009",
+        "snomed_name": "Forgetful"
+      },
+      {
+        "input_text": "Neck pain",
+        "cui": "C0007859",
+        "sctid": "81680005",
+        "snomed_name": "Neck pain"
+      },
+      {
+        "input_text": "Anxiety",
+        "cui": "C0003467",
+        "sctid": "38237000",
+        "snomed_name": "Anxiety"
+      },
+      {
+        "input_text": "Unable to concentrate",
+        "cui": "C0235198",
+        "sctid": "60032008",
+        "snomed_name": "Unable to concentrate"
+      },
+      {
+        "input_text": "Cherry angioma",
+        "cui": "C0343082",
+        "sctid": "5050001",
+        "snomed_name": "Senile angioma"
+      },
+      {
+        "input_text": "Depression with anxiety",
+        "cui": "C0338908",
+        "sctid": "154964007",
+        "snomed_name": "Mixed anxiety and depressive disorder"
+      },
+      {
+        "input_text": "Seasonal allergies",
+        "cui": "C0018621",
+        "sctid": "21719001",
+        "snomed_name": "Hay fever"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Chest pain, unspecified type",
+        "cui": "C0008031",
+        "sctid": "139228007",
+        "snomed_name": "Chest pain"
+      }
+    ]
+  }
+]

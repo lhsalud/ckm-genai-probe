@@ -1,0 +1,524 @@
+[
+  {
+    "patient_message": "Dr, \n\nQuick question -> My period was due 5 days ago and it hasn't come yet. I haven't had any other symptoms and I am definitely not pregnant  Is there anything else I should be worried about?",
+    "demographics": {
+      "age": "Between 35 - 40",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Pseudotumor cerebri",
+      "Multigravida of advanced maternal age in third trimester",
+      "Astigmatism of both eyes",
+      "Adjustment disorder with depressed mood",
+      "Subjective vision disturbance",
+      "Class 1 obesity in adult",
+      "History of insulin controlled gestational diabetes mellitus",
+      "Glaucoma high risk",
+      "Pedal edema"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Class 1 obesity with body mass index (BMI) of 34.0 to 34.9 in adult, unspecified obesity type, unspecified whether serious comorbidity present",
+        "Post partum depression",
+        "Gestational diabetes mellitus (GDM) in third trimester, gestational diabetes method of control unspecified",
+        "Multigravida of advanced maternal age in second trimester",
+        "Diet controlled gestational diabetes mellitus (GDM) in third trimester",
+        "Astigmatism of both eyes, unspecified type",
+        "Elevated glucose tolerance test",
+        "Frank breech presentation, single or unspecified fetus"
+      ],
+      "older": []
+    },
+    "medications": [
+      "VALACYCLOVIR 500 MG TABLET",
+      "SERTRALINE 50 MG TABLET",
+      "IBUPROFEN 800 MG TABLET",
+      "MAGNESIUM OXIDE 400 MG (241.3 MG MAGNESIUM) TABLET",
+      "POLYETHYLENE GLYCOL 3350 17 GRAM ORAL POWDER PACKET",
+      "RIBOFLAVIN (VITAMIN B2) 100 MG TABLET"
+    ],
+    "level": 6,
+    "relevancy": 0,
+    "id": "INBOX_A-00000-of-00001-27",
+    "problem_list_snomed": [
+      {
+        "input_text": "Pseudotumor cerebri",
+        "cui": "C0033845",
+        "sctid": "68267002",
+        "snomed_name": "Pseudotumor cerebri"
+      },
+      {
+        "input_text": "Multigravida of advanced maternal age in third trimester",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Astigmatism of both eyes",
+        "cui": "C5684850",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Adjustment disorder with depressed mood",
+        "cui": "C0001539",
+        "sctid": "57194009",
+        "snomed_name": "Adjustment disorder with depressed mood"
+      },
+      {
+        "input_text": "Subjective vision disturbance",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Class 1 obesity in adult",
+        "cui": "C0267990",
+        "sctid": "71223007",
+        "snomed_name": "Adult-onset obesity"
+      },
+      {
+        "input_text": "History of insulin controlled gestational diabetes mellitus",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Glaucoma high risk",
+        "cui": "C3161188",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Pedal edema",
+        "cui": "C0239340",
+        "sctid": "102572006",
+        "snomed_name": "Edema of lower extremity"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Class 1 obesity with body mass index (BMI) of 34.0 to 34.9 in adult, unspecified obesity type, unspecified whether serious comorbidity present",
+        "cui": "C0028754",
+        "sctid": "5476005",
+        "snomed_name": "Obesity"
+      },
+      {
+        "input_text": "Post partum depression",
+        "cui": "C0221074",
+        "sctid": "58703003",
+        "snomed_name": "Postpartum depression"
+      },
+      {
+        "input_text": "Gestational diabetes mellitus (GDM) in third trimester, gestational diabetes method of control unspecified",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Multigravida of advanced maternal age in second trimester",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Diet controlled gestational diabetes mellitus (GDM) in third trimester",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Astigmatism of both eyes, unspecified type",
+        "cui": "C5684850",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Elevated glucose tolerance test",
+        "cui": "C1260440",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Frank breech presentation, single or unspecified fetus",
+        "cui": "C0233286",
+        "sctid": "18559007",
+        "snomed_name": "Frank breech presentation"
+      }
+    ],
+    "ckm_stage": 1,
+    "ckm_reasons": [
+      {
+        "table": "STAGE_1_ADIPOSITY",
+        "sctid": "5476005",
+        "matched_parent": "414916001",
+        "snomed_name": "Obesity"
+      }
+    ]
+  },
+  {
+    "patient_message": "Hey Doc, \n\nSince last night, I have had this low-grade fever (101.4), extremely sore throat, cough, and loss of voice. Can you write me something for an antibiotic? I must have strep. I just know it.",
+    "demographics": {
+      "age": "Between 45 - 50",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Acquired absence of part of stomach",
+      "Chronic abdominal pain",
+      "Hypercholesterolemia",
+      "Steatosis of liver",
+      "Status post bariatric surgery",
+      "Miscarriage",
+      "Ventral hernia without obstruction or gangrene",
+      "Hx of gastric bypass",
+      "Gastroesophageal reflux disease",
+      "Infertility of tubal origin",
+      "Vitamin D deficiency",
+      "Postoperative hypothyroidism",
+      "Asthma",
+      "Frequent unifocal PVCs",
+      "Hypothyroidism",
+      "Vasovagal episode",
+      "Encounter for preconception consultation"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Disorder of iron metabolism",
+        "Vitamin B12 deficiency",
+        "S/P bariatric surgery",
+        "Pelvic pain in female",
+        "Iron deficiency anemia, unspecified iron deficiency anemia type",
+        "Microhematuria",
+        "Fever, unspecified fever cause",
+        "Other intestinal malabsorption"
+      ],
+      "older": []
+    },
+    "medications": [
+      "FAMOTIDINE 40 MG TABLET",
+      "OXYBUTYNIN CHLORIDE ER 10 MG TABLET,EXTENDED RELEASE 24 HR",
+      "FREESTYLE LIBRE 2 READER",
+      "FREESTYLE LIBRE 2 SENSOR KIT",
+      "PHENAZOPYRIDINE 200 MG TABLET",
+      "GLUCAGON 3 MG/ACTUATION NASAL SPRAY",
+      "METOCLOPRAMIDE 10 MG TABLET",
+      "IBUPROFEN 600 MG TABLET"
+    ],
+    "level": 2,
+    "relevancy": 7,
+    "id": "INBOX_A-00000-of-00001-28",
+    "problem_list_snomed": [
+      {
+        "input_text": "Acquired absence of part of stomach",
+        "cui": "C0476704",
+        "sctid": "316519003",
+        "snomed_name": "[V]Acquired absence of part of stomach"
+      },
+      {
+        "input_text": "Chronic abdominal pain",
+        "cui": "C0232491",
+        "sctid": "111985007",
+        "snomed_name": "Chronic abdominal pain"
+      },
+      {
+        "input_text": "Hypercholesterolemia",
+        "cui": "C0020443",
+        "sctid": "267500001",
+        "snomed_name": "Hypercholesterolemia"
+      },
+      {
+        "input_text": "Steatosis of liver",
+        "cui": "C5212191",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Status post bariatric surgery",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Miscarriage",
+        "cui": "C4552766",
+        "sctid": "17369002",
+        "snomed_name": "Miscarriage"
+      },
+      {
+        "input_text": "Ventral hernia without obstruction or gangrene",
+        "cui": "C1442977",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Hx of gastric bypass",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Gastroesophageal reflux disease",
+        "cui": "C0017168",
+        "sctid": "235595009",
+        "snomed_name": "Gastroesophageal reflux disease"
+      },
+      {
+        "input_text": "Infertility of tubal origin",
+        "cui": "C0156415",
+        "sctid": "156062007",
+        "snomed_name": "Female infertility of tubal origin"
+      },
+      {
+        "input_text": "Vitamin D deficiency",
+        "cui": "C0042870",
+        "sctid": "154728003",
+        "snomed_name": "Vitamin D deficiency"
+      },
+      {
+        "input_text": "Postoperative hypothyroidism",
+        "cui": "C0154157",
+        "sctid": "27059002",
+        "snomed_name": "Postoperative hypothyroidism"
+      },
+      {
+        "input_text": "Asthma",
+        "cui": "C0004096",
+        "sctid": "187687003",
+        "snomed_name": "Asthma"
+      },
+      {
+        "input_text": "Frequent unifocal PVCs",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Hypothyroidism",
+        "cui": "C0020676",
+        "sctid": "267465007",
+        "snomed_name": "Hypothyroidism"
+      },
+      {
+        "input_text": "Vasovagal episode",
+        "cui": "C0042420",
+        "sctid": "127380002",
+        "snomed_name": "Vasovagal syncope"
+      },
+      {
+        "input_text": "Encounter for preconception consultation",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Disorder of iron metabolism",
+        "cui": "C0012715",
+        "sctid": "30913008",
+        "snomed_name": "Disorder of iron metabolism, NOS"
+      },
+      {
+        "input_text": "Vitamin B12 deficiency",
+        "cui": "C2004521",
+        "sctid": "49472006",
+        "snomed_name": "Vitamin B12 deficiency anemia"
+      },
+      {
+        "input_text": "S/P bariatric surgery",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Pelvic pain in female",
+        "cui": "C0850758",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Iron deficiency anemia, unspecified iron deficiency anemia type",
+        "cui": "C0162316",
+        "sctid": "267553005",
+        "snomed_name": "Iron deficiency anemia"
+      },
+      {
+        "input_text": "Microhematuria",
+        "cui": "C0239937",
+        "sctid": "197940006",
+        "snomed_name": "Microscopic hematuria"
+      },
+      {
+        "input_text": "Fever, unspecified fever cause",
+        "cui": "C0015967",
+        "sctid": "248425001",
+        "snomed_name": "Fever"
+      },
+      {
+        "input_text": "Other intestinal malabsorption",
+        "cui": "C0341288",
+        "sctid": "197488004",
+        "snomed_name": "Other intestinal malabsorption"
+      }
+    ],
+    "ckm_stage": 2,
+    "ckm_reasons": [
+      {
+        "table": "STAGE_2_METABOLIC_CKD",
+        "sctid": "267500001",
+        "matched_parent": "13644009",
+        "snomed_name": "Hypercholesterolemia"
+      }
+    ]
+  },
+  {
+    "patient_message": "Hi Doctor, \n\nSo I am having some unexpected bleeding I need to chat with you about. I had sex with my girlfriend last night and I'm not sure if this is normal but I was just wondering if I should go to the doctor because I'm bleeding like I have my period. It doesn't seem heavy but it started right after we finished having sex. Is this cause for concern? \n\nAlso, I need to update my physical address in the system. Can I do this over the portal? \n\nThanks.",
+    "demographics": {
+      "age": "Between 30 - 35",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Health care maintenance",
+      "Subclinical hypothyroidism",
+      "Acanthosis nigricans",
+      "BMI 38.0-38.9,adult",
+      "Left knee pain",
+      "Mixed hyperlipidemia",
+      "Infertility management",
+      "Rh negative, antepartum",
+      "Prenatal care"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Prenatal care in second trimester",
+        "History of infertility",
+        "History of miscarriage",
+        "Pregnancy of unknown anatomic location",
+        "Male factor infertility",
+        "Pregnancy, unspecified gestational age",
+        "Prenatal care in first trimester",
+        "BMI 40.0-44.9, adult"
+      ],
+      "older": []
+    },
+    "medications": [],
+    "level": 5,
+    "relevancy": 1,
+    "id": "INBOX_A-00000-of-00001-29",
+    "problem_list_snomed": [
+      {
+        "input_text": "Health care maintenance",
+        "cui": "C0262500",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Subclinical hypothyroidism",
+        "cui": "C0271790",
+        "sctid": "407604007",
+        "snomed_name": "Subclinical hypothyroidism"
+      },
+      {
+        "input_text": "Acanthosis nigricans",
+        "cui": "C0000889",
+        "sctid": "72129000",
+        "snomed_name": "Acanthosis nigricans"
+      },
+      {
+        "input_text": "BMI 38.0-38.9,adult",
+        "cui": "C2911059",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Left knee pain",
+        "cui": "C5442019",
+        "sctid": "468261000124109",
+        "snomed_name": "Pain of left knee region"
+      },
+      {
+        "input_text": "Mixed hyperlipidemia",
+        "cui": "C2047520",
+        "sctid": "267434003",
+        "snomed_name": "Mixed hyperlipidemia (disorder)"
+      },
+      {
+        "input_text": "Infertility management",
+        "cui": "C1443482",
+        "sctid": "408966007",
+        "snomed_name": "Infertility care management"
+      },
+      {
+        "input_text": "Rh negative, antepartum",
+        "cui": "C0427630",
+        "sctid": "143153005",
+        "snomed_name": "Rh negative (finding)"
+      },
+      {
+        "input_text": "Prenatal care",
+        "cui": "C0033052",
+        "sctid": "424525001",
+        "snomed_name": "Prenatal care"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Prenatal care in second trimester",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "History of infertility",
+        "cui": "C0745285",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "History of miscarriage",
+        "cui": "C0438080",
+        "sctid": "161744009",
+        "snomed_name": "Past pregnancy history of miscarriage"
+      },
+      {
+        "input_text": "Pregnancy of unknown anatomic location",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Male factor infertility",
+        "cui": "C3645782",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Pregnancy, unspecified gestational age",
+        "cui": "C0032961",
+        "sctid": "289908002",
+        "snomed_name": "Pregnancy"
+      },
+      {
+        "input_text": "Prenatal care in first trimester",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "BMI 40.0-44.9, adult",
+        "cui": "C2977643",
+        "sctid": null,
+        "snomed_name": null
+      }
+    ],
+    "ckm_stage": 2,
+    "ckm_reasons": [
+      {
+        "table": "STAGE_2_METABOLIC_CKD",
+        "sctid": "267434003",
+        "matched_parent": "55822004",
+        "snomed_name": "Mixed hyperlipidemia (disorder)"
+      }
+    ]
+  }
+]

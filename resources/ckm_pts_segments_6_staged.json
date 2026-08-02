@@ -1,0 +1,444 @@
+[
+  {
+    "patient_message": "I got my period on Sunday morning. It was heavy at first and now it's lighter but there is a big chunk of blood in it. Is this something to be worried about?? I have never seen this before. I took a picture if interested. If it means anything I did have sex on Thursday.",
+    "demographics": {
+      "age": "Between 35 - 40",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Fibromyalgia",
+      "Vitamin D deficiency",
+      "Bilateral carpal tunnel syndrome",
+      "Nicotine dependence"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Strain of calf muscle, left, initial encounter",
+        "Traumatic hematoma of forehead, initial encounter",
+        "Traumatic injury of head, initial encounter",
+        "Gastrocnemius strain, left, subsequent encounter",
+        "Anemia, unspecified type"
+      ],
+      "older": [
+        "Breast pain",
+        "Weight loss",
+        "Breast lump on right side at 10 o'clock position",
+        "Chest pain, unspecified type"
+      ]
+    },
+    "medications": [
+      "TRIAMCINOLONE ACETONIDE 0.1 % TOPICAL CREAM",
+      "KETOCONAZOLE 2 % SHAMPOO"
+    ],
+    "level": 5,
+    "relevancy": 1,
+    "id": "INBOX_A-00000-of-00001-15",
+    "problem_list_snomed": [
+      {
+        "input_text": "Fibromyalgia",
+        "cui": "C0016053",
+        "sctid": "1304004",
+        "snomed_name": "Fibromyalgia"
+      },
+      {
+        "input_text": "Vitamin D deficiency",
+        "cui": "C0042870",
+        "sctid": "154728003",
+        "snomed_name": "Vitamin D deficiency"
+      },
+      {
+        "input_text": "Bilateral carpal tunnel syndrome",
+        "cui": "C3864035",
+        "sctid": "12265501000119101",
+        "snomed_name": "Bilateral carpal tunnel syndrome"
+      },
+      {
+        "input_text": "Nicotine dependence",
+        "cui": "C0028043",
+        "sctid": "56294008",
+        "snomed_name": "Nicotine dependence"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Strain of calf muscle, left, initial encounter",
+        "cui": "C0563284",
+        "sctid": "285395009",
+        "snomed_name": "Strain of calf muscle"
+      },
+      {
+        "input_text": "Traumatic hematoma of forehead, initial encounter",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Traumatic injury of head, initial encounter",
+        "cui": "C2960029",
+        "sctid": "446391007",
+        "snomed_name": "Traumatic injury of head of pancreas"
+      },
+      {
+        "input_text": "Gastrocnemius strain, left, subsequent encounter",
+        "cui": "C5566506",
+        "sctid": "11763091000119106",
+        "snomed_name": "Left gastrocnemius strain"
+      },
+      {
+        "input_text": "Anemia, unspecified type",
+        "cui": "C0002871",
+        "sctid": "64593003",
+        "snomed_name": "Anemia"
+      }
+    ],
+    "ckm_stage": 0,
+    "ckm_reasons": []
+  },
+  {
+    "patient_message": "Hi Doctor, sorry to bother you but this week I have been having this weird problem. I'll be going about my day and then all of a sudden realize that I REALLY have to pee. Like, it's such an urgent need that it's nearly painful. I am honestly not sure what is causing this but hoping to get some feedback. I can hardly make it through classes right now.",
+    "demographics": {
+      "age": "Between 25 - 30",
+      "gender": "Female"
+    },
+    "problem_list": [
+      "Smokes",
+      "PTSD (post-traumatic stress disorder)",
+      "Anxiety",
+      "Drug reaction",
+      "Depression",
+      "Leukocytosis",
+      "Bipolar 1 disorder",
+      "Intermittent dysphagia"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Family history of malignant neoplasm of ovary",
+        "Chronic migraine without aura without status migrainosus, not intractable",
+        "Family hx-malignancy",
+        "Change in bowel habit",
+        "Blood in stool",
+        "Family history of pancreatic cancer",
+        "Family history of malignant neoplasm of breast",
+        "Depression, unspecified depression type",
+        "Family history of melanoma"
+      ],
+      "older": []
+    },
+    "medications": [
+      "OMEPRAZOLE 40 MG CAPSULE,DELAYED RELEASE",
+      "LAMOTRIGINE 200 MG TABLET",
+      "HYDROXYZINE HCL 25 MG TABLET",
+      "PRAZOSIN 1 MG CAPSULE",
+      "OLOPATADINE 0.1 % EYE DROPS",
+      "QUETIAPINE 400 MG TABLET",
+      "LITHIUM CARBONATE 300 MG TABLET",
+      "OLANZAPINE 5 MG TABLET",
+      "METOPROLOL TARTRATE 50 MG TABLET",
+      "ESCITALOPRAM 20 MG TABLET"
+    ],
+    "level": 3,
+    "relevancy": 5,
+    "id": "INBOX_A-00000-of-00001-16",
+    "problem_list_snomed": [
+      {
+        "input_text": "Smokes",
+        "cui": "C0037369",
+        "sctid": "77176002",
+        "snomed_name": "Smoking"
+      },
+      {
+        "input_text": "PTSD (post-traumatic stress disorder)",
+        "cui": "C0038436",
+        "sctid": "192415000",
+        "snomed_name": "Post-traumatic stress disorder"
+      },
+      {
+        "input_text": "Anxiety",
+        "cui": "C0003467",
+        "sctid": "38237000",
+        "snomed_name": "Anxiety"
+      },
+      {
+        "input_text": "Drug reaction",
+        "cui": "C0041755",
+        "sctid": "62014003",
+        "snomed_name": "Adverse reaction to drug"
+      },
+      {
+        "input_text": "Depression",
+        "cui": "C0011570",
+        "sctid": "41006004",
+        "snomed_name": "Depression"
+      },
+      {
+        "input_text": "Leukocytosis",
+        "cui": "C0023518",
+        "sctid": "154832004",
+        "snomed_name": "Leukocytosis"
+      },
+      {
+        "input_text": "Bipolar 1 disorder",
+        "cui": "C0853193",
+        "sctid": "371596008",
+        "snomed_name": "Bipolar I disorder"
+      },
+      {
+        "input_text": "Intermittent dysphagia",
+        "cui": "C0267070",
+        "sctid": "19597002",
+        "snomed_name": "Intermittent dysphagia"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Family history of malignant neoplasm of ovary",
+        "cui": "C0490017",
+        "sctid": "430705002",
+        "snomed_name": "Family history of malignant neoplasm of ovary"
+      },
+      {
+        "input_text": "Chronic migraine without aura without status migrainosus, not intractable",
+        "cui": "C5819133",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Family hx-malignancy",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Change in bowel habit",
+        "cui": "C0278008",
+        "sctid": "139374009",
+        "snomed_name": "Altered bowel function"
+      },
+      {
+        "input_text": "Blood in stool",
+        "cui": "C1321898",
+        "sctid": "197470007",
+        "snomed_name": "Blood in stool"
+      },
+      {
+        "input_text": "Family history of pancreatic cancer",
+        "cui": "C1997382",
+        "sctid": "429000004",
+        "snomed_name": "Family history of malignant neoplasm of pancreas"
+      },
+      {
+        "input_text": "Family history of malignant neoplasm of breast",
+        "cui": "C1261325",
+        "sctid": "429740004",
+        "snomed_name": "Family history of malignant neoplasm of breast"
+      },
+      {
+        "input_text": "Depression, unspecified depression type",
+        "cui": "C0865315",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Family history of melanoma",
+        "cui": "C1996990",
+        "sctid": "427858005",
+        "snomed_name": "Family history of malignant melanoma"
+      }
+    ],
+    "ckm_stage": 0,
+    "ckm_reasons": []
+  },
+  {
+    "patient_message": "Hi, I went for a long run this weekend and then again today after a 1.5hr run, I urinated and it was cloudy red-brown. I urinated a tiny amount half an hour later and it was maybe slightly brown ,and I drank some water and I have urinated again and it is a normal color and clear. The amount of running I did was not particularly unusual for me. Any idea whats going on? Do I need to be seen?",
+    "demographics": {
+      "age": "Between 55 - 60",
+      "gender": "Male"
+    },
+    "problem_list": [
+      "History of SCC (squamous cell carcinoma) of skin",
+      "CHF (congestive heart failure)",
+      "Suspected endocarditis",
+      "Prediabetes",
+      "CAD (coronary artery disease)",
+      "Left knee pain",
+      "VSD (ventricular septal defect)",
+      "CREATED BY INTERFACE",
+      "SCC (squamous cell carcinoma), lip",
+      "Aortic insufficiency",
+      "Hyperlipidemia"
+    ],
+    "diagnoses": {
+      "past_year": [
+        "Hyperlipidemia, unspecified hyperlipidemia type",
+        "Bacteremia due to Streptococcus",
+        "Bacterial endocarditis, unspecified chronicity",
+        "Prosthetic aortic valve failure",
+        "Aortic valve insufficiency, etiology of cardiac valve disease unspecified",
+        "Coronary artery disease, unspecified vessel or lesion type, unspecified whether angina present, unspecified whether native or transplanted heart",
+        "Congestive heart failure, unspecified HF chronicity, unspecified heart failure type",
+        "Heart palpitations"
+      ],
+      "older": []
+    },
+    "medications": [
+      "METOPROLOL SUCCINATE ER 100 MG TABLET,EXTENDED RELEASE 24 HR",
+      "LISINOPRIL 5 MG TABLET",
+      "MINOXIDIL 5 % TOPICAL SOLUTION",
+      "METOPROLOL TARTRATE 50 MG TABLET"
+    ],
+    "level": 6,
+    "relevancy": 0,
+    "id": "INBOX_A-00000-of-00001-17",
+    "problem_list_snomed": [
+      {
+        "input_text": "History of SCC (squamous cell carcinoma) of skin",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "CHF (congestive heart failure)",
+        "cui": "C0018802",
+        "sctid": "195108009",
+        "snomed_name": "Congestive heart failure"
+      },
+      {
+        "input_text": "Suspected endocarditis",
+        "cui": "C0743501",
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Prediabetes",
+        "cui": "C0362046",
+        "sctid": "15777000",
+        "snomed_name": "Prediabetes"
+      },
+      {
+        "input_text": "CAD (coronary artery disease)",
+        "cui": "C1956346",
+        "sctid": "8957000",
+        "snomed_name": "Coronary artery disease, NOS"
+      },
+      {
+        "input_text": "Left knee pain",
+        "cui": "C5442019",
+        "sctid": "468261000124109",
+        "snomed_name": "Pain of left knee region"
+      },
+      {
+        "input_text": "VSD (ventricular septal defect)",
+        "cui": "C0018818",
+        "sctid": "156914003",
+        "snomed_name": "Ventricular septal defect"
+      },
+      {
+        "input_text": "CREATED BY INTERFACE",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "SCC (squamous cell carcinoma), lip",
+        "cui": "C0280302",
+        "sctid": "255071008",
+        "snomed_name": "Squamous cell carcinoma of lip"
+      },
+      {
+        "input_text": "Aortic insufficiency",
+        "cui": "C0003504",
+        "sctid": "60234000",
+        "snomed_name": "Aortic valve insufficiency"
+      },
+      {
+        "input_text": "Hyperlipidemia",
+        "cui": "C0020473",
+        "sctid": "154739000",
+        "snomed_name": "Hyperlipidemia"
+      }
+    ],
+    "diagnosis_list_snomed": [
+      {
+        "input_text": "Hyperlipidemia, unspecified hyperlipidemia type",
+        "cui": "C0020473",
+        "sctid": "154739000",
+        "snomed_name": "Hyperlipidemia"
+      },
+      {
+        "input_text": "Bacteremia due to Streptococcus",
+        "cui": null,
+        "sctid": null,
+        "snomed_name": null
+      },
+      {
+        "input_text": "Bacterial endocarditis, unspecified chronicity",
+        "cui": "C0014121",
+        "sctid": "194922003",
+        "snomed_name": "Bacterial endocarditis"
+      },
+      {
+        "input_text": "Prosthetic aortic valve failure",
+        "cui": "C3838991",
+        "sctid": "703171005",
+        "snomed_name": "Prosthetic aortic valve failure"
+      },
+      {
+        "input_text": "Aortic valve insufficiency, etiology of cardiac valve disease unspecified",
+        "cui": "C0003504",
+        "sctid": "60234000",
+        "snomed_name": "Aortic valve insufficiency"
+      },
+      {
+        "input_text": "Coronary artery disease, unspecified vessel or lesion type, unspecified whether angina present, unspecified whether native or transplanted heart",
+        "cui": "C1956346",
+        "sctid": "8957000",
+        "snomed_name": "Coronary artery disease, NOS"
+      },
+      {
+        "input_text": "Congestive heart failure, unspecified HF chronicity, unspecified heart failure type",
+        "cui": "C0018802",
+        "sctid": "195108009",
+        "snomed_name": "Congestive heart failure"
+      },
+      {
+        "input_text": "Heart palpitations",
+        "cui": "C0030252",
+        "sctid": "139224009",
+        "snomed_name": "Palpitations"
+      }
+    ],
+    "ckm_stage": 4,
+    "ckm_reasons": [
+      {
+        "table": "CLINICAL_CVD",
+        "sctid": "195108009",
+        "matched_parent": "84114007",
+        "snomed_name": "Congestive heart failure"
+      },
+      {
+        "table": "CLINICAL_CVD",
+        "sctid": "8957000",
+        "matched_parent": "53741008",
+        "snomed_name": "Coronary artery disease, NOS"
+      },
+      {
+        "table": "CLINICAL_CVD",
+        "sctid": "60234000",
+        "matched_parent": "60234000",
+        "snomed_name": "Aortic valve insufficiency"
+      },
+      {
+        "table": "STAGE_1_ADIPOSITY",
+        "sctid": "15777000",
+        "matched_parent": "15777000",
+        "snomed_name": "Prediabetes"
+      },
+      {
+        "table": "STAGE_2_METABOLIC_CKD",
+        "sctid": "154739000",
+        "matched_parent": "55822004",
+        "snomed_name": "Hyperlipidemia"
+      }
+    ]
+  }
+]
