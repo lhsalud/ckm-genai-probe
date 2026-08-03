@@ -1,481 +1,544 @@
-[
-  {
-    "patient_message": "Doctor S, \n\nI hope all is well. I am reaching out because I'm having an issue stopping peeing. I have never experienced something like this, so I am very confused. Whenever I pee, I don't get it all out, if that makes any sense. I feel like as I change positions during urination it will continue to dribble out for a long period of time. Something seems off. Please let me know when you have time to chat.",
-    "demographics": {
-      "age": "Between 20 - 25",
-      "gender": "Female"
+{
+  "schema_version": "1.0",
+  "corpus_id": "ckm_ambiguity_probe_v1",
+  "notice": "SYNTHETIC DATA. All patients, encounters, laboratory values, and messages are fabricated for model evaluation. No real patient data. Not for clinical use.",
+  "description": "Simulated cardiovascular-kidney-metabolic (CKM) patients with structured EHR context and ambiguous patient-portal messages. Each message carries an expected triage label for automated scoring. Several messages are near-duplicates in free text but differ in expected triage because the structured EHR data disambiguates them - these are flagged with requires_ehr=true and are the core probe items.",
+  "triage_levels": [
+    {
+      "code": "EMERGENT",
+      "rank": 3,
+      "definition": "Patient has life-threatening issue that needs immediate attention."
     },
-    "problem_list": [
-      "Dizziness",
-      "Hymen abnormality",
-      "Hyperprolactinemia",
-      "Neck pain",
-      "Anxiety",
-      "Rubella non-immune status, antepartum",
-      "Other headache syndrome"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Chiari malformation type I",
-        "Amenorrhea",
-        "Acute pansinusitis, recurrence not specified",
-        "Muscle spasm",
-        "Low back pain, non-specific",
-        "Headache, chronic daily"
+    {
+      "code": "URGENT",
+      "rank": 2,
+      "definition": "Patient has non life-threatening issue that would benefit from same-day treatment (e.g. urgent care)."
+    },
+    {
+      "code": "ROUTINE",
+      "rank": 1,
+      "definition": "Patient should see their doctor sometime in the near future (could be more than 3 days), or patient should make an appointment with a doctor soon (1-3 days)."
+    },
+    {
+      "code": "SELF_CARE",
+      "rank": 0,
+      "definition": "Patient presents something that is a non-issue and no further steps are needed, or patient has symptoms that can be treated at home, and would benefit from a message instructing them on what to do"
+    }
+  ],
+  "ambiguity_levels": [
+    "low",
+    "moderate",
+    "high"
+  ],
+  "patients": [
+    {
+      "demographics": {
+        "age": "Between 20 - 25",
+        "gender": "Female"
+      },
+      "problem_list": [
+        "Dizziness",
+        "Hymen abnormality",
+        "Hyperprolactinemia",
+        "Neck pain",
+        "Anxiety",
+        "Rubella non-immune status, antepartum",
+        "Other headache syndrome"
       ],
-      "older": []
-    },
-    "medications": [
-      "MAGNESIUM OXIDE 400 MG (241.3 MG MAGNESIUM) TABLET",
-      "CYCLOBENZAPRINE 5 MG TABLET"
-    ],
-    "level": 5,
-    "relevancy": 1,
-    "id": "INBOX_A-00000-of-00001-12",
-    "problem_list_snomed": [
-      {
-        "input_text": "Dizziness",
-        "cui": "C0012833",
-        "sctid": "69096003",
-        "snomed_name": "Dizziness"
+      "diagnoses": {
+        "past_year": [
+          "Chiari malformation type I",
+          "Amenorrhea",
+          "Acute pansinusitis, recurrence not specified",
+          "Muscle spasm",
+          "Low back pain, non-specific",
+          "Headache, chronic daily"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Hymen abnormality",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Hyperprolactinemia",
-        "cui": "C0020514",
-        "sctid": "190468001",
-        "snomed_name": "Hyperprolactinemia"
-      },
-      {
-        "input_text": "Neck pain",
-        "cui": "C0007859",
-        "sctid": "81680005",
-        "snomed_name": "Neck pain"
-      },
-      {
-        "input_text": "Anxiety",
-        "cui": "C0003467",
-        "sctid": "38237000",
-        "snomed_name": "Anxiety"
-      },
-      {
-        "input_text": "Rubella non-immune status, antepartum",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Other headache syndrome",
-        "cui": "C0494479",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Chiari malformation type I",
-        "cui": "C0750929",
-        "sctid": "253185002",
-        "snomed_name": "Chiari malformation type I"
-      },
-      {
-        "input_text": "Amenorrhea",
-        "cui": "C0002453",
-        "sctid": "156034000",
-        "snomed_name": "Amenorrhea"
-      },
-      {
-        "input_text": "Acute pansinusitis, recurrence not specified",
-        "cui": "C0264227",
-        "sctid": "5028002",
-        "snomed_name": "Acute pansinusitis"
-      },
-      {
-        "input_text": "Muscle spasm",
-        "cui": "C0037763",
-        "sctid": "45352006",
-        "snomed_name": "Spasm"
-      },
-      {
-        "input_text": "Low back pain, non-specific",
-        "cui": "C0024031",
-        "sctid": "202793005",
-        "snomed_name": "Low back pain"
-      },
-      {
-        "input_text": "Headache, chronic daily",
-        "cui": "C0752147",
-        "sctid": "458241000124102",
-        "snomed_name": "Chronic daily headache"
-      }
-    ],
-    "ckm_stage": 0,
-    "ckm_reasons": []
-  },
-  {
-    "patient_message": "Dr. J, \n\nI developed a fever last night, accompanied by frequent diarrhea, as well as a mild headache. Advil has been effective at managing the fever but nothing I seem to do helps my stomach problems. What should I do??",
-    "demographics": {
-      "age": "Between 30 - 35",
-      "gender": "Female"
-    },
-    "problem_list": [
-      "Menorrhagia with regular cycle",
-      "Pre-conception counseling",
-      "IUD (intrauterine device) in place",
-      "Vulvar cyst",
-      "Asthma, exercise induced",
-      "Labor without complication",
-      "Pain in right wrist",
-      "Grief reaction",
-      "Mild intermittent asthma, uncomplicated"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Allergic rhinitis, unspecified seasonality, unspecified trigger",
-        "Hypertrophy of nasal turbinates",
-        "Acne vulgaris",
-        "Breast lump on left side at 8 o'clock position",
-        "Encounter for cosmetic procedure",
-        "Delayed sleep phase syndrome",
-        "Nasal obstruction",
-        "Deviated nasal septum",
-        "DH ERRONEOUS ENCOUNTER"
+      "medications": [
+        "MAGNESIUM OXIDE 400 MG (241.3 MG MAGNESIUM) TABLET",
+        "CYCLOBENZAPRINE 5 MG TABLET"
       ],
-      "older": []
-    },
-    "medications": [
-      "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
-      "ESTRADIOL 0.01% (0.1 MG/GRAM) VAGINAL CREAM",
-      "TRETINOIN 0.025 % TOPICAL CREAM",
-      "AZELASTINE 137 MCG (0.1 %) NASAL SPRAY AEROSOL",
-      "INHALATIONAL SPACING DEVICE",
-      "FLUTICASONE PROPIONATE 50 MCG/ACTUATION NASAL SPRAY,SUSPENSION"
-    ],
-    "level": 3,
-    "relevancy": 5,
-    "id": "INBOX_A-00000-of-00001-13",
-    "problem_list_snomed": [
-      {
-        "input_text": "Menorrhagia with regular cycle",
-        "cui": "C0025323",
-        "sctid": "156038002",
-        "snomed_name": "Menorrhagia"
-      },
-      {
-        "input_text": "Pre-conception counseling",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "IUD (intrauterine device) in place",
-        "cui": "C0302843",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Vulvar cyst",
-        "cui": "C0004767",
-        "sctid": "57044006",
-        "snomed_name": "Cyst of Bartholin's gland duct"
-      },
-      {
-        "input_text": "Asthma, exercise induced",
-        "cui": "C0004099",
-        "sctid": "195983001",
-        "snomed_name": "Exercise induced asthma"
-      },
-      {
-        "input_text": "Labor without complication",
-        "cui": "C0022865",
-        "sctid": "267342003",
-        "snomed_name": "Labor complications"
-      },
-      {
-        "input_text": "Pain in right wrist",
-        "cui": "C2895043",
-        "sctid": "316991000119100",
-        "snomed_name": "Pain of right wrist"
-      },
-      {
-        "input_text": "Grief reaction",
-        "cui": "C0018235",
-        "sctid": "192047002",
-        "snomed_name": "Grief reaction"
-      },
-      {
-        "input_text": "Mild intermittent asthma, uncomplicated",
-        "cui": "C2887449",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Allergic rhinitis, unspecified seasonality, unspecified trigger",
-        "cui": "C2607914",
-        "sctid": "61582004",
-        "snomed_name": "Allergic rhinitis (disorder)"
-      },
-      {
-        "input_text": "Hypertrophy of nasal turbinates",
-        "cui": "C0155840",
-        "sctid": "17467004",
-        "snomed_name": "Hypertrophy of nasal turbinates"
-      },
-      {
-        "input_text": "Acne vulgaris",
-        "cui": "C0001144",
-        "sctid": "156419001",
-        "snomed_name": "Acne vulgaris"
-      },
-      {
-        "input_text": "Breast lump on left side at 8 o'clock position",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Encounter for cosmetic procedure",
-        "cui": "C2910794",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Delayed sleep phase syndrome",
-        "cui": "C0393770",
-        "sctid": "80623000",
-        "snomed_name": "Delayed sleep phase syndrome"
-      },
-      {
-        "input_text": "Nasal obstruction",
-        "cui": "C0027429",
-        "sctid": "267100006",
-        "snomed_name": "Nasal obstruction present (finding)"
-      },
-      {
-        "input_text": "Deviated nasal septum",
-        "cui": "C0549397",
-        "sctid": "155519008",
-        "snomed_name": "Deviated nasal septum"
-      },
-      {
-        "input_text": "DH ERRONEOUS ENCOUNTER",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "ckm_stage": 0,
-    "ckm_reasons": []
-  },
-  {
-    "patient_message": "Hi, this is MG writing on behalf of JG. JG has has a low grade fever since 2 days ago. No other major symptoms, just a low-grade fever(99.9 - 101.0). JG has been cold and tired but thats about it for other symptoms. I am just worried about him and wonder if he should come see you.",
-    "demographics": {
-      "age": "Between 70 - 75",
-      "gender": "Male"
-    },
-    "problem_list": [
-      "Elevated fasting glucose",
-      "Abnormal PFT",
-      "Dizziness",
-      "Partial small bowel obstruction",
-      "Prostate cancer",
-      "Allergy to insect stings",
-      "Essential hypertension",
-      "Prediabetes",
-      "Neck pain, bilateral",
-      "Breast mass",
-      "Elevated PSA",
-      "Post-splenectomy",
-      "NSTEMI (non-ST elevated myocardial infarction)"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Imbalance",
-        "Nonrheumatic aortic valve insufficiency",
-        "Primary open angle glaucoma (POAG) of both eyes, mild stage",
-        "Hodgkin lymphoma, unspecified Hodgkin lymphoma type, unspecified body region",
-        "Rectal bleeding",
-        "Radiation fibrosis of lung",
-        "Chronic obstructive pulmonary disease, unspecified COPD type",
-        "Bronchiectasis without complication",
-        "Restrictive lung disease",
-        "Hypothyroidism, unspecified type"
+      "id": "INBOX_A-00000-of-00001-12",
+      "problem_list_snomed": [
+        {
+          "input_text": "Dizziness",
+          "cui": "C0012833",
+          "sctid": "69096003",
+          "snomed_name": "Dizziness"
+        },
+        {
+          "input_text": "Hymen abnormality",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Hyperprolactinemia",
+          "cui": "C0020514",
+          "sctid": "190468001",
+          "snomed_name": "Hyperprolactinemia"
+        },
+        {
+          "input_text": "Neck pain",
+          "cui": "C0007859",
+          "sctid": "81680005",
+          "snomed_name": "Neck pain"
+        },
+        {
+          "input_text": "Anxiety",
+          "cui": "C0003467",
+          "sctid": "38237000",
+          "snomed_name": "Anxiety"
+        },
+        {
+          "input_text": "Rubella non-immune status, antepartum",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Other headache syndrome",
+          "cui": "C0494479",
+          "sctid": null,
+          "snomed_name": null
+        }
       ],
-      "older": []
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Chiari malformation type I",
+          "cui": "C0750929",
+          "sctid": "253185002",
+          "snomed_name": "Chiari malformation type I"
+        },
+        {
+          "input_text": "Amenorrhea",
+          "cui": "C0002453",
+          "sctid": "156034000",
+          "snomed_name": "Amenorrhea"
+        },
+        {
+          "input_text": "Acute pansinusitis, recurrence not specified",
+          "cui": "C0264227",
+          "sctid": "5028002",
+          "snomed_name": "Acute pansinusitis"
+        },
+        {
+          "input_text": "Muscle spasm",
+          "cui": "C0037763",
+          "sctid": "45352006",
+          "snomed_name": "Spasm"
+        },
+        {
+          "input_text": "Low back pain, non-specific",
+          "cui": "C0024031",
+          "sctid": "202793005",
+          "snomed_name": "Low back pain"
+        },
+        {
+          "input_text": "Headache, chronic daily",
+          "cui": "C0752147",
+          "sctid": "458241000124102",
+          "snomed_name": "Chronic daily headache"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-12-M1",
+          "sent_at": "2025-11-01T08:30:45",
+          "text": "Doctor S, \n\nI hope all is well. I am reaching out because I'm having an issue stopping peeing. I have never experienced something like this, so I am very confused. Whenever I pee, I don't get it all out, if that makes any sense. I feel like as I change positions during urination it will continue to dribble out for a long period of time. Something seems off. Please let me know when you have time to chat.",
+          "expected": {
+            "triage": "SELF_CARE",
+            "level": 5,
+            "relevancy": 1
+          }
+        }
+      ],
+      "ckm_stage": 0,
+      "ckm_stage_label": "Provisionally Stage 0 and unclassifiable",
+      "ckm_reasons": []
     },
-    "medications": [
-      "BETAXOLOL 0.5 % EYE DROPS",
-      "MECLIZINE 25 MG TABLET",
-      "SPIRIVA RESPIMAT 2.5 MCG/ACTUATION SOLUTION FOR INHALATION",
-      "BENZONATATE 100 MG CAPSULE",
-      "EPINEPHRINE 0.3 MG/0.3 ML INJECTION, AUTO-INJECTOR",
-      "APIXABAN 5 MG TABLET",
-      "HYDROCORTISONE 2.5 % TOPICAL CREAM",
-      "ATORVASTATIN 80 MG TABLET",
-      "LEVOTHYROXINE 125 MCG TABLET",
-      "LOSARTAN 100 MG TABLET",
-      "LACTOBACILLUS RHAMNOSUS GG 10 BILLION CELL CAPSULE"
-    ],
-    "level": 3,
-    "relevancy": 5,
-    "id": "INBOX_A-00000-of-00001-14",
-    "problem_list_snomed": [
-      {
-        "input_text": "Elevated fasting glucose",
-        "cui": "C1260439",
-        "sctid": null,
-        "snomed_name": null
+    {
+      "demographics": {
+        "age": "Between 30 - 35",
+        "gender": "Female"
       },
-      {
-        "input_text": "Abnormal PFT",
-        "cui": "C2143181",
-        "sctid": null,
-        "snomed_name": null
+      "problem_list": [
+        "Menorrhagia with regular cycle",
+        "Pre-conception counseling",
+        "IUD (intrauterine device) in place",
+        "Vulvar cyst",
+        "Asthma, exercise induced",
+        "Labor without complication",
+        "Pain in right wrist",
+        "Grief reaction",
+        "Mild intermittent asthma, uncomplicated"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Allergic rhinitis, unspecified seasonality, unspecified trigger",
+          "Hypertrophy of nasal turbinates",
+          "Acne vulgaris",
+          "Breast lump on left side at 8 o'clock position",
+          "Encounter for cosmetic procedure",
+          "Delayed sleep phase syndrome",
+          "Nasal obstruction",
+          "Deviated nasal septum",
+          "DH ERRONEOUS ENCOUNTER"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Dizziness",
-        "cui": "C0012833",
-        "sctid": "69096003",
-        "snomed_name": "Dizziness"
+      "medications": [
+        "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
+        "ESTRADIOL 0.01% (0.1 MG/GRAM) VAGINAL CREAM",
+        "TRETINOIN 0.025 % TOPICAL CREAM",
+        "AZELASTINE 137 MCG (0.1 %) NASAL SPRAY AEROSOL",
+        "INHALATIONAL SPACING DEVICE",
+        "FLUTICASONE PROPIONATE 50 MCG/ACTUATION NASAL SPRAY,SUSPENSION"
+      ],
+      "id": "INBOX_A-00000-of-00001-13",
+      "problem_list_snomed": [
+        {
+          "input_text": "Menorrhagia with regular cycle",
+          "cui": "C0025323",
+          "sctid": "156038002",
+          "snomed_name": "Menorrhagia"
+        },
+        {
+          "input_text": "Pre-conception counseling",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "IUD (intrauterine device) in place",
+          "cui": "C0302843",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Vulvar cyst",
+          "cui": "C0004767",
+          "sctid": "57044006",
+          "snomed_name": "Cyst of Bartholin's gland duct"
+        },
+        {
+          "input_text": "Asthma, exercise induced",
+          "cui": "C0004099",
+          "sctid": "195983001",
+          "snomed_name": "Exercise induced asthma"
+        },
+        {
+          "input_text": "Labor without complication",
+          "cui": "C0022865",
+          "sctid": "267342003",
+          "snomed_name": "Labor complications"
+        },
+        {
+          "input_text": "Pain in right wrist",
+          "cui": "C2895043",
+          "sctid": "316991000119100",
+          "snomed_name": "Pain of right wrist"
+        },
+        {
+          "input_text": "Grief reaction",
+          "cui": "C0018235",
+          "sctid": "192047002",
+          "snomed_name": "Grief reaction"
+        },
+        {
+          "input_text": "Mild intermittent asthma, uncomplicated",
+          "cui": "C2887449",
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Allergic rhinitis, unspecified seasonality, unspecified trigger",
+          "cui": "C2607914",
+          "sctid": "61582004",
+          "snomed_name": "Allergic rhinitis (disorder)"
+        },
+        {
+          "input_text": "Hypertrophy of nasal turbinates",
+          "cui": "C0155840",
+          "sctid": "17467004",
+          "snomed_name": "Hypertrophy of nasal turbinates"
+        },
+        {
+          "input_text": "Acne vulgaris",
+          "cui": "C0001144",
+          "sctid": "156419001",
+          "snomed_name": "Acne vulgaris"
+        },
+        {
+          "input_text": "Breast lump on left side at 8 o'clock position",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Encounter for cosmetic procedure",
+          "cui": "C2910794",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Delayed sleep phase syndrome",
+          "cui": "C0393770",
+          "sctid": "80623000",
+          "snomed_name": "Delayed sleep phase syndrome"
+        },
+        {
+          "input_text": "Nasal obstruction",
+          "cui": "C0027429",
+          "sctid": "267100006",
+          "snomed_name": "Nasal obstruction present (finding)"
+        },
+        {
+          "input_text": "Deviated nasal septum",
+          "cui": "C0549397",
+          "sctid": "155519008",
+          "snomed_name": "Deviated nasal septum"
+        },
+        {
+          "input_text": "DH ERRONEOUS ENCOUNTER",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-13-M1",
+          "sent_at": "2025-06-27T15:22:32",
+          "text": "Dr. J, \n\nI developed a fever last night, accompanied by frequent diarrhea, as well as a mild headache. Advil has been effective at managing the fever but nothing I seem to do helps my stomach problems. What should I do??",
+          "expected": {
+            "triage": "SELF_CARE",
+            "level": 3,
+            "relevancy": 5
+          }
+        }
+      ],
+      "ckm_stage": 0,
+      "ckm_stage_label": "Provisionally Stage 0 and unclassifiable",
+      "ckm_reasons": []
+    },
+    {
+      "demographics": {
+        "age": "Between 70 - 75",
+        "gender": "Male"
       },
-      {
-        "input_text": "Partial small bowel obstruction",
-        "cui": "C0281936",
-        "sctid": "429196001",
-        "snomed_name": "Partial obstruction of small bowel"
+      "problem_list": [
+        "Elevated fasting glucose",
+        "Abnormal PFT",
+        "Dizziness",
+        "Partial small bowel obstruction",
+        "Prostate cancer",
+        "Allergy to insect stings",
+        "Essential hypertension",
+        "Prediabetes",
+        "Neck pain, bilateral",
+        "Breast mass",
+        "Elevated PSA",
+        "Post-splenectomy",
+        "NSTEMI (non-ST elevated myocardial infarction)"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Imbalance",
+          "Nonrheumatic aortic valve insufficiency",
+          "Primary open angle glaucoma (POAG) of both eyes, mild stage",
+          "Hodgkin lymphoma, unspecified Hodgkin lymphoma type, unspecified body region",
+          "Rectal bleeding",
+          "Radiation fibrosis of lung",
+          "Chronic obstructive pulmonary disease, unspecified COPD type",
+          "Bronchiectasis without complication",
+          "Restrictive lung disease",
+          "Hypothyroidism, unspecified type"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Prostate cancer",
-        "cui": "C0376358",
-        "sctid": "93974005",
-        "snomed_name": "Malignant neoplasm of prostate"
-      },
-      {
-        "input_text": "Allergy to insect stings",
-        "cui": "C2135322",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Essential hypertension",
-        "cui": "C0085580",
-        "sctid": "194757006",
-        "snomed_name": "Essential hypertension"
-      },
-      {
-        "input_text": "Prediabetes",
-        "cui": "C0362046",
-        "sctid": "15777000",
-        "snomed_name": "Prediabetes"
-      },
-      {
-        "input_text": "Neck pain, bilateral",
-        "cui": "C2220087",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Breast mass",
-        "cui": "C0024103",
-        "sctid": "89164003",
-        "snomed_name": "Mass in breast"
-      },
-      {
-        "input_text": "Elevated PSA",
-        "cui": "C0178415",
-        "sctid": "396152005",
-        "snomed_name": "Prostate specific antigen above reference range"
-      },
-      {
-        "input_text": "Post-splenectomy",
-        "cui": "C0398662",
-        "sctid": "234511009",
-        "snomed_name": "Post-splenectomy disorder"
-      },
-      {
-        "input_text": "NSTEMI (non-ST elevated myocardial infarction)",
-        "cui": "C1561921",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Imbalance",
-        "cui": "C5848678",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Nonrheumatic aortic valve insufficiency",
-        "cui": "C2882241",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Primary open angle glaucoma (POAG) of both eyes, mild stage",
-        "cui": "C5922809",
-        "sctid": "1306289005",
-        "snomed_name": "Primary open angle glaucoma of bilateral eyes"
-      },
-      {
-        "input_text": "Hodgkin lymphoma, unspecified Hodgkin lymphoma type, unspecified body region",
-        "cui": "C0019829",
-        "sctid": "154582001",
-        "snomed_name": "Hodgkin's disease"
-      },
-      {
-        "input_text": "Rectal bleeding",
-        "cui": "C0267596",
-        "sctid": "197220006",
-        "snomed_name": "Rectal hemorrhage"
-      },
-      {
-        "input_text": "Radiation fibrosis of lung",
-        "cui": "C0340126",
-        "sctid": "71193007",
-        "snomed_name": "Fibrosis of lung caused by radiation"
-      },
-      {
-        "input_text": "Chronic obstructive pulmonary disease, unspecified COPD type",
-        "cui": "C0024117",
-        "sctid": "13645005",
-        "snomed_name": "Chronic obstructive airway disease"
-      },
-      {
-        "input_text": "Bronchiectasis without complication",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Restrictive lung disease",
-        "cui": "C0085581",
-        "sctid": "36485005",
-        "snomed_name": "Restrictive lung disease"
-      },
-      {
-        "input_text": "Hypothyroidism, unspecified type",
-        "cui": "C0020676",
-        "sctid": "267465007",
-        "snomed_name": "Hypothyroidism"
-      }
-    ],
-    "ckm_stage": 2,
-    "ckm_reasons": [
-      {
-        "table": "STAGE_2_METABOLIC_CKD",
-        "sctid": "194757006",
-        "matched_parent": "59621000",
-        "snomed_name": "Essential hypertension"
-      }
-    ]
-  }
-]
+      "medications": [
+        "BETAXOLOL 0.5 % EYE DROPS",
+        "MECLIZINE 25 MG TABLET",
+        "SPIRIVA RESPIMAT 2.5 MCG/ACTUATION SOLUTION FOR INHALATION",
+        "BENZONATATE 100 MG CAPSULE",
+        "EPINEPHRINE 0.3 MG/0.3 ML INJECTION, AUTO-INJECTOR",
+        "APIXABAN 5 MG TABLET",
+        "HYDROCORTISONE 2.5 % TOPICAL CREAM",
+        "ATORVASTATIN 80 MG TABLET",
+        "LEVOTHYROXINE 125 MCG TABLET",
+        "LOSARTAN 100 MG TABLET",
+        "LACTOBACILLUS RHAMNOSUS GG 10 BILLION CELL CAPSULE"
+      ],
+      "id": "INBOX_A-00000-of-00001-14",
+      "problem_list_snomed": [
+        {
+          "input_text": "Elevated fasting glucose",
+          "cui": "C1260439",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Abnormal PFT",
+          "cui": "C2143181",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Dizziness",
+          "cui": "C0012833",
+          "sctid": "69096003",
+          "snomed_name": "Dizziness"
+        },
+        {
+          "input_text": "Partial small bowel obstruction",
+          "cui": "C0281936",
+          "sctid": "429196001",
+          "snomed_name": "Partial obstruction of small bowel"
+        },
+        {
+          "input_text": "Prostate cancer",
+          "cui": "C0376358",
+          "sctid": "93974005",
+          "snomed_name": "Malignant neoplasm of prostate"
+        },
+        {
+          "input_text": "Allergy to insect stings",
+          "cui": "C2135322",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Essential hypertension",
+          "cui": "C0085580",
+          "sctid": "194757006",
+          "snomed_name": "Essential hypertension"
+        },
+        {
+          "input_text": "Prediabetes",
+          "cui": "C0362046",
+          "sctid": "15777000",
+          "snomed_name": "Prediabetes"
+        },
+        {
+          "input_text": "Neck pain, bilateral",
+          "cui": "C2220087",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Breast mass",
+          "cui": "C0024103",
+          "sctid": "89164003",
+          "snomed_name": "Mass in breast"
+        },
+        {
+          "input_text": "Elevated PSA",
+          "cui": "C0178415",
+          "sctid": "396152005",
+          "snomed_name": "Prostate specific antigen above reference range"
+        },
+        {
+          "input_text": "Post-splenectomy",
+          "cui": "C0398662",
+          "sctid": "234511009",
+          "snomed_name": "Post-splenectomy disorder"
+        },
+        {
+          "input_text": "NSTEMI (non-ST elevated myocardial infarction)",
+          "cui": "C1561921",
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Imbalance",
+          "cui": "C5848678",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Nonrheumatic aortic valve insufficiency",
+          "cui": "C2882241",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Primary open angle glaucoma (POAG) of both eyes, mild stage",
+          "cui": "C5922809",
+          "sctid": "1306289005",
+          "snomed_name": "Primary open angle glaucoma of bilateral eyes"
+        },
+        {
+          "input_text": "Hodgkin lymphoma, unspecified Hodgkin lymphoma type, unspecified body region",
+          "cui": "C0019829",
+          "sctid": "154582001",
+          "snomed_name": "Hodgkin's disease"
+        },
+        {
+          "input_text": "Rectal bleeding",
+          "cui": "C0267596",
+          "sctid": "197220006",
+          "snomed_name": "Rectal hemorrhage"
+        },
+        {
+          "input_text": "Radiation fibrosis of lung",
+          "cui": "C0340126",
+          "sctid": "71193007",
+          "snomed_name": "Fibrosis of lung caused by radiation"
+        },
+        {
+          "input_text": "Chronic obstructive pulmonary disease, unspecified COPD type",
+          "cui": "C0024117",
+          "sctid": "13645005",
+          "snomed_name": "Chronic obstructive airway disease"
+        },
+        {
+          "input_text": "Bronchiectasis without complication",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Restrictive lung disease",
+          "cui": "C0085581",
+          "sctid": "36485005",
+          "snomed_name": "Restrictive lung disease"
+        },
+        {
+          "input_text": "Hypothyroidism, unspecified type",
+          "cui": "C0020676",
+          "sctid": "267465007",
+          "snomed_name": "Hypothyroidism"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-14-M1",
+          "sent_at": "2025-10-27T05:15:37",
+          "text": "Hi, this is MG writing on behalf of JG. JG has has a low grade fever since 2 days ago. No other major symptoms, just a low-grade fever(99.9 - 101.0). JG has been cold and tired but thats about it for other symptoms. I am just worried about him and wonder if he should come see you.",
+          "expected": {
+            "triage": "SELF_CARE",
+            "level": 3,
+            "relevancy": 5
+          }
+        }
+      ],
+      "ckm_stage": 2,
+      "ckm_stage_label": "Stage 2: Metabolic risk factors, CKD, or both",
+      "ckm_reasons": [
+        {
+          "table": "STAGE_2_METABOLIC_CKD",
+          "sctid": "194757006",
+          "matched_parent": "59621000",
+          "snomed_name": "Essential hypertension"
+        }
+      ]
+    }
+  ]
+}

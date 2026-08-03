@@ -1,561 +1,624 @@
-[
-  {
-    "patient_message": "Doctor, \n\nThis week I started experiencing something a bit new for me. So in the middle of the night I find that my chest and back feel very sweaty. Sometimes damp, othertimes soaked. I don't think its because my room is too hot, as it's been at the normal temperature. This just happened all of the sudden to me this week and I wanted to ask about it.",
-    "demographics": {
-      "age": "Between 45 - 50",
-      "gender": "Female"
+{
+  "schema_version": "1.0",
+  "corpus_id": "ckm_ambiguity_probe_v1",
+  "notice": "SYNTHETIC DATA. All patients, encounters, laboratory values, and messages are fabricated for model evaluation. No real patient data. Not for clinical use.",
+  "description": "Simulated cardiovascular-kidney-metabolic (CKM) patients with structured EHR context and ambiguous patient-portal messages. Each message carries an expected triage label for automated scoring. Several messages are near-duplicates in free text but differ in expected triage because the structured EHR data disambiguates them - these are flagged with requires_ehr=true and are the core probe items.",
+  "triage_levels": [
+    {
+      "code": "EMERGENT",
+      "rank": 3,
+      "definition": "Patient has life-threatening issue that needs immediate attention."
     },
-    "problem_list": [
-      "Gestational diabetes",
-      "Fatigue",
-      "Anxiety disorder",
-      "Adjustment reaction",
-      "Myalgia",
-      "Chlamydia trachomatis infection of genital structure",
-      "Thoracic or lumbosacral neuritis or radiculitis",
-      "Depressive disorder",
-      "Breast disorder"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Menorrhagia with regular cycle",
-        "Vaginal bleeding problems",
-        "Adenomyosis",
-        "Anemia due to chronic blood loss",
-        "Closed nondisplaced pilon fracture of left tibia with routine healing, subsequent encounter",
-        "Arthritis of left knee",
-        "Elevated blood pressure reading without diagnosis of hypertension",
-        "Acute left ankle pain",
-        "Closed displaced pilon fracture of left tibia with routine healing, subsequent encounter"
+    {
+      "code": "URGENT",
+      "rank": 2,
+      "definition": "Patient has non life-threatening issue that would benefit from same-day treatment (e.g. urgent care)."
+    },
+    {
+      "code": "ROUTINE",
+      "rank": 1,
+      "definition": "Patient should see their doctor sometime in the near future (could be more than 3 days), or patient should make an appointment with a doctor soon (1-3 days)."
+    },
+    {
+      "code": "SELF_CARE",
+      "rank": 0,
+      "definition": "Patient presents something that is a non-issue and no further steps are needed, or patient has symptoms that can be treated at home, and would benefit from a message instructing them on what to do"
+    }
+  ],
+  "ambiguity_levels": [
+    "low",
+    "moderate",
+    "high"
+  ],
+  "patients": [
+    {
+      "demographics": {
+        "age": "Between 45 - 50",
+        "gender": "Female"
+      },
+      "problem_list": [
+        "Gestational diabetes",
+        "Fatigue",
+        "Anxiety disorder",
+        "Adjustment reaction",
+        "Myalgia",
+        "Chlamydia trachomatis infection of genital structure",
+        "Thoracic or lumbosacral neuritis or radiculitis",
+        "Depressive disorder",
+        "Breast disorder"
       ],
-      "older": []
-    },
-    "medications": [
-      "NORETHINDRONE ACETATE 5 MG TABLET",
-      "FERROUS SULFATE 325 MG (65 MG IRON) TABLET,DELAYED RELEASE",
-      "NORETHINDRONE (CONTRACEPTIVE) 0.35 MG TABLET",
-      "TRANEXAMIC ACID 650 MG TABLET"
-    ],
-    "level": 6,
-    "relevancy": 0,
-    "id": "INBOX_A-00000-of-00001-24",
-    "problem_list_snomed": [
-      {
-        "input_text": "Gestational diabetes",
-        "cui": "C0085207",
-        "sctid": "11687002",
-        "snomed_name": "Gestational diabetes"
+      "diagnoses": {
+        "past_year": [
+          "Menorrhagia with regular cycle",
+          "Vaginal bleeding problems",
+          "Adenomyosis",
+          "Anemia due to chronic blood loss",
+          "Closed nondisplaced pilon fracture of left tibia with routine healing, subsequent encounter",
+          "Arthritis of left knee",
+          "Elevated blood pressure reading without diagnosis of hypertension",
+          "Acute left ankle pain",
+          "Closed displaced pilon fracture of left tibia with routine healing, subsequent encounter"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Fatigue",
-        "cui": "C0015672",
-        "sctid": "139126000",
-        "snomed_name": "Fatigue"
-      },
-      {
-        "input_text": "Anxiety disorder",
-        "cui": "C0003469",
-        "sctid": "65673007",
-        "snomed_name": "Anxiety disorder, NOS"
-      },
-      {
-        "input_text": "Adjustment reaction",
-        "cui": "C0040701",
-        "sctid": "17226007",
-        "snomed_name": "Adjustment reaction"
-      },
-      {
-        "input_text": "Myalgia",
-        "cui": "C0231528",
-        "sctid": "68962001",
-        "snomed_name": "Myalgia"
-      },
-      {
-        "input_text": "Chlamydia trachomatis infection of genital structure",
-        "cui": "C1997322",
-        "sctid": "428015005",
-        "snomed_name": "Chlamydia trachomatis infection of genital structure"
-      },
-      {
-        "input_text": "Thoracic or lumbosacral neuritis or radiculitis",
-        "cui": "C0158291",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Depressive disorder",
-        "cui": "C0011581",
-        "sctid": "35489007",
-        "snomed_name": "Depressive disorder"
-      },
-      {
-        "input_text": "Breast disorder",
-        "cui": "C0006145",
-        "sctid": "79604008",
-        "snomed_name": "Disease of breast"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Menorrhagia with regular cycle",
-        "cui": "C0025323",
-        "sctid": "156038002",
-        "snomed_name": "Menorrhagia"
-      },
-      {
-        "input_text": "Vaginal bleeding problems",
-        "cui": "C0566968",
-        "sctid": "289543006",
-        "snomed_name": "Vaginal bleeding problem"
-      },
-      {
-        "input_text": "Adenomyosis",
-        "cui": "C5574708",
-        "sctid": "198246007",
-        "snomed_name": "Adenomyosis"
-      },
-      {
-        "input_text": "Anemia due to chronic blood loss",
-        "cui": "C0472716",
-        "sctid": "191127009",
-        "snomed_name": "Normocytic anemia due to chronic blood loss"
-      },
-      {
-        "input_text": "Closed nondisplaced pilon fracture of left tibia with routine healing, subsequent encounter",
-        "cui": "C2863973",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Arthritis of left knee",
-        "cui": "C3864075",
-        "sctid": "1074851000119104",
-        "snomed_name": "Arthritis of left knee joint"
-      },
-      {
-        "input_text": "Elevated blood pressure reading without diagnosis of hypertension",
-        "cui": "C0392682",
-        "sctid": "371622005",
-        "snomed_name": "Elevated blood-pressure reading without diagnosis of hypertension"
-      },
-      {
-        "input_text": "Acute left ankle pain",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Closed displaced pilon fracture of left tibia with routine healing, subsequent encounter",
-        "cui": "C2863922",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "ckm_stage": 0,
-    "ckm_reasons": []
-  },
-  {
-    "patient_message": "Doctor S, \n\nFor the last few days i've experienced a shortness of breath along with runny nose and a bad cough. I am also wheezing a bit.  I'm not sure if it will go away with some home remedies but I keep geting into a bad cough which leads me to lose my breath, then I have to sit and go to a cool room to cool off and catch my breath, practically gasping for breath until it calms and then I resume my normal activities. I know I am scheduled to come in next thursday but I am wondering if you could find time to see me today?",
-    "demographics": {
-      "age": "Between 40 - 45",
-      "gender": "Female"
-    },
-    "problem_list": [
-      "Fibromyalgia",
-      "ASCUS with positive high risk HPV cervical",
-      "Pain of right sacroiliac joint",
-      "Irritable bowel syndrome",
-      "Persistent depressive disorder with anxious distress, currently moderate",
-      "Obstructive sleep apnea syndrome",
-      "Anxiety",
-      "Pain in right hip",
-      "Chronic neck pain",
-      "Post-traumatic stress disorder, chronic",
-      "Dysmenorrhea",
-      "Intractable periodic headache syndrome",
-      "Weight loss",
-      "Congenital valgus deformity of knee"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Diarrhea, unspecified type",
-        "Chronic abdominal pain",
-        "LLQ abdominal pain",
-        "Chronic nausea",
-        "RLQ abdominal pain",
-        "Irritable bowel syndrome with diarrhea"
+      "medications": [
+        "NORETHINDRONE ACETATE 5 MG TABLET",
+        "FERROUS SULFATE 325 MG (65 MG IRON) TABLET,DELAYED RELEASE",
+        "NORETHINDRONE (CONTRACEPTIVE) 0.35 MG TABLET",
+        "TRANEXAMIC ACID 650 MG TABLET"
       ],
-      "older": []
-    },
-    "medications": [
-      "SUMATRIPTAN 50 MG TABLET",
-      "LORAZEPAM 0.5 MG TABLET",
-      "ESTRADIOL 0.01% (0.1 MG/GRAM) VAGINAL CREAM",
-      "TOPIRAMATE 25 MG TABLET",
-      "OMEPRAZOLE 20 MG CAPSULE,DELAYED RELEASE",
-      "HYOSCYAMINE SULFATE 0.125 MG TABLET",
-      "NORTRIPTYLINE 10 MG CAPSULE",
-      "FLUOXETINE 20 MG CAPSULE",
-      "VALACYCLOVIR 1 GRAM TABLET",
-      "ETONOGESTREL 0.12 MG-ETHINYL ESTRADIOL 0.015 MG/24 HR VAGINAL RING"
-    ],
-    "level": 1,
-    "relevancy": 10,
-    "id": "INBOX_A-00000-of-00001-25",
-    "problem_list_snomed": [
-      {
-        "input_text": "Fibromyalgia",
-        "cui": "C0016053",
-        "sctid": "1304004",
-        "snomed_name": "Fibromyalgia"
-      },
-      {
-        "input_text": "ASCUS with positive high risk HPV cervical",
-        "cui": "C0521060",
-        "sctid": "88501005",
-        "snomed_name": "Ascus (fungus)"
-      },
-      {
-        "input_text": "Pain of right sacroiliac joint",
-        "cui": "C2129521",
-        "sctid": "12242591000119107",
-        "snomed_name": "Pain in right sacroiliac joint"
-      },
-      {
-        "input_text": "Irritable bowel syndrome",
-        "cui": "C0022104",
-        "sctid": "155783000",
-        "snomed_name": "Irritable bowel syndrome"
-      },
-      {
-        "input_text": "Persistent depressive disorder with anxious distress, currently moderate",
-        "cui": "C4064355",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Obstructive sleep apnea syndrome",
-        "cui": "C4285910",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Anxiety",
-        "cui": "C0003467",
-        "sctid": "38237000",
-        "snomed_name": "Anxiety"
-      },
-      {
-        "input_text": "Pain in right hip",
-        "cui": "C2202100",
-        "sctid": "316921000119102",
-        "snomed_name": "Pain of right hip joint"
-      },
-      {
-        "input_text": "Chronic neck pain",
-        "cui": "C0746815",
-        "sctid": "1121000119107",
-        "snomed_name": "Chronic neck pain"
-      },
-      {
-        "input_text": "Post-traumatic stress disorder, chronic",
-        "cui": "C0730525",
-        "sctid": "154968005",
-        "snomed_name": "Chronic post-traumatic stress disorder"
-      },
-      {
-        "input_text": "Dysmenorrhea",
-        "cui": "C0013390",
-        "sctid": "29837005",
-        "snomed_name": "Dysmenorrhea"
-      },
-      {
-        "input_text": "Intractable periodic headache syndrome",
-        "cui": "C3647009",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Weight loss",
-        "cui": "C1262477",
-        "sctid": "89362005",
-        "snomed_name": "Weight loss"
-      },
-      {
-        "input_text": "Congenital valgus deformity of knee",
-        "cui": "C0265668",
-        "sctid": "89689008",
-        "snomed_name": "Congenital genu valgum"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Diarrhea, unspecified type",
-        "cui": "C0011991",
-        "sctid": "162103003",
-        "snomed_name": "Diarrhea"
-      },
-      {
-        "input_text": "Chronic abdominal pain",
-        "cui": "C0232491",
-        "sctid": "111985007",
-        "snomed_name": "Chronic abdominal pain"
-      },
-      {
-        "input_text": "LLQ abdominal pain",
-        "cui": "C0262528",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Chronic nausea",
-        "cui": "C0746779",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "RLQ abdominal pain",
-        "cui": "C0740604",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Irritable bowel syndrome with diarrhea",
-        "cui": "C0348898",
-        "sctid": "197125005",
-        "snomed_name": "Irritable bowel syndrome with diarrhea"
-      }
-    ],
-    "ckm_stage": 0,
-    "ckm_reasons": []
-  },
-  {
-    "patient_message": "Dr. K, \n\nI know a lot of people around here have the flu right now but thankfully I've avoided it. However, I have seem to have caught a really nasty cough. Sometimes if I take a breath that is too deep itll make me cough uncontrollably for almost ten minutes straight and I'll be gasping for breath. It's kind of scary honestly. Mucus does come up sometimes when I cough and my nose is stopped up a little, but this cough is the worst I've ever had and I want to know if I should get it checked out.\n\nThanks",
-    "demographics": {
-      "age": "Between 50 - 55",
-      "gender": "Male"
-    },
-    "problem_list": [
-      "Gout",
-      "Esophageal reflux",
-      "Fatty liver",
-      "Bursitis of left knee",
-      "Apnea, sleep",
-      "Obesity",
-      "Bipolar affective disorder",
-      "Fatigue",
-      "Injury of hand, right",
-      "Sleep disturbance",
-      "Chest pain",
-      "Anxiety",
-      "Arm paresthesia, right",
-      "Tremor",
-      "Vertigo",
-      "Biceps tendon rupture, right, sequela",
-      "Hypothyroidism",
-      "Allergic reaction to shellfish"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Insomnia, unspecified type",
-        "Radiculopathy of lumbar region",
-        "Gastroesophageal reflux disease",
-        "Bipolar affective disorder, remission status unspecified",
-        "L4-L5 disc bulge",
-        "Long-term current use of benzodiazepine",
-        "Chronic bilateral low back pain with bilateral sciatica",
-        "Limb tremor",
-        "Hypothyroidism, unspecified type"
+      "id": "INBOX_A-00000-of-00001-24",
+      "problem_list_snomed": [
+        {
+          "input_text": "Gestational diabetes",
+          "cui": "C0085207",
+          "sctid": "11687002",
+          "snomed_name": "Gestational diabetes"
+        },
+        {
+          "input_text": "Fatigue",
+          "cui": "C0015672",
+          "sctid": "139126000",
+          "snomed_name": "Fatigue"
+        },
+        {
+          "input_text": "Anxiety disorder",
+          "cui": "C0003469",
+          "sctid": "65673007",
+          "snomed_name": "Anxiety disorder, NOS"
+        },
+        {
+          "input_text": "Adjustment reaction",
+          "cui": "C0040701",
+          "sctid": "17226007",
+          "snomed_name": "Adjustment reaction"
+        },
+        {
+          "input_text": "Myalgia",
+          "cui": "C0231528",
+          "sctid": "68962001",
+          "snomed_name": "Myalgia"
+        },
+        {
+          "input_text": "Chlamydia trachomatis infection of genital structure",
+          "cui": "C1997322",
+          "sctid": "428015005",
+          "snomed_name": "Chlamydia trachomatis infection of genital structure"
+        },
+        {
+          "input_text": "Thoracic or lumbosacral neuritis or radiculitis",
+          "cui": "C0158291",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Depressive disorder",
+          "cui": "C0011581",
+          "sctid": "35489007",
+          "snomed_name": "Depressive disorder"
+        },
+        {
+          "input_text": "Breast disorder",
+          "cui": "C0006145",
+          "sctid": "79604008",
+          "snomed_name": "Disease of breast"
+        }
       ],
-      "older": []
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Menorrhagia with regular cycle",
+          "cui": "C0025323",
+          "sctid": "156038002",
+          "snomed_name": "Menorrhagia"
+        },
+        {
+          "input_text": "Vaginal bleeding problems",
+          "cui": "C0566968",
+          "sctid": "289543006",
+          "snomed_name": "Vaginal bleeding problem"
+        },
+        {
+          "input_text": "Adenomyosis",
+          "cui": "C5574708",
+          "sctid": "198246007",
+          "snomed_name": "Adenomyosis"
+        },
+        {
+          "input_text": "Anemia due to chronic blood loss",
+          "cui": "C0472716",
+          "sctid": "191127009",
+          "snomed_name": "Normocytic anemia due to chronic blood loss"
+        },
+        {
+          "input_text": "Closed nondisplaced pilon fracture of left tibia with routine healing, subsequent encounter",
+          "cui": "C2863973",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Arthritis of left knee",
+          "cui": "C3864075",
+          "sctid": "1074851000119104",
+          "snomed_name": "Arthritis of left knee joint"
+        },
+        {
+          "input_text": "Elevated blood pressure reading without diagnosis of hypertension",
+          "cui": "C0392682",
+          "sctid": "371622005",
+          "snomed_name": "Elevated blood-pressure reading without diagnosis of hypertension"
+        },
+        {
+          "input_text": "Acute left ankle pain",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Closed displaced pilon fracture of left tibia with routine healing, subsequent encounter",
+          "cui": "C2863922",
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-24-M1",
+          "sent_at": "2025-08-28T23:44:40",
+          "text": "Doctor, \n\nThis week I started experiencing something a bit new for me. So in the middle of the night I find that my chest and back feel very sweaty. Sometimes damp, othertimes soaked. I don't think its because my room is too hot, as it's been at the normal temperature. This just happened all of the sudden to me this week and I wanted to ask about it.",
+          "expected": {
+            "triage": "SELF_CARE",
+            "level": 6,
+            "relevancy": 0
+          }
+        }
+      ],
+      "ckm_stage": 0,
+      "ckm_stage_label": "Provisionally Stage 0 and unclassifiable",
+      "ckm_reasons": []
     },
-    "medications": [
-      "OMEPRAZOLE 40 MG CAPSULE,DELAYED RELEASE",
-      "LEVOTHYROXINE 100 MCG TABLET",
-      "HYDROXYZINE HCL 25 MG TABLET",
-      "CARBIDOPA 25 MG-LEVODOPA 100 MG TABLET",
-      "PRAZOSIN 2 MG CAPSULE",
-      "LITHIUM CARBONATE ER 450 MG TABLET,EXTENDED RELEASE",
-      "CLONAZEPAM 0.5 MG TABLET",
-      "QUETIAPINE 50 MG TABLET"
-    ],
-    "level": 1,
-    "relevancy": 10,
-    "id": "INBOX_A-00000-of-00001-26",
-    "problem_list_snomed": [
-      {
-        "input_text": "Gout",
-        "cui": "C0018099",
-        "sctid": "90560007",
-        "snomed_name": "Gout"
+    {
+      "demographics": {
+        "age": "Between 40 - 45",
+        "gender": "Female"
       },
-      {
-        "input_text": "Esophageal reflux",
-        "cui": "C0559234",
-        "sctid": "249496004",
-        "snomed_name": "Esophageal reflux observation"
+      "problem_list": [
+        "Fibromyalgia",
+        "ASCUS with positive high risk HPV cervical",
+        "Pain of right sacroiliac joint",
+        "Irritable bowel syndrome",
+        "Persistent depressive disorder with anxious distress, currently moderate",
+        "Obstructive sleep apnea syndrome",
+        "Anxiety",
+        "Pain in right hip",
+        "Chronic neck pain",
+        "Post-traumatic stress disorder, chronic",
+        "Dysmenorrhea",
+        "Intractable periodic headache syndrome",
+        "Weight loss",
+        "Congenital valgus deformity of knee"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Diarrhea, unspecified type",
+          "Chronic abdominal pain",
+          "LLQ abdominal pain",
+          "Chronic nausea",
+          "RLQ abdominal pain",
+          "Irritable bowel syndrome with diarrhea"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Fatty liver",
-        "cui": "C0015695",
-        "sctid": "371330000",
-        "snomed_name": "Fatty liver"
+      "medications": [
+        "SUMATRIPTAN 50 MG TABLET",
+        "LORAZEPAM 0.5 MG TABLET",
+        "ESTRADIOL 0.01% (0.1 MG/GRAM) VAGINAL CREAM",
+        "TOPIRAMATE 25 MG TABLET",
+        "OMEPRAZOLE 20 MG CAPSULE,DELAYED RELEASE",
+        "HYOSCYAMINE SULFATE 0.125 MG TABLET",
+        "NORTRIPTYLINE 10 MG CAPSULE",
+        "FLUOXETINE 20 MG CAPSULE",
+        "VALACYCLOVIR 1 GRAM TABLET",
+        "ETONOGESTREL 0.12 MG-ETHINYL ESTRADIOL 0.015 MG/24 HR VAGINAL RING"
+      ],
+      "id": "INBOX_A-00000-of-00001-25",
+      "problem_list_snomed": [
+        {
+          "input_text": "Fibromyalgia",
+          "cui": "C0016053",
+          "sctid": "1304004",
+          "snomed_name": "Fibromyalgia"
+        },
+        {
+          "input_text": "ASCUS with positive high risk HPV cervical",
+          "cui": "C0521060",
+          "sctid": "88501005",
+          "snomed_name": "Ascus (fungus)"
+        },
+        {
+          "input_text": "Pain of right sacroiliac joint",
+          "cui": "C2129521",
+          "sctid": "12242591000119107",
+          "snomed_name": "Pain in right sacroiliac joint"
+        },
+        {
+          "input_text": "Irritable bowel syndrome",
+          "cui": "C0022104",
+          "sctid": "155783000",
+          "snomed_name": "Irritable bowel syndrome"
+        },
+        {
+          "input_text": "Persistent depressive disorder with anxious distress, currently moderate",
+          "cui": "C4064355",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Obstructive sleep apnea syndrome",
+          "cui": "C4285910",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Anxiety",
+          "cui": "C0003467",
+          "sctid": "38237000",
+          "snomed_name": "Anxiety"
+        },
+        {
+          "input_text": "Pain in right hip",
+          "cui": "C2202100",
+          "sctid": "316921000119102",
+          "snomed_name": "Pain of right hip joint"
+        },
+        {
+          "input_text": "Chronic neck pain",
+          "cui": "C0746815",
+          "sctid": "1121000119107",
+          "snomed_name": "Chronic neck pain"
+        },
+        {
+          "input_text": "Post-traumatic stress disorder, chronic",
+          "cui": "C0730525",
+          "sctid": "154968005",
+          "snomed_name": "Chronic post-traumatic stress disorder"
+        },
+        {
+          "input_text": "Dysmenorrhea",
+          "cui": "C0013390",
+          "sctid": "29837005",
+          "snomed_name": "Dysmenorrhea"
+        },
+        {
+          "input_text": "Intractable periodic headache syndrome",
+          "cui": "C3647009",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Weight loss",
+          "cui": "C1262477",
+          "sctid": "89362005",
+          "snomed_name": "Weight loss"
+        },
+        {
+          "input_text": "Congenital valgus deformity of knee",
+          "cui": "C0265668",
+          "sctid": "89689008",
+          "snomed_name": "Congenital genu valgum"
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Diarrhea, unspecified type",
+          "cui": "C0011991",
+          "sctid": "162103003",
+          "snomed_name": "Diarrhea"
+        },
+        {
+          "input_text": "Chronic abdominal pain",
+          "cui": "C0232491",
+          "sctid": "111985007",
+          "snomed_name": "Chronic abdominal pain"
+        },
+        {
+          "input_text": "LLQ abdominal pain",
+          "cui": "C0262528",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Chronic nausea",
+          "cui": "C0746779",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "RLQ abdominal pain",
+          "cui": "C0740604",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Irritable bowel syndrome with diarrhea",
+          "cui": "C0348898",
+          "sctid": "197125005",
+          "snomed_name": "Irritable bowel syndrome with diarrhea"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-25-M1",
+          "sent_at": "2025-01-01T13:20:25",
+          "text": "Doctor S, \n\nFor the last few days i've experienced a shortness of breath along with runny nose and a bad cough. I am also wheezing a bit.  I'm not sure if it will go away with some home remedies but I keep geting into a bad cough which leads me to lose my breath, then I have to sit and go to a cool room to cool off and catch my breath, practically gasping for breath until it calms and then I resume my normal activities. I know I am scheduled to come in next thursday but I am wondering if you could find time to see me today?",
+          "expected": {
+            "triage": "EMERGENT",
+            "level": 1,
+            "relevancy": 10
+          }
+        }
+      ],
+      "ckm_stage": 0,
+      "ckm_stage_label": "Provisionally Stage 0 and unclassifiable",
+      "ckm_reasons": []
+    },
+    {
+      "demographics": {
+        "age": "Between 50 - 55",
+        "gender": "Male"
       },
-      {
-        "input_text": "Bursitis of left knee",
-        "cui": "C4510331",
-        "sctid": "1076241000119109",
-        "snomed_name": "Bursitis of left knee"
+      "problem_list": [
+        "Gout",
+        "Esophageal reflux",
+        "Fatty liver",
+        "Bursitis of left knee",
+        "Apnea, sleep",
+        "Obesity",
+        "Bipolar affective disorder",
+        "Fatigue",
+        "Injury of hand, right",
+        "Sleep disturbance",
+        "Chest pain",
+        "Anxiety",
+        "Arm paresthesia, right",
+        "Tremor",
+        "Vertigo",
+        "Biceps tendon rupture, right, sequela",
+        "Hypothyroidism",
+        "Allergic reaction to shellfish"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Insomnia, unspecified type",
+          "Radiculopathy of lumbar region",
+          "Gastroesophageal reflux disease",
+          "Bipolar affective disorder, remission status unspecified",
+          "L4-L5 disc bulge",
+          "Long-term current use of benzodiazepine",
+          "Chronic bilateral low back pain with bilateral sciatica",
+          "Limb tremor",
+          "Hypothyroidism, unspecified type"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Apnea, sleep",
-        "cui": "C0037315",
-        "sctid": "206750008",
-        "snomed_name": "Sleep apnea syndrome"
-      },
-      {
-        "input_text": "Obesity",
-        "cui": "C0028754",
-        "sctid": "5476005",
-        "snomed_name": "Obesity"
-      },
-      {
-        "input_text": "Bipolar affective disorder",
-        "cui": "C0005586",
-        "sctid": "13746004",
-        "snomed_name": "Bipolar disorder, NOS"
-      },
-      {
-        "input_text": "Fatigue",
-        "cui": "C0015672",
-        "sctid": "139126000",
-        "snomed_name": "Fatigue"
-      },
-      {
-        "input_text": "Injury of hand, right",
-        "cui": "C4281094",
-        "sctid": "11791281000119103",
-        "snomed_name": "Injury of right hand"
-      },
-      {
-        "input_text": "Sleep disturbance",
-        "cui": "C0037317",
-        "sctid": "53888004",
-        "snomed_name": "Disturbance in sleep behavior"
-      },
-      {
-        "input_text": "Chest pain",
-        "cui": "C0008031",
-        "sctid": "139228007",
-        "snomed_name": "Chest pain"
-      },
-      {
-        "input_text": "Anxiety",
-        "cui": "C0003467",
-        "sctid": "38237000",
-        "snomed_name": "Anxiety"
-      },
-      {
-        "input_text": "Arm paresthesia, right",
-        "cui": "C2116436",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Tremor",
-        "cui": "C0040822",
-        "sctid": "26079004",
-        "snomed_name": "Tremor"
-      },
-      {
-        "input_text": "Vertigo",
-        "cui": "C0042571",
-        "sctid": "11778002",
-        "snomed_name": "Vertigo"
-      },
-      {
-        "input_text": "Biceps tendon rupture, right, sequela",
-        "cui": "C0347952",
-        "sctid": "209756003",
-        "snomed_name": "Rupture biceps tendon"
-      },
-      {
-        "input_text": "Hypothyroidism",
-        "cui": "C0020676",
-        "sctid": "267465007",
-        "snomed_name": "Hypothyroidism"
-      },
-      {
-        "input_text": "Allergic reaction to shellfish",
-        "cui": "C2062582",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Insomnia, unspecified type",
-        "cui": "C2911123",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Radiculopathy of lumbar region",
-        "cui": "C3509367",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Gastroesophageal reflux disease",
-        "cui": "C0017168",
-        "sctid": "235595009",
-        "snomed_name": "Gastroesophageal reflux disease"
-      },
-      {
-        "input_text": "Bipolar affective disorder, remission status unspecified",
-        "cui": "C0005586",
-        "sctid": "13746004",
-        "snomed_name": "Bipolar disorder, NOS"
-      },
-      {
-        "input_text": "L4-L5 disc bulge",
-        "cui": "C6059833",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Long-term current use of benzodiazepine",
-        "cui": "C5229681",
-        "sctid": "16863481000119103",
-        "snomed_name": "Long-term current use of benzodiazepine"
-      },
-      {
-        "input_text": "Chronic bilateral low back pain with bilateral sciatica",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Limb tremor",
-        "cui": "C0235081",
-        "sctid": "1141771005",
-        "snomed_name": "Tremor of limb"
-      },
-      {
-        "input_text": "Hypothyroidism, unspecified type",
-        "cui": "C0020676",
-        "sctid": "267465007",
-        "snomed_name": "Hypothyroidism"
-      }
-    ],
-    "ckm_stage": 1,
-    "ckm_reasons": [
-      {
-        "table": "STAGE_1_ADIPOSITY",
-        "sctid": "5476005",
-        "matched_parent": "414916001",
-        "snomed_name": "Obesity"
-      }
-    ]
-  }
-]
+      "medications": [
+        "OMEPRAZOLE 40 MG CAPSULE,DELAYED RELEASE",
+        "LEVOTHYROXINE 100 MCG TABLET",
+        "HYDROXYZINE HCL 25 MG TABLET",
+        "CARBIDOPA 25 MG-LEVODOPA 100 MG TABLET",
+        "PRAZOSIN 2 MG CAPSULE",
+        "LITHIUM CARBONATE ER 450 MG TABLET,EXTENDED RELEASE",
+        "CLONAZEPAM 0.5 MG TABLET",
+        "QUETIAPINE 50 MG TABLET"
+      ],
+      "id": "INBOX_A-00000-of-00001-26",
+      "problem_list_snomed": [
+        {
+          "input_text": "Gout",
+          "cui": "C0018099",
+          "sctid": "90560007",
+          "snomed_name": "Gout"
+        },
+        {
+          "input_text": "Esophageal reflux",
+          "cui": "C0559234",
+          "sctid": "249496004",
+          "snomed_name": "Esophageal reflux observation"
+        },
+        {
+          "input_text": "Fatty liver",
+          "cui": "C0015695",
+          "sctid": "371330000",
+          "snomed_name": "Fatty liver"
+        },
+        {
+          "input_text": "Bursitis of left knee",
+          "cui": "C4510331",
+          "sctid": "1076241000119109",
+          "snomed_name": "Bursitis of left knee"
+        },
+        {
+          "input_text": "Apnea, sleep",
+          "cui": "C0037315",
+          "sctid": "206750008",
+          "snomed_name": "Sleep apnea syndrome"
+        },
+        {
+          "input_text": "Obesity",
+          "cui": "C0028754",
+          "sctid": "5476005",
+          "snomed_name": "Obesity"
+        },
+        {
+          "input_text": "Bipolar affective disorder",
+          "cui": "C0005586",
+          "sctid": "13746004",
+          "snomed_name": "Bipolar disorder, NOS"
+        },
+        {
+          "input_text": "Fatigue",
+          "cui": "C0015672",
+          "sctid": "139126000",
+          "snomed_name": "Fatigue"
+        },
+        {
+          "input_text": "Injury of hand, right",
+          "cui": "C4281094",
+          "sctid": "11791281000119103",
+          "snomed_name": "Injury of right hand"
+        },
+        {
+          "input_text": "Sleep disturbance",
+          "cui": "C0037317",
+          "sctid": "53888004",
+          "snomed_name": "Disturbance in sleep behavior"
+        },
+        {
+          "input_text": "Chest pain",
+          "cui": "C0008031",
+          "sctid": "139228007",
+          "snomed_name": "Chest pain"
+        },
+        {
+          "input_text": "Anxiety",
+          "cui": "C0003467",
+          "sctid": "38237000",
+          "snomed_name": "Anxiety"
+        },
+        {
+          "input_text": "Arm paresthesia, right",
+          "cui": "C2116436",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Tremor",
+          "cui": "C0040822",
+          "sctid": "26079004",
+          "snomed_name": "Tremor"
+        },
+        {
+          "input_text": "Vertigo",
+          "cui": "C0042571",
+          "sctid": "11778002",
+          "snomed_name": "Vertigo"
+        },
+        {
+          "input_text": "Biceps tendon rupture, right, sequela",
+          "cui": "C0347952",
+          "sctid": "209756003",
+          "snomed_name": "Rupture biceps tendon"
+        },
+        {
+          "input_text": "Hypothyroidism",
+          "cui": "C0020676",
+          "sctid": "267465007",
+          "snomed_name": "Hypothyroidism"
+        },
+        {
+          "input_text": "Allergic reaction to shellfish",
+          "cui": "C2062582",
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Insomnia, unspecified type",
+          "cui": "C2911123",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Radiculopathy of lumbar region",
+          "cui": "C3509367",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Gastroesophageal reflux disease",
+          "cui": "C0017168",
+          "sctid": "235595009",
+          "snomed_name": "Gastroesophageal reflux disease"
+        },
+        {
+          "input_text": "Bipolar affective disorder, remission status unspecified",
+          "cui": "C0005586",
+          "sctid": "13746004",
+          "snomed_name": "Bipolar disorder, NOS"
+        },
+        {
+          "input_text": "L4-L5 disc bulge",
+          "cui": "C6059833",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Long-term current use of benzodiazepine",
+          "cui": "C5229681",
+          "sctid": "16863481000119103",
+          "snomed_name": "Long-term current use of benzodiazepine"
+        },
+        {
+          "input_text": "Chronic bilateral low back pain with bilateral sciatica",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Limb tremor",
+          "cui": "C0235081",
+          "sctid": "1141771005",
+          "snomed_name": "Tremor of limb"
+        },
+        {
+          "input_text": "Hypothyroidism, unspecified type",
+          "cui": "C0020676",
+          "sctid": "267465007",
+          "snomed_name": "Hypothyroidism"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-26-M1",
+          "sent_at": "2025-04-16T17:35:17",
+          "text": "Dr. K, \n\nI know a lot of people around here have the flu right now but thankfully I've avoided it. However, I have seem to have caught a really nasty cough. Sometimes if I take a breath that is too deep itll make me cough uncontrollably for almost ten minutes straight and I'll be gasping for breath. It's kind of scary honestly. Mucus does come up sometimes when I cough and my nose is stopped up a little, but this cough is the worst I've ever had and I want to know if I should get it checked out.\n\nThanks",
+          "expected": {
+            "triage": "EMERGENT",
+            "level": 1,
+            "relevancy": 10
+          }
+        }
+      ],
+      "ckm_stage": 1,
+      "ckm_stage_label": "Stage 1: Excess or dysfunctional Adiposity",
+      "ckm_reasons": [
+        {
+          "table": "STAGE_1_ADIPOSITY",
+          "sctid": "5476005",
+          "matched_parent": "414916001",
+          "snomed_name": "Obesity"
+        }
+      ]
+    }
+  ]
+}
