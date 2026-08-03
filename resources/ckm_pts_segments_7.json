@@ -1,678 +1,738 @@
-[
-  {
-    "patient_message": "So yesterday morning I noticed a pain in my pubic area. It is more prominent when I i have to pass gas and it goes through the system, passing a stool, or waiting to pass it, or going pee. The pain is hard to describe but its starting to cause me anxiety. Wondering if I can get this checked out?",
-    "demographics": {
-      "age": "Between 50 - 55",
-      "gender": "Female"
+{
+  "schema_version": "1.0",
+  "corpus_id": "ckm_ambiguity_probe_v1",
+  "notice": "SYNTHETIC DATA. All patients, encounters, laboratory values, and messages are fabricated for model evaluation. No real patient data. Not for clinical use.",
+  "description": "Simulated cardiovascular-kidney-metabolic (CKM) patients with structured EHR context and ambiguous patient-portal messages. Each message carries an expected triage label for automated scoring. Several messages are near-duplicates in free text but differ in expected triage because the structured EHR data disambiguates them - these are flagged with requires_ehr=true and are the core probe items.",
+  "triage_levels": [
+    {
+      "code": "EMERGENT",
+      "rank": 3,
+      "definition": "Patient has life-threatening issue that needs immediate attention."
     },
-    "problem_list": [
-      "Recurrent major depressive episodes",
-      "Fibromyalgia",
-      "Migraine without aura",
-      "Primary localized osteoarthritis of pelvic region and thigh",
-      "Ventricular premature beats",
-      "Familial hypercholesterolemia",
-      "Right-sided low back pain without sciatica",
-      "Right low back pain",
-      "Senile hyperkeratosis",
-      "Status post ablation of atrial fibrillation",
-      "Obesity (BMI 30-39.9)",
-      "Major depressive disorder, single episode, in remission",
-      "Meralgia paraesthetica, right",
-      "Other specified hypothyroidism",
-      "Status post reduction mammoplasty",
-      "Anxiety",
-      "Acquired scoliosis",
-      "Left groin pain",
-      "Lumbar radiculopathy",
-      "Hyperlipidemia",
-      "MDD (major depressive disorder)",
-      "Hallux valgus",
-      "Medication overuse headache"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Right-sided low back pain without sciatica, unspecified chronicity",
-        "Trochanteric bursitis of right hip",
-        "Severe episode of recurrent major depressive disorder, without psychotic features",
-        "PTSD (post-traumatic stress disorder)",
-        "Chronic pain syndrome",
-        "Low back pain, non-specific",
-        "Hypothyroidism, unspecified type"
+    {
+      "code": "URGENT",
+      "rank": 2,
+      "definition": "Patient has non life-threatening issue that would benefit from same-day treatment (e.g. urgent care)."
+    },
+    {
+      "code": "ROUTINE",
+      "rank": 1,
+      "definition": "Patient should see their doctor sometime in the near future (could be more than 3 days), or patient should make an appointment with a doctor soon (1-3 days)."
+    },
+    {
+      "code": "SELF_CARE",
+      "rank": 0,
+      "definition": "Patient presents something that is a non-issue and no further steps are needed, or patient has symptoms that can be treated at home, and would benefit from a message instructing them on what to do"
+    }
+  ],
+  "ambiguity_levels": [
+    "low",
+    "moderate",
+    "high"
+  ],
+  "patients": [
+    {
+      "demographics": {
+        "age": "Between 50 - 55",
+        "gender": "Female"
+      },
+      "problem_list": [
+        "Recurrent major depressive episodes",
+        "Fibromyalgia",
+        "Migraine without aura",
+        "Primary localized osteoarthritis of pelvic region and thigh",
+        "Ventricular premature beats",
+        "Familial hypercholesterolemia",
+        "Right-sided low back pain without sciatica",
+        "Right low back pain",
+        "Senile hyperkeratosis",
+        "Status post ablation of atrial fibrillation",
+        "Obesity (BMI 30-39.9)",
+        "Major depressive disorder, single episode, in remission",
+        "Meralgia paraesthetica, right",
+        "Other specified hypothyroidism",
+        "Status post reduction mammoplasty",
+        "Anxiety",
+        "Acquired scoliosis",
+        "Left groin pain",
+        "Lumbar radiculopathy",
+        "Hyperlipidemia",
+        "MDD (major depressive disorder)",
+        "Hallux valgus",
+        "Medication overuse headache"
       ],
-      "older": []
-    },
-    "medications": [
-      "DULOXETINE 60 MG CAPSULE,DELAYED RELEASE",
-      "TRAMADOL 50 MG TABLET",
-      "BUPROPION HCL XL 150 MG 24 HR TABLET, EXTENDED RELEASE",
-      "EZETIMIBE 10 MG TABLET",
-      "LOVASTATIN 10 MG TABLET",
-      "HYDROXYZINE HCL 50 MG TABLET",
-      "MELOXICAM 7.5 MG TABLET",
-      "INDOMETHACIN ER 75 MG CAPSULE,EXTENDED RELEASE",
-      "BUPROPION HCL XL 300 MG 24 HR TABLET, EXTENDED RELEASE",
-      "FLUTICASONE PROPIONATE 50 MCG/ACTUATION NASAL SPRAY,SUSPENSION",
-      "KETOROLAC 30 MG/ML INJECTION CARTRIDGE",
-      "DULOXETINE 30 MG CAPSULE,DELAYED RELEASE"
-    ],
-    "level": 4,
-    "relevancy": 3,
-    "id": "INBOX_A-00000-of-00001-18",
-    "problem_list_snomed": [
-      {
-        "input_text": "Recurrent major depressive episodes",
-        "cui": "C0154409",
-        "sctid": "268621008",
-        "snomed_name": "Recurrent major depressive episodes"
+      "diagnoses": {
+        "past_year": [
+          "Right-sided low back pain without sciatica, unspecified chronicity",
+          "Trochanteric bursitis of right hip",
+          "Severe episode of recurrent major depressive disorder, without psychotic features",
+          "PTSD (post-traumatic stress disorder)",
+          "Chronic pain syndrome",
+          "Low back pain, non-specific",
+          "Hypothyroidism, unspecified type"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Fibromyalgia",
-        "cui": "C0016053",
-        "sctid": "1304004",
-        "snomed_name": "Fibromyalgia"
-      },
-      {
-        "input_text": "Migraine without aura",
-        "cui": "C0154723",
-        "sctid": "155047002",
-        "snomed_name": "Migraine with aura"
-      },
-      {
-        "input_text": "Primary localized osteoarthritis of pelvic region and thigh",
-        "cui": "C0473748",
-        "sctid": "201835007",
-        "snomed_name": "Localized, primary osteoarthritis of the pelvic region and thigh"
-      },
-      {
-        "input_text": "Ventricular premature beats",
-        "cui": "C0151636",
-        "sctid": "17338001",
-        "snomed_name": "Ventricular premature contractions"
-      },
-      {
-        "input_text": "Familial hypercholesterolemia",
-        "cui": "C0020445",
-        "sctid": "190772003",
-        "snomed_name": "Familial hypercholesterolemia"
-      },
-      {
-        "input_text": "Right-sided low back pain without sciatica",
-        "cui": "C2895422",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Right low back pain",
-        "cui": "C2219286",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Senile hyperkeratosis",
-        "cui": "C4282032",
-        "sctid": "398838000",
-        "snomed_name": "Senile hyperkeratosis"
-      },
-      {
-        "input_text": "Status post ablation of atrial fibrillation",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Obesity (BMI 30-39.9)",
-        "cui": "C0028754",
-        "sctid": "5476005",
-        "snomed_name": "Obesity"
-      },
-      {
-        "input_text": "Major depressive disorder, single episode, in remission",
-        "cui": "C2062771",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Meralgia paraesthetica, right",
-        "cui": "C1835026",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Other specified hypothyroidism",
-        "cui": "C0494273",
-        "sctid": "191038007",
-        "snomed_name": "[X]Other specified hypothyroidism"
-      },
-      {
-        "input_text": "Status post reduction mammoplasty",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Anxiety",
-        "cui": "C0003467",
-        "sctid": "38237000",
-        "snomed_name": "Anxiety"
-      },
-      {
-        "input_text": "Acquired scoliosis",
-        "cui": "C0700208",
-        "sctid": "268138008",
-        "snomed_name": "Acquired scoliosis"
-      },
-      {
-        "input_text": "Left groin pain",
-        "cui": "C2032191",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Lumbar radiculopathy",
-        "cui": "C1263855",
-        "sctid": "128196005",
-        "snomed_name": "Lumbar radiculopathy"
-      },
-      {
-        "input_text": "Hyperlipidemia",
-        "cui": "C0020473",
-        "sctid": "154739000",
-        "snomed_name": "Hyperlipidemia"
-      },
-      {
-        "input_text": "MDD (major depressive disorder)",
-        "cui": "C1737769",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Hallux valgus",
-        "cui": "C0018536",
-        "sctid": "156853006",
-        "snomed_name": "Hallux valgus"
-      },
-      {
-        "input_text": "Medication overuse headache",
-        "cui": "C2349423",
-        "sctid": "698803006",
-        "snomed_name": "Medication overuse headache"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Right-sided low back pain without sciatica, unspecified chronicity",
-        "cui": "C2895422",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Trochanteric bursitis of right hip",
-        "cui": "C2896168",
-        "sctid": "323031000119100",
-        "snomed_name": "Trochanteric bursitis of right hip"
-      },
-      {
-        "input_text": "Severe episode of recurrent major depressive disorder, without psychotic features",
-        "cui": "C4237170",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "PTSD (post-traumatic stress disorder)",
-        "cui": "C0038436",
-        "sctid": "192415000",
-        "snomed_name": "Post-traumatic stress disorder"
-      },
-      {
-        "input_text": "Chronic pain syndrome",
-        "cui": "C1298685",
-        "sctid": "373621006",
-        "snomed_name": "Chronic pain syndrome"
-      },
-      {
-        "input_text": "Low back pain, non-specific",
-        "cui": "C0024031",
-        "sctid": "202793005",
-        "snomed_name": "Low back pain"
-      },
-      {
-        "input_text": "Hypothyroidism, unspecified type",
-        "cui": "C0020676",
-        "sctid": "267465007",
-        "snomed_name": "Hypothyroidism"
-      }
-    ]
-  },
-  {
-    "patient_message": "Weird thing happening to me. I get these sudden hot flashes like, my body gets super sweaty and my heart starts racing. I have NEVER had this happen before and its really freaking me out. The first time it happened I thought \"Do I have a fever?\" but nope, no fever. ANd they dont stay too long and I get very cold after. The last time it happened I tried to take some tylenol right away but that did not seem to set-in in time. Anyway, would really like to come in this week. Please let me know your availability as I cannot continue to live like this.",
-    "demographics": {
-      "age": "Between 45 - 50",
-      "gender": "Female"
-    },
-    "problem_list": [
-      "History of colitis",
-      "Iron deficiency anemia",
-      "Chronic ulcerative proctitis",
-      "Tachycardia",
-      "Diarrhea",
-      "Type 2 diabetes mellitus without complication",
-      "SOB (shortness of breath)",
-      "DUB (dysfunctional uterine bleeding)",
-      "Depression",
-      "Cystic acne",
-      "Diabetes mellitus",
-      "Obesity",
-      "Sepsis",
-      "Migraine headache",
-      "Hyperlipidemia",
-      "History of gastric bypass",
-      "Sarcoidosis",
-      "Peptic ulcer",
-      "Insomnia",
-      "Gastroesophageal reflux disease",
-      "Moderate major depression",
-      "Dyspepsia",
-      "Crohn's disease",
-      "Anemia",
-      "Cough"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Gastroesophageal reflux disease, unspecified whether esophagitis present",
-        "Mild anemia",
-        "Hyperlipidemia, unspecified hyperlipidemia type",
-        "Insomnia, unspecified type",
-        "Depression, unspecified depression type",
-        "Right-sided chest wall pain",
-        "Mixed hyperlipidemia"
+      "medications": [
+        "DULOXETINE 60 MG CAPSULE,DELAYED RELEASE",
+        "TRAMADOL 50 MG TABLET",
+        "BUPROPION HCL XL 150 MG 24 HR TABLET, EXTENDED RELEASE",
+        "EZETIMIBE 10 MG TABLET",
+        "LOVASTATIN 10 MG TABLET",
+        "HYDROXYZINE HCL 50 MG TABLET",
+        "MELOXICAM 7.5 MG TABLET",
+        "INDOMETHACIN ER 75 MG CAPSULE,EXTENDED RELEASE",
+        "BUPROPION HCL XL 300 MG 24 HR TABLET, EXTENDED RELEASE",
+        "FLUTICASONE PROPIONATE 50 MCG/ACTUATION NASAL SPRAY,SUSPENSION",
+        "KETOROLAC 30 MG/ML INJECTION CARTRIDGE",
+        "DULOXETINE 30 MG CAPSULE,DELAYED RELEASE"
       ],
-      "older": []
-    },
-    "medications": [
-      "PREDNISONE 20 MG TABLET",
-      "CHOLECALCIFEROL (VITAMIN D3) 25 MCG (1,000 UNIT) TABLET",
-      "AMITRIPTYLINE 75 MG TABLET",
-      "FLUOXETINE 40 MG CAPSULE",
-      "AMITRIPTYLINE 50 MG TABLET",
-      "FERROUS SULFATE 325 MG (65 MG IRON) TABLET",
-      "FREESTYLE LIBRE 2 SENSOR KIT",
-      "AMOXICILLIN 875 MG-POTASSIUM CLAVULANATE 125 MG TABLET",
-      "OZEMPIC 1 MG/DOSE (4 MG/3 ML) SUBCUTANEOUS PEN INJECTOR",
-      "PANTOPRAZOLE 40 MG TABLET,DELAYED RELEASE"
-    ],
-    "level": 4,
-    "relevancy": 3,
-    "id": "INBOX_A-00000-of-00001-19",
-    "problem_list_snomed": [
-      {
-        "input_text": "History of colitis",
-        "cui": "C4040547",
-        "sctid": "1099621000119102",
-        "snomed_name": "History of ischemic colitis"
-      },
-      {
-        "input_text": "Iron deficiency anemia",
-        "cui": "C0162316",
-        "sctid": "267553005",
-        "snomed_name": "Iron deficiency anemia"
-      },
-      {
-        "input_text": "Chronic ulcerative proctitis",
-        "cui": "C2937222",
-        "sctid": "52231000",
-        "snomed_name": "Chronic ulcerative proctitis"
-      },
-      {
-        "input_text": "Tachycardia",
-        "cui": "C0039231",
-        "sctid": "6285003",
-        "snomed_name": "Tachycardia"
-      },
-      {
-        "input_text": "Diarrhea",
-        "cui": "C0011991",
-        "sctid": "162103003",
-        "snomed_name": "Diarrhea"
-      },
-      {
-        "input_text": "Type 2 diabetes mellitus without complication",
-        "cui": "C0837053",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "SOB (shortness of breath)",
-        "cui": "C0013404",
-        "sctid": "49233005",
-        "snomed_name": "Dyspnea"
-      },
-      {
-        "input_text": "DUB (dysfunctional uterine bleeding)",
-        "cui": "C0025874",
-        "sctid": "198423008",
-        "snomed_name": "Metrorrhagia"
-      },
-      {
-        "input_text": "Depression",
-        "cui": "C0011570",
-        "sctid": "41006004",
-        "snomed_name": "Depression"
-      },
-      {
-        "input_text": "Cystic acne",
-        "cui": "C0010666",
-        "sctid": "13277001",
-        "snomed_name": "Cystic acne"
-      },
-      {
-        "input_text": "Diabetes mellitus",
-        "cui": "C0011849",
-        "sctid": "267467004",
-        "snomed_name": "Diabetes mellitus"
-      },
-      {
-        "input_text": "Obesity",
-        "cui": "C0028754",
-        "sctid": "5476005",
-        "snomed_name": "Obesity"
-      },
-      {
-        "input_text": "Sepsis",
-        "cui": "C0243026",
-        "sctid": "186392004",
-        "snomed_name": "Sepsis"
-      },
-      {
-        "input_text": "Migraine headache",
-        "cui": "C0149931",
-        "sctid": "155046006",
-        "snomed_name": "Migraine (disorder)"
-      },
-      {
-        "input_text": "Hyperlipidemia",
-        "cui": "C0020473",
-        "sctid": "154739000",
-        "snomed_name": "Hyperlipidemia"
-      },
-      {
-        "input_text": "History of gastric bypass",
-        "cui": "C5937019",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Sarcoidosis",
-        "cui": "C0036202",
-        "sctid": "154425004",
-        "snomed_name": "Sarcoidosis"
-      },
-      {
-        "input_text": "Peptic ulcer",
-        "cui": "C0030920",
-        "sctid": "155701001",
-        "snomed_name": "Peptic ulcer"
-      },
-      {
-        "input_text": "Insomnia",
-        "cui": "C1950154",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Gastroesophageal reflux disease",
-        "cui": "C0017168",
-        "sctid": "235595009",
-        "snomed_name": "Gastroesophageal reflux disease"
-      },
-      {
-        "input_text": "Moderate major depression",
-        "cui": "C0270456",
-        "sctid": "832007",
-        "snomed_name": "Moderate major depression"
-      },
-      {
-        "input_text": "Dyspepsia",
-        "cui": "C0013395",
-        "sctid": "266505001",
-        "snomed_name": "Dyspepsia"
-      },
-      {
-        "input_text": "Crohn's disease",
-        "cui": "C0010346",
-        "sctid": "155760003",
-        "snomed_name": "Crohn's disease"
-      },
-      {
-        "input_text": "Anemia",
-        "cui": "C0002871",
-        "sctid": "64593003",
-        "snomed_name": "Anemia"
-      },
-      {
-        "input_text": "Cough",
-        "cui": "C0010200",
-        "sctid": "263731006",
-        "snomed_name": "Coughing"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Gastroesophageal reflux disease, unspecified whether esophagitis present",
-        "cui": "C0017168",
-        "sctid": "235595009",
-        "snomed_name": "Gastroesophageal reflux disease"
-      },
-      {
-        "input_text": "Mild anemia",
-        "cui": "C1858586",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Hyperlipidemia, unspecified hyperlipidemia type",
-        "cui": "C0020473",
-        "sctid": "154739000",
-        "snomed_name": "Hyperlipidemia"
-      },
-      {
-        "input_text": "Insomnia, unspecified type",
-        "cui": "C2911123",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Depression, unspecified depression type",
-        "cui": "C0865315",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Right-sided chest wall pain",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Mixed hyperlipidemia",
-        "cui": "C2047520",
-        "sctid": "267434003",
-        "snomed_name": "Mixed hyperlipidemia (disorder)"
-      }
-    ]
-  },
-  {
-    "patient_message": "Hi, \n\nI have always worried this would happen to me and something odd happened this week. Whenever I get ready to go to bed I have always used the bathrom. But these past few weeks, I feel like I can just keep going back and back again at night and a little bit of urine will still come out. I tried not drinking any water for hours before bed yesterday and it didnt change a dang thing. Its affecting my sleep so I'd really like to chat about what we can do about this. \n\nThanks,",
-    "demographics": {
-      "age": "Between 60 - 65",
-      "gender": "Female"
-    },
-    "problem_list": [
-      "Cough, persistent",
-      "Health care maintenance",
-      "Hypertension",
-      "Age-related nuclear cataract, bilateral",
-      "Knee effusion, left",
-      "Allergic rhinitis",
-      "Depression",
-      "Cough variant asthma",
-      "Vitreous floaters",
-      "Presbyopia"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Pelvic floor dysfunction",
-        "Mixed stress and urge urinary incontinence",
-        "Viral syndrome",
-        "Type 2 diabetes mellitus with hypoglycemia without coma, with long-term current use of insulin",
-        "Hot flashes due to menopause",
-        "Depression with anxiety",
-        "Depression, unspecified depression type",
-        "Type 2 diabetes mellitus without complication, with long-term current use of insulin",
-        "Fatigue, unspecified type",
-        "Disorder of muscle, ligament, and fascia"
+      "id": "INBOX_A-00000-of-00001-18",
+      "problem_list_snomed": [
+        {
+          "input_text": "Recurrent major depressive episodes",
+          "cui": "C0154409",
+          "sctid": "268621008",
+          "snomed_name": "Recurrent major depressive episodes"
+        },
+        {
+          "input_text": "Fibromyalgia",
+          "cui": "C0016053",
+          "sctid": "1304004",
+          "snomed_name": "Fibromyalgia"
+        },
+        {
+          "input_text": "Migraine without aura",
+          "cui": "C0154723",
+          "sctid": "155047002",
+          "snomed_name": "Migraine with aura"
+        },
+        {
+          "input_text": "Primary localized osteoarthritis of pelvic region and thigh",
+          "cui": "C0473748",
+          "sctid": "201835007",
+          "snomed_name": "Localized, primary osteoarthritis of the pelvic region and thigh"
+        },
+        {
+          "input_text": "Ventricular premature beats",
+          "cui": "C0151636",
+          "sctid": "17338001",
+          "snomed_name": "Ventricular premature contractions"
+        },
+        {
+          "input_text": "Familial hypercholesterolemia",
+          "cui": "C0020445",
+          "sctid": "190772003",
+          "snomed_name": "Familial hypercholesterolemia"
+        },
+        {
+          "input_text": "Right-sided low back pain without sciatica",
+          "cui": "C2895422",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Right low back pain",
+          "cui": "C2219286",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Senile hyperkeratosis",
+          "cui": "C4282032",
+          "sctid": "398838000",
+          "snomed_name": "Senile hyperkeratosis"
+        },
+        {
+          "input_text": "Status post ablation of atrial fibrillation",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Obesity (BMI 30-39.9)",
+          "cui": "C0028754",
+          "sctid": "5476005",
+          "snomed_name": "Obesity"
+        },
+        {
+          "input_text": "Major depressive disorder, single episode, in remission",
+          "cui": "C2062771",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Meralgia paraesthetica, right",
+          "cui": "C1835026",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Other specified hypothyroidism",
+          "cui": "C0494273",
+          "sctid": "191038007",
+          "snomed_name": "[X]Other specified hypothyroidism"
+        },
+        {
+          "input_text": "Status post reduction mammoplasty",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Anxiety",
+          "cui": "C0003467",
+          "sctid": "38237000",
+          "snomed_name": "Anxiety"
+        },
+        {
+          "input_text": "Acquired scoliosis",
+          "cui": "C0700208",
+          "sctid": "268138008",
+          "snomed_name": "Acquired scoliosis"
+        },
+        {
+          "input_text": "Left groin pain",
+          "cui": "C2032191",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Lumbar radiculopathy",
+          "cui": "C1263855",
+          "sctid": "128196005",
+          "snomed_name": "Lumbar radiculopathy"
+        },
+        {
+          "input_text": "Hyperlipidemia",
+          "cui": "C0020473",
+          "sctid": "154739000",
+          "snomed_name": "Hyperlipidemia"
+        },
+        {
+          "input_text": "MDD (major depressive disorder)",
+          "cui": "C1737769",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Hallux valgus",
+          "cui": "C0018536",
+          "sctid": "156853006",
+          "snomed_name": "Hallux valgus"
+        },
+        {
+          "input_text": "Medication overuse headache",
+          "cui": "C2349423",
+          "sctid": "698803006",
+          "snomed_name": "Medication overuse headache"
+        }
       ],
-      "older": []
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Right-sided low back pain without sciatica, unspecified chronicity",
+          "cui": "C2895422",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Trochanteric bursitis of right hip",
+          "cui": "C2896168",
+          "sctid": "323031000119100",
+          "snomed_name": "Trochanteric bursitis of right hip"
+        },
+        {
+          "input_text": "Severe episode of recurrent major depressive disorder, without psychotic features",
+          "cui": "C4237170",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "PTSD (post-traumatic stress disorder)",
+          "cui": "C0038436",
+          "sctid": "192415000",
+          "snomed_name": "Post-traumatic stress disorder"
+        },
+        {
+          "input_text": "Chronic pain syndrome",
+          "cui": "C1298685",
+          "sctid": "373621006",
+          "snomed_name": "Chronic pain syndrome"
+        },
+        {
+          "input_text": "Low back pain, non-specific",
+          "cui": "C0024031",
+          "sctid": "202793005",
+          "snomed_name": "Low back pain"
+        },
+        {
+          "input_text": "Hypothyroidism, unspecified type",
+          "cui": "C0020676",
+          "sctid": "267465007",
+          "snomed_name": "Hypothyroidism"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-18-M1",
+          "sent_at": "2025-07-30T14:10:44",
+          "text": "So yesterday morning I noticed a pain in my pubic area. It is more prominent when I i have to pass gas and it goes through the system, passing a stool, or waiting to pass it, or going pee. The pain is hard to describe but its starting to cause me anxiety. Wondering if I can get this checked out?",
+          "expected": {
+            "triage": "ROUTINE",
+            "level": 4,
+            "relevancy": 3
+          }
+        }
+      ]
     },
-    "medications": [
-      "MONTELUKAST 10 MG TABLET",
-      "INSULIN ASPART U-100  100 UNIT/ML SUBCUTANEOUS SOLUTION",
-      "LISINOPRIL 5 MG TABLET",
-      "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
-      "DEXCOM G6 SENSOR DEVICE",
-      "LANTUS SOLOSTAR U-100 INSULIN 100 UNIT/ML (3 ML) SUBCUTANEOUS PEN",
-      "DEXCOM G6 TRANSMITTER DEVICE",
-      "ESTRADIOL 1.25 GRAM/ACTUATION (0.06%) TRANSDERMAL GEL PUMP",
-      "VENLAFAXINE ER 150 MG CAPSULE,EXTENDED RELEASE 24 HR",
-      "DEXCOM G6 RECEIVER MISC",
-      "VENLAFAXINE ER 75 MG CAPSULE,EXTENDED RELEASE 24 HR"
-    ],
-    "level": 3,
-    "relevancy": 5,
-    "id": "INBOX_A-00000-of-00001-20",
-    "problem_list_snomed": [
-      {
-        "input_text": "Cough, persistent",
-        "cui": "C0562483",
-        "sctid": "161931009",
-        "snomed_name": "Persistent cough"
+    {
+      "demographics": {
+        "age": "Between 45 - 50",
+        "gender": "Female"
       },
-      {
-        "input_text": "Health care maintenance",
-        "cui": "C0262500",
-        "sctid": null,
-        "snomed_name": null
+      "problem_list": [
+        "History of colitis",
+        "Iron deficiency anemia",
+        "Chronic ulcerative proctitis",
+        "Tachycardia",
+        "Diarrhea",
+        "Type 2 diabetes mellitus without complication",
+        "SOB (shortness of breath)",
+        "DUB (dysfunctional uterine bleeding)",
+        "Depression",
+        "Cystic acne",
+        "Diabetes mellitus",
+        "Obesity",
+        "Sepsis",
+        "Migraine headache",
+        "Hyperlipidemia",
+        "History of gastric bypass",
+        "Sarcoidosis",
+        "Peptic ulcer",
+        "Insomnia",
+        "Gastroesophageal reflux disease",
+        "Moderate major depression",
+        "Dyspepsia",
+        "Crohn's disease",
+        "Anemia",
+        "Cough"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Gastroesophageal reflux disease, unspecified whether esophagitis present",
+          "Mild anemia",
+          "Hyperlipidemia, unspecified hyperlipidemia type",
+          "Insomnia, unspecified type",
+          "Depression, unspecified depression type",
+          "Right-sided chest wall pain",
+          "Mixed hyperlipidemia"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Hypertension",
-        "cui": "C0020538",
-        "sctid": "38341003",
-        "snomed_name": "Hypertensive disease"
+      "medications": [
+        "PREDNISONE 20 MG TABLET",
+        "CHOLECALCIFEROL (VITAMIN D3) 25 MCG (1,000 UNIT) TABLET",
+        "AMITRIPTYLINE 75 MG TABLET",
+        "FLUOXETINE 40 MG CAPSULE",
+        "AMITRIPTYLINE 50 MG TABLET",
+        "FERROUS SULFATE 325 MG (65 MG IRON) TABLET",
+        "FREESTYLE LIBRE 2 SENSOR KIT",
+        "AMOXICILLIN 875 MG-POTASSIUM CLAVULANATE 125 MG TABLET",
+        "OZEMPIC 1 MG/DOSE (4 MG/3 ML) SUBCUTANEOUS PEN INJECTOR",
+        "PANTOPRAZOLE 40 MG TABLET,DELAYED RELEASE"
+      ],
+      "id": "INBOX_A-00000-of-00001-19",
+      "problem_list_snomed": [
+        {
+          "input_text": "History of colitis",
+          "cui": "C4040547",
+          "sctid": "1099621000119102",
+          "snomed_name": "History of ischemic colitis"
+        },
+        {
+          "input_text": "Iron deficiency anemia",
+          "cui": "C0162316",
+          "sctid": "267553005",
+          "snomed_name": "Iron deficiency anemia"
+        },
+        {
+          "input_text": "Chronic ulcerative proctitis",
+          "cui": "C2937222",
+          "sctid": "52231000",
+          "snomed_name": "Chronic ulcerative proctitis"
+        },
+        {
+          "input_text": "Tachycardia",
+          "cui": "C0039231",
+          "sctid": "6285003",
+          "snomed_name": "Tachycardia"
+        },
+        {
+          "input_text": "Diarrhea",
+          "cui": "C0011991",
+          "sctid": "162103003",
+          "snomed_name": "Diarrhea"
+        },
+        {
+          "input_text": "Type 2 diabetes mellitus without complication",
+          "cui": "C0837053",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "SOB (shortness of breath)",
+          "cui": "C0013404",
+          "sctid": "49233005",
+          "snomed_name": "Dyspnea"
+        },
+        {
+          "input_text": "DUB (dysfunctional uterine bleeding)",
+          "cui": "C0025874",
+          "sctid": "198423008",
+          "snomed_name": "Metrorrhagia"
+        },
+        {
+          "input_text": "Depression",
+          "cui": "C0011570",
+          "sctid": "41006004",
+          "snomed_name": "Depression"
+        },
+        {
+          "input_text": "Cystic acne",
+          "cui": "C0010666",
+          "sctid": "13277001",
+          "snomed_name": "Cystic acne"
+        },
+        {
+          "input_text": "Diabetes mellitus",
+          "cui": "C0011849",
+          "sctid": "267467004",
+          "snomed_name": "Diabetes mellitus"
+        },
+        {
+          "input_text": "Obesity",
+          "cui": "C0028754",
+          "sctid": "5476005",
+          "snomed_name": "Obesity"
+        },
+        {
+          "input_text": "Sepsis",
+          "cui": "C0243026",
+          "sctid": "186392004",
+          "snomed_name": "Sepsis"
+        },
+        {
+          "input_text": "Migraine headache",
+          "cui": "C0149931",
+          "sctid": "155046006",
+          "snomed_name": "Migraine (disorder)"
+        },
+        {
+          "input_text": "Hyperlipidemia",
+          "cui": "C0020473",
+          "sctid": "154739000",
+          "snomed_name": "Hyperlipidemia"
+        },
+        {
+          "input_text": "History of gastric bypass",
+          "cui": "C5937019",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Sarcoidosis",
+          "cui": "C0036202",
+          "sctid": "154425004",
+          "snomed_name": "Sarcoidosis"
+        },
+        {
+          "input_text": "Peptic ulcer",
+          "cui": "C0030920",
+          "sctid": "155701001",
+          "snomed_name": "Peptic ulcer"
+        },
+        {
+          "input_text": "Insomnia",
+          "cui": "C1950154",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Gastroesophageal reflux disease",
+          "cui": "C0017168",
+          "sctid": "235595009",
+          "snomed_name": "Gastroesophageal reflux disease"
+        },
+        {
+          "input_text": "Moderate major depression",
+          "cui": "C0270456",
+          "sctid": "832007",
+          "snomed_name": "Moderate major depression"
+        },
+        {
+          "input_text": "Dyspepsia",
+          "cui": "C0013395",
+          "sctid": "266505001",
+          "snomed_name": "Dyspepsia"
+        },
+        {
+          "input_text": "Crohn's disease",
+          "cui": "C0010346",
+          "sctid": "155760003",
+          "snomed_name": "Crohn's disease"
+        },
+        {
+          "input_text": "Anemia",
+          "cui": "C0002871",
+          "sctid": "64593003",
+          "snomed_name": "Anemia"
+        },
+        {
+          "input_text": "Cough",
+          "cui": "C0010200",
+          "sctid": "263731006",
+          "snomed_name": "Coughing"
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Gastroesophageal reflux disease, unspecified whether esophagitis present",
+          "cui": "C0017168",
+          "sctid": "235595009",
+          "snomed_name": "Gastroesophageal reflux disease"
+        },
+        {
+          "input_text": "Mild anemia",
+          "cui": "C1858586",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Hyperlipidemia, unspecified hyperlipidemia type",
+          "cui": "C0020473",
+          "sctid": "154739000",
+          "snomed_name": "Hyperlipidemia"
+        },
+        {
+          "input_text": "Insomnia, unspecified type",
+          "cui": "C2911123",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Depression, unspecified depression type",
+          "cui": "C0865315",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Right-sided chest wall pain",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Mixed hyperlipidemia",
+          "cui": "C2047520",
+          "sctid": "267434003",
+          "snomed_name": "Mixed hyperlipidemia (disorder)"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-19-M1",
+          "sent_at": "2025-03-18T01:13:34",
+          "text": "Weird thing happening to me. I get these sudden hot flashes like, my body gets super sweaty and my heart starts racing. I have NEVER had this happen before and its really freaking me out. The first time it happened I thought \"Do I have a fever?\" but nope, no fever. ANd they dont stay too long and I get very cold after. The last time it happened I tried to take some tylenol right away but that did not seem to set-in in time. Anyway, would really like to come in this week. Please let me know your availability as I cannot continue to live like this.",
+          "expected": {
+            "triage": "ROUTINE",
+            "level": 4,
+            "relevancy": 3
+          }
+        }
+      ]
+    },
+    {
+      "demographics": {
+        "age": "Between 60 - 65",
+        "gender": "Female"
       },
-      {
-        "input_text": "Age-related nuclear cataract, bilateral",
-        "cui": "C2880586",
-        "sctid": "678601000119100",
-        "snomed_name": "Bilateral age-related nuclear cataracts"
+      "problem_list": [
+        "Cough, persistent",
+        "Health care maintenance",
+        "Hypertension",
+        "Age-related nuclear cataract, bilateral",
+        "Knee effusion, left",
+        "Allergic rhinitis",
+        "Depression",
+        "Cough variant asthma",
+        "Vitreous floaters",
+        "Presbyopia"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Pelvic floor dysfunction",
+          "Mixed stress and urge urinary incontinence",
+          "Viral syndrome",
+          "Type 2 diabetes mellitus with hypoglycemia without coma, with long-term current use of insulin",
+          "Hot flashes due to menopause",
+          "Depression with anxiety",
+          "Depression, unspecified depression type",
+          "Type 2 diabetes mellitus without complication, with long-term current use of insulin",
+          "Fatigue, unspecified type",
+          "Disorder of muscle, ligament, and fascia"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Knee effusion, left",
-        "cui": "C2176252",
-        "sctid": "306891000119105",
-        "snomed_name": "Effusion of joint of left knee"
-      },
-      {
-        "input_text": "Allergic rhinitis",
-        "cui": "C2607914",
-        "sctid": "61582004",
-        "snomed_name": "Allergic rhinitis (disorder)"
-      },
-      {
-        "input_text": "Depression",
-        "cui": "C0011570",
-        "sctid": "41006004",
-        "snomed_name": "Depression"
-      },
-      {
-        "input_text": "Cough variant asthma",
-        "cui": "C0694548",
-        "sctid": "409663006",
-        "snomed_name": "Cough variant asthma"
-      },
-      {
-        "input_text": "Vitreous floaters",
-        "cui": "C0016242",
-        "sctid": "155202007",
-        "snomed_name": "Vitreous floaters"
-      },
-      {
-        "input_text": "Presbyopia",
-        "cui": "C0033075",
-        "sctid": "155135005",
-        "snomed_name": "Presbyopia"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Pelvic floor dysfunction",
-        "cui": "C4041537",
-        "sctid": "711263002",
-        "snomed_name": "Pelvic floor dysfunction"
-      },
-      {
-        "input_text": "Mixed stress and urge urinary incontinence",
-        "cui": "C4698894",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Viral syndrome",
-        "cui": "C0042740",
-        "sctid": "445939008",
-        "snomed_name": "Viral syndrome"
-      },
-      {
-        "input_text": "Type 2 diabetes mellitus with hypoglycemia without coma, with long-term current use of insulin",
-        "cui": "C2874121",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Hot flashes due to menopause",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Depression with anxiety",
-        "cui": "C0338908",
-        "sctid": "154964007",
-        "snomed_name": "Mixed anxiety and depressive disorder"
-      },
-      {
-        "input_text": "Depression, unspecified depression type",
-        "cui": "C0865315",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Type 2 diabetes mellitus without complication, with long-term current use of insulin",
-        "cui": "C0837053",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Fatigue, unspecified type",
-        "cui": "C0015672",
-        "sctid": "139126000",
-        "snomed_name": "Fatigue"
-      },
-      {
-        "input_text": "Disorder of muscle, ligament, and fascia",
-        "cui": "C0158352",
-        "sctid": "203007002",
-        "snomed_name": "Muscle, ligament and fascia disorders"
-      }
-    ]
-  }
-]
+      "medications": [
+        "MONTELUKAST 10 MG TABLET",
+        "INSULIN ASPART U-100  100 UNIT/ML SUBCUTANEOUS SOLUTION",
+        "LISINOPRIL 5 MG TABLET",
+        "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
+        "DEXCOM G6 SENSOR DEVICE",
+        "LANTUS SOLOSTAR U-100 INSULIN 100 UNIT/ML (3 ML) SUBCUTANEOUS PEN",
+        "DEXCOM G6 TRANSMITTER DEVICE",
+        "ESTRADIOL 1.25 GRAM/ACTUATION (0.06%) TRANSDERMAL GEL PUMP",
+        "VENLAFAXINE ER 150 MG CAPSULE,EXTENDED RELEASE 24 HR",
+        "DEXCOM G6 RECEIVER MISC",
+        "VENLAFAXINE ER 75 MG CAPSULE,EXTENDED RELEASE 24 HR"
+      ],
+      "id": "INBOX_A-00000-of-00001-20",
+      "problem_list_snomed": [
+        {
+          "input_text": "Cough, persistent",
+          "cui": "C0562483",
+          "sctid": "161931009",
+          "snomed_name": "Persistent cough"
+        },
+        {
+          "input_text": "Health care maintenance",
+          "cui": "C0262500",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Hypertension",
+          "cui": "C0020538",
+          "sctid": "38341003",
+          "snomed_name": "Hypertensive disease"
+        },
+        {
+          "input_text": "Age-related nuclear cataract, bilateral",
+          "cui": "C2880586",
+          "sctid": "678601000119100",
+          "snomed_name": "Bilateral age-related nuclear cataracts"
+        },
+        {
+          "input_text": "Knee effusion, left",
+          "cui": "C2176252",
+          "sctid": "306891000119105",
+          "snomed_name": "Effusion of joint of left knee"
+        },
+        {
+          "input_text": "Allergic rhinitis",
+          "cui": "C2607914",
+          "sctid": "61582004",
+          "snomed_name": "Allergic rhinitis (disorder)"
+        },
+        {
+          "input_text": "Depression",
+          "cui": "C0011570",
+          "sctid": "41006004",
+          "snomed_name": "Depression"
+        },
+        {
+          "input_text": "Cough variant asthma",
+          "cui": "C0694548",
+          "sctid": "409663006",
+          "snomed_name": "Cough variant asthma"
+        },
+        {
+          "input_text": "Vitreous floaters",
+          "cui": "C0016242",
+          "sctid": "155202007",
+          "snomed_name": "Vitreous floaters"
+        },
+        {
+          "input_text": "Presbyopia",
+          "cui": "C0033075",
+          "sctid": "155135005",
+          "snomed_name": "Presbyopia"
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Pelvic floor dysfunction",
+          "cui": "C4041537",
+          "sctid": "711263002",
+          "snomed_name": "Pelvic floor dysfunction"
+        },
+        {
+          "input_text": "Mixed stress and urge urinary incontinence",
+          "cui": "C4698894",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Viral syndrome",
+          "cui": "C0042740",
+          "sctid": "445939008",
+          "snomed_name": "Viral syndrome"
+        },
+        {
+          "input_text": "Type 2 diabetes mellitus with hypoglycemia without coma, with long-term current use of insulin",
+          "cui": "C2874121",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Hot flashes due to menopause",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Depression with anxiety",
+          "cui": "C0338908",
+          "sctid": "154964007",
+          "snomed_name": "Mixed anxiety and depressive disorder"
+        },
+        {
+          "input_text": "Depression, unspecified depression type",
+          "cui": "C0865315",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Type 2 diabetes mellitus without complication, with long-term current use of insulin",
+          "cui": "C0837053",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Fatigue, unspecified type",
+          "cui": "C0015672",
+          "sctid": "139126000",
+          "snomed_name": "Fatigue"
+        },
+        {
+          "input_text": "Disorder of muscle, ligament, and fascia",
+          "cui": "C0158352",
+          "sctid": "203007002",
+          "snomed_name": "Muscle, ligament and fascia disorders"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-20-M1",
+          "sent_at": "2025-12-28T09:17:00",
+          "text": "Hi, \n\nI have always worried this would happen to me and something odd happened this week. Whenever I get ready to go to bed I have always used the bathrom. But these past few weeks, I feel like I can just keep going back and back again at night and a little bit of urine will still come out. I tried not drinking any water for hours before bed yesterday and it didnt change a dang thing. Its affecting my sleep so I'd really like to chat about what we can do about this. \n\nThanks,",
+          "expected": {
+            "triage": "SELF_CARE",
+            "level": 3,
+            "relevancy": 5
+          }
+        }
+      ]
+    }
+  ]
+}

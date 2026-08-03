@@ -32,6 +32,7 @@
   ],
   "patients": [
     {
+      "patient_message": "Doctor, \n\nI hope all is well with you and your family. I am messaging you as I took my temperature after feeilng a bit warm and coughing a bit this morning and found it to be 100.9. I thought you should know this. I think I am okay but I am home alone this weekend so I needed to make sure you knew. Thank you.",
       "demographics": {
         "age": "Between 75 - 80",
         "gender": "Female"
@@ -77,6 +78,8 @@
         "CELECOXIB 200 MG CAPSULE",
         "HYDROCHLOROTHIAZIDE 25 MG TABLET"
       ],
+      "level": 2,
+      "relevancy": 7,
       "id": "INBOX_A-00000-of-00001-00",
       "problem_list_snomed": [
         {
@@ -244,20 +247,24 @@
           "snomed_name": "Metastatic malignant neoplasm to lateral wall of urinary bladder"
         }
       ],
-      "messages": [
+      "ckm_stage": 2,
+      "ckm_reasons": [
         {
-          "message_id": "INBOX_A-00000-of-00001-00-M1",
-          "sent_at": "2025-07-16T17:13:47",
-          "text": "Doctor, \n\nI hope all is well with you and your family. I am messaging you as I took my temperature after feeilng a bit warm and coughing a bit this morning and found it to be 100.9. I thought you should know this. I think I am okay but I am home alone this weekend so I needed to make sure you knew. Thank you.",
-          "expected": {
-            "triage": "URGENT",
-            "level": 2,
-            "relevancy": 7
-          }
+          "table": "STAGE_2_METABOLIC_CKD",
+          "sctid": "194757006",
+          "matched_parent": "59621000",
+          "snomed_name": "Essential hypertension"
+        },
+        {
+          "table": "STAGE_2_METABOLIC_CKD",
+          "sctid": "38341003",
+          "matched_parent": "38341003",
+          "snomed_name": "Hypertensive disease"
         }
       ]
     },
     {
+      "patient_message": "Hi,\n\nI am scared. I have been bleeding very heavily (like soaking through 1 maxi pad per 30 minutes consistently)! I don't know if this is normal or if I should seek immediate medical attention or if it could be a cyst bursting? I have also been cramping TERRIBLY. Please let me know what next steps should be. I tried calling and didn't hear back and I live sort of far from an urgent care.",
       "demographics": {
         "age": "Between 25 - 30",
         "gender": "Female"
@@ -297,6 +304,8 @@
         "EPINEPHRINE 0.3 MG/0.3 ML INJECTION, AUTO-INJECTOR",
         "FLOVENT HFA 220 MCG/ACTUATION AEROSOL INHALER"
       ],
+      "level": 1,
+      "relevancy": 10,
       "id": "INBOX_A-00000-of-00001-01",
       "problem_list_snomed": [
         {
@@ -422,20 +431,11 @@
           "snomed_name": "Abnormal uterine bleeding"
         }
       ],
-      "messages": [
-        {
-          "message_id": "INBOX_A-00000-of-00001-01-M1",
-          "sent_at": "2025-03-24T02:37:58",
-          "text": "Hi,\n\nI am scared. I have been bleeding very heavily (like soaking through 1 maxi pad per 30 minutes consistently)! I don't know if this is normal or if I should seek immediate medical attention or if it could be a cyst bursting? I have also been cramping TERRIBLY. Please let me know what next steps should be. I tried calling and didn't hear back and I live sort of far from an urgent care.",
-          "expected": {
-            "triage": "EMERGENT",
-            "level": 1,
-            "relevancy": 10
-          }
-        }
-      ]
+      "ckm_stage": 0,
+      "ckm_reasons": []
     },
     {
+      "patient_message": "Hi Doctor M, \n\nI have been delyaing sending this message but recently my periods have gotten much more painful. I have a pretty high pain tolerance, but my cramps will have me in tears. This feels abnormal + the blood is very thick and dark. I'd really like to come in and chat about this in person. Please let me know your availability. Also, my phone is currently not working so please message me here if possible.",
       "demographics": {
         "age": "Between 25 - 30",
         "gender": "Female"
@@ -465,6 +465,8 @@
         "BUPROPION HCL SR 100 MG TABLET,12 HR SUSTAINED-RELEASE",
         "NALTREXONE 8 MG-BUPROPION 90 MG TABLET,EXTENDED RELEASE"
       ],
+      "level": 4,
+      "relevancy": 3,
       "id": "INBOX_A-00000-of-00001-02",
       "problem_list_snomed": [
         {
@@ -536,16 +538,13 @@
           "snomed_name": "Vitamin D deficiency"
         }
       ],
-      "messages": [
+      "ckm_stage": 1,
+      "ckm_reasons": [
         {
-          "message_id": "INBOX_A-00000-of-00001-02-M1",
-          "sent_at": "2025-12-22T13:57:53",
-          "text": "Hi Doctor M, \n\nI have been delyaing sending this message but recently my periods have gotten much more painful. I have a pretty high pain tolerance, but my cramps will have me in tears. This feels abnormal + the blood is very thick and dark. I'd really like to come in and chat about this in person. Please let me know your availability. Also, my phone is currently not working so please message me here if possible.",
-          "expected": {
-            "triage": "ROUTINE",
-            "level": 4,
-            "relevancy": 3
-          }
+          "table": "STAGE_1_ADIPOSITY",
+          "sctid": "389986000",
+          "matched_parent": "414916001",
+          "snomed_name": "Morbid obesity"
         }
       ]
     }

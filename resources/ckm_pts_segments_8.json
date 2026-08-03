@@ -1,623 +1,683 @@
-[
-  {
-    "patient_message": "Hi Dr.,\n\nThis past week I have noticed I am peeing a lot more. Like, maybe I used to pee three or four times a day, but now I pee that much every hour. And every time I pee, I feel like a lot comes out, its not just a little dribble. I have been drinking water but I feel like that cant be it, I am not drinking much more than usual. Any thoughts as to what could be going on? Am I okay?",
-    "demographics": {
-      "age": "Between 75 - 80",
-      "gender": "Female"
+{
+  "schema_version": "1.0",
+  "corpus_id": "ckm_ambiguity_probe_v1",
+  "notice": "SYNTHETIC DATA. All patients, encounters, laboratory values, and messages are fabricated for model evaluation. No real patient data. Not for clinical use.",
+  "description": "Simulated cardiovascular-kidney-metabolic (CKM) patients with structured EHR context and ambiguous patient-portal messages. Each message carries an expected triage label for automated scoring. Several messages are near-duplicates in free text but differ in expected triage because the structured EHR data disambiguates them - these are flagged with requires_ehr=true and are the core probe items.",
+  "triage_levels": [
+    {
+      "code": "EMERGENT",
+      "rank": 3,
+      "definition": "Patient has life-threatening issue that needs immediate attention."
     },
-    "problem_list": [
-      "Collagenous colitis",
-      "Closed fracture of orbital floor with routine healing",
-      "Fracture of clavicle, right, closed",
-      "Pain in left shoulder",
-      "Pulmonary nodule",
-      "Abnormal transaminases",
-      "Alcohol use disorder, severe, in sustained remission",
-      "Presence of right artificial knee joint",
-      "Multiple traumatic injuries",
-      "Fatigue",
-      "Bronchitis",
-      "Oral lichen planus",
-      "Lichen planus",
-      "Total knee replacement status, right",
-      "Elevated BP without diagnosis of hypertension",
-      "Osteoporosis without current pathological fracture",
-      "Insomnia",
-      "Cystocele",
-      "Upper extremity pain"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Diarrhea, unspecified type",
-        "Alcohol use disorder, severe, in early remission",
-        "Moderate episode of recurrent major depressive disorder",
-        "Uncomplicated alcohol dependence",
-        "SDH (subdural hematoma)",
-        "Pain of right upper extremity",
-        "Closed fracture of proximal end of right humerus with routine healing, unspecified fracture morphology, subsequent encounter",
-        "GAD (generalized anxiety disorder)",
-        "Medication management"
+    {
+      "code": "URGENT",
+      "rank": 2,
+      "definition": "Patient has non life-threatening issue that would benefit from same-day treatment (e.g. urgent care)."
+    },
+    {
+      "code": "ROUTINE",
+      "rank": 1,
+      "definition": "Patient should see their doctor sometime in the near future (could be more than 3 days), or patient should make an appointment with a doctor soon (1-3 days)."
+    },
+    {
+      "code": "SELF_CARE",
+      "rank": 0,
+      "definition": "Patient presents something that is a non-issue and no further steps are needed, or patient has symptoms that can be treated at home, and would benefit from a message instructing them on what to do"
+    }
+  ],
+  "ambiguity_levels": [
+    "low",
+    "moderate",
+    "high"
+  ],
+  "patients": [
+    {
+      "demographics": {
+        "age": "Between 75 - 80",
+        "gender": "Female"
+      },
+      "problem_list": [
+        "Collagenous colitis",
+        "Closed fracture of orbital floor with routine healing",
+        "Fracture of clavicle, right, closed",
+        "Pain in left shoulder",
+        "Pulmonary nodule",
+        "Abnormal transaminases",
+        "Alcohol use disorder, severe, in sustained remission",
+        "Presence of right artificial knee joint",
+        "Multiple traumatic injuries",
+        "Fatigue",
+        "Bronchitis",
+        "Oral lichen planus",
+        "Lichen planus",
+        "Total knee replacement status, right",
+        "Elevated BP without diagnosis of hypertension",
+        "Osteoporosis without current pathological fracture",
+        "Insomnia",
+        "Cystocele",
+        "Upper extremity pain"
       ],
-      "older": []
-    },
-    "medications": [
-      "CHLORHEXIDINE GLUCONATE 0.12 % MOUTHWASH",
-      "CITALOPRAM 10 MG TABLET",
-      "CHOLECALCIFEROL (VITAMIN D3) 10 MCG (400 UNIT) TABLET",
-      "GABAPENTIN 100 MG CAPSULE",
-      "MELATONIN 3 MG TABLET",
-      "CITALOPRAM 20 MG TABLET",
-      "CLOBETASOL 0.05 % TOPICAL OINTMENT",
-      "ACIDOPHILUS-PECTIN, CITRUS 100 MILLION CELL-10 MG CAPSULE",
-      "BUDESONIDE DR - ER 3 MG CAPSULE,DELAYED,EXTENDED RELEASE",
-      "LEVOTHYROXINE 88 MCG TABLET",
-      "METHOCARBAMOL 500 MG TABLET",
-      "TRAMADOL 50 MG TABLET"
-    ],
-    "level": 2,
-    "relevancy": 7,
-    "id": "INBOX_A-00000-of-00001-21",
-    "problem_list_snomed": [
-      {
-        "input_text": "Collagenous colitis",
-        "cui": "C0238067",
-        "sctid": "19311003",
-        "snomed_name": "Collagenous colitis"
+      "diagnoses": {
+        "past_year": [
+          "Diarrhea, unspecified type",
+          "Alcohol use disorder, severe, in early remission",
+          "Moderate episode of recurrent major depressive disorder",
+          "Uncomplicated alcohol dependence",
+          "SDH (subdural hematoma)",
+          "Pain of right upper extremity",
+          "Closed fracture of proximal end of right humerus with routine healing, unspecified fracture morphology, subsequent encounter",
+          "GAD (generalized anxiety disorder)",
+          "Medication management"
+        ],
+        "older": []
       },
-      {
-        "input_text": "Closed fracture of orbital floor with routine healing",
-        "cui": "C0747052",
-        "sctid": "11303761000119101",
-        "snomed_name": "Closed fracture of orbital floor"
-      },
-      {
-        "input_text": "Fracture of clavicle, right, closed",
-        "cui": "C2076425",
-        "sctid": "10741801000119106",
-        "snomed_name": "Closed fracture of right clavicle"
-      },
-      {
-        "input_text": "Pain in left shoulder",
-        "cui": "C5700073",
-        "sctid": "1260145003",
-        "snomed_name": "Pain of left shoulder region"
-      },
-      {
-        "input_text": "Pulmonary nodule",
-        "cui": "C0034079",
-        "sctid": "786838002",
-        "snomed_name": "Nodule of lung"
-      },
-      {
-        "input_text": "Abnormal transaminases",
-        "cui": "C1328397",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Alcohol use disorder, severe, in sustained remission",
-        "cui": "C4509037",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Presence of right artificial knee joint",
-        "cui": "C2911535",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Multiple traumatic injuries",
-        "cui": "C0026771",
-        "sctid": "262519004",
-        "snomed_name": "Multiple trauma"
-      },
-      {
-        "input_text": "Fatigue",
-        "cui": "C0015672",
-        "sctid": "139126000",
-        "snomed_name": "Fatigue"
-      },
-      {
-        "input_text": "Bronchitis",
-        "cui": "C0006277",
-        "sctid": "32398004",
-        "snomed_name": "Bronchitis"
-      },
-      {
-        "input_text": "Oral lichen planus",
-        "cui": "C0206139",
-        "sctid": "235049008",
-        "snomed_name": "Oral lichen planus"
-      },
-      {
-        "input_text": "Lichen planus",
-        "cui": "C0023646",
-        "sctid": "156377007",
-        "snomed_name": "Lichen planus"
-      },
-      {
-        "input_text": "Total knee replacement status, right",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Elevated BP without diagnosis of hypertension",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Osteoporosis without current pathological fracture",
-        "cui": "C2896472",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Insomnia",
-        "cui": "C1950154",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Cystocele",
-        "cui": "C0010695",
-        "sctid": "266657007",
-        "snomed_name": "Cystocele"
-      },
-      {
-        "input_text": "Upper extremity pain",
-        "cui": "C0239377",
-        "sctid": "102556003",
-        "snomed_name": "Arm pain"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Diarrhea, unspecified type",
-        "cui": "C0011991",
-        "sctid": "162103003",
-        "snomed_name": "Diarrhea"
-      },
-      {
-        "input_text": "Alcohol use disorder, severe, in early remission",
-        "cui": "C4509036",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Moderate episode of recurrent major depressive disorder",
-        "cui": "C0338890",
-        "sctid": "191611001",
-        "snomed_name": "Recurrent major depressive episodes, moderate"
-      },
-      {
-        "input_text": "Uncomplicated alcohol dependence",
-        "cui": "C2874383",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "SDH (subdural hematoma)",
-        "cui": "C0018946",
-        "sctid": "155393009",
-        "snomed_name": "Subdural hematoma"
-      },
-      {
-        "input_text": "Pain of right upper extremity",
-        "cui": "C4718731",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Closed fracture of proximal end of right humerus with routine healing, unspecified fracture morphology, subsequent encounter",
-        "cui": "C2103775",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "GAD (generalized anxiety disorder)",
-        "cui": "C0270549",
-        "sctid": "192401002",
-        "snomed_name": "Generalized anxiety disorder"
-      },
-      {
-        "input_text": "Medication management",
-        "cui": "C0150270",
-        "sctid": "182832007",
-        "snomed_name": "Medication management"
-      }
-    ]
-  },
-  {
-    "patient_message": "Hi Doctor, \n\nAs you know, I have been getting menstural cramps for years now, but lately they have gotten worse. I used to tolerate them okay but the cramps are so bad that I can barely move at all, and they're getting worse every month. The only thing that works is heating pads. But even then it's not helping much. So yeah it's gotten to the point that I really wanted to schedule something with you to talk about this. I don't known if I need a stronger NSAID or if there is a new type of medication that can help or if there is something WRONG WITH ME but I really want to try something. \n\nThanks",
-    "demographics": {
-      "age": "Between 25 - 30",
-      "gender": "Female"
-    },
-    "problem_list": [
-      "Vaginitis",
-      "Vocal cord strain",
-      "PID (acute pelvic inflammatory disease)",
-      "Generalized anxiety disorder",
-      "Laryngopharyngeal reflux (LPR)",
-      "Change in voice",
-      "Bladder pain",
-      "Eating disorder",
-      "Psychiatric disorder",
-      "Irritable bowel syndrome with diarrhea",
-      "Memory loss",
-      "Excessive anger",
-      "OAB (overactive bladder)",
-      "Bipolar disorder",
-      "Migraine without status migrainosus, not intractable",
-      "Mixed incontinence",
-      "Dysuria",
-      "IIH (idiopathic intracranial hypertension)",
-      "Elevated TSH",
-      "Cigarette nicotine dependence with nicotine-induced disorder"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Breast mass in female",
-        "Palpitation",
-        "IC (interstitial cystitis)",
-        "Post-traumatic stress disorder, chronic",
-        "Depression, major, recurrent, in remission",
-        "Memory change"
+      "medications": [
+        "CHLORHEXIDINE GLUCONATE 0.12 % MOUTHWASH",
+        "CITALOPRAM 10 MG TABLET",
+        "CHOLECALCIFEROL (VITAMIN D3) 10 MCG (400 UNIT) TABLET",
+        "GABAPENTIN 100 MG CAPSULE",
+        "MELATONIN 3 MG TABLET",
+        "CITALOPRAM 20 MG TABLET",
+        "CLOBETASOL 0.05 % TOPICAL OINTMENT",
+        "ACIDOPHILUS-PECTIN, CITRUS 100 MILLION CELL-10 MG CAPSULE",
+        "BUDESONIDE DR - ER 3 MG CAPSULE,DELAYED,EXTENDED RELEASE",
+        "LEVOTHYROXINE 88 MCG TABLET",
+        "METHOCARBAMOL 500 MG TABLET",
+        "TRAMADOL 50 MG TABLET"
       ],
-      "older": []
-    },
-    "medications": [
-      "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
-      "LEVOCETIRIZINE 5 MG TABLET",
-      "PRAZOSIN 1 MG CAPSULE",
-      "OMEPRAZOLE 20 MG CAPSULE,DELAYED RELEASE",
-      "LITHIUM CARBONATE ER 300 MG TABLET,EXTENDED RELEASE",
-      "FUROSEMIDE 20 MG TABLET",
-      "LEVONORGESTREL 20 MCG/24 HOURS (7 YRS) 52 MG INTRAUTERINE DEVICE",
-      "SERTRALINE 25 MG TABLET",
-      "VIBEGRON 75 MG TABLET",
-      "GABAPENTIN 400 MG CAPSULE"
-    ],
-    "level": 4,
-    "relevancy": 3,
-    "id": "INBOX_A-00000-of-00001-22",
-    "problem_list_snomed": [
-      {
-        "input_text": "Vaginitis",
-        "cui": "C0042267",
-        "sctid": "393596009",
-        "snomed_name": "Vaginitis"
-      },
-      {
-        "input_text": "Vocal cord strain",
-        "cui": "C1998354",
-        "sctid": "428240008",
-        "snomed_name": "Vocal cord strain"
-      },
-      {
-        "input_text": "PID (acute pelvic inflammatory disease)",
-        "cui": "C0149959",
-        "sctid": "198173002",
-        "snomed_name": "Acute pelvic inflammatory disease"
-      },
-      {
-        "input_text": "Generalized anxiety disorder",
-        "cui": "C0270549",
-        "sctid": "192401002",
-        "snomed_name": "Generalized anxiety disorder"
-      },
-      {
-        "input_text": "Laryngopharyngeal reflux (LPR)",
-        "cui": "C1168250",
-        "sctid": "414581006",
-        "snomed_name": "Laryngopharyngeal reflux"
-      },
-      {
-        "input_text": "Change in voice",
-        "cui": "C0518179",
-        "sctid": "274657005",
-        "snomed_name": "Change in voice (finding)"
-      },
-      {
-        "input_text": "Bladder pain",
-        "cui": "C0232849",
-        "sctid": "15803009",
-        "snomed_name": "Bladder pain"
-      },
-      {
-        "input_text": "Eating disorder",
-        "cui": "C0013473",
-        "sctid": "72366004",
-        "snomed_name": "Eating disorder"
-      },
-      {
-        "input_text": "Psychiatric disorder",
-        "cui": "C0004936",
-        "sctid": "74732009",
-        "snomed_name": "Mental disorder, NOS"
-      },
-      {
-        "input_text": "Irritable bowel syndrome with diarrhea",
-        "cui": "C0348898",
-        "sctid": "197125005",
-        "snomed_name": "Irritable bowel syndrome with diarrhea"
-      },
-      {
-        "input_text": "Memory loss",
-        "cui": "C0751295",
-        "sctid": "162199006",
-        "snomed_name": "Loss of memory"
-      },
-      {
-        "input_text": "Excessive anger",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "OAB (overactive bladder)",
-        "cui": "C0878773",
-        "sctid": "236633002",
-        "snomed_name": "Overactive bladder"
-      },
-      {
-        "input_text": "Bipolar disorder",
-        "cui": "C0005586",
-        "sctid": "13746004",
-        "snomed_name": "Bipolar disorder, NOS"
-      },
-      {
-        "input_text": "Migraine without status migrainosus, not intractable",
-        "cui": "C2875155",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Mixed incontinence",
-        "cui": "C0869256",
-        "sctid": "413343005",
-        "snomed_name": "Mixed urinary incontinence"
-      },
-      {
-        "input_text": "Dysuria",
-        "cui": "C0013428",
-        "sctid": "139423000",
-        "snomed_name": "Dysuria"
-      },
-      {
-        "input_text": "IIH (idiopathic intracranial hypertension)",
-        "cui": "C0033845",
-        "sctid": "68267002",
-        "snomed_name": "Pseudotumor cerebri"
-      },
-      {
-        "input_text": "Elevated TSH",
-        "cui": "C0586553",
-        "sctid": "309080005",
-        "snomed_name": "Raised TSH level"
-      },
-      {
-        "input_text": "Cigarette nicotine dependence with nicotine-induced disorder",
-        "cui": "C3509181",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Breast mass in female",
-        "cui": "C0848050",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Palpitation",
-        "cui": "C0030252",
-        "sctid": "139224009",
-        "snomed_name": "Palpitations"
-      },
-      {
-        "input_text": "IC (interstitial cystitis)",
-        "cui": "C0282488",
-        "sctid": "197834003",
-        "snomed_name": "Interstitial cystitis"
-      },
-      {
-        "input_text": "Post-traumatic stress disorder, chronic",
-        "cui": "C0730525",
-        "sctid": "154968005",
-        "snomed_name": "Chronic post-traumatic stress disorder"
-      },
-      {
-        "input_text": "Depression, major, recurrent, in remission",
-        "cui": "C0270477",
-        "sctid": "68019004",
-        "snomed_name": "Recurrent major depression in remission"
-      },
-      {
-        "input_text": "Memory change",
-        "cui": "C1822023",
-        "sctid": null,
-        "snomed_name": null
-      }
-    ]
-  },
-  {
-    "patient_message": "Doctor S, \n\nSo I have been getting over a cold, lots of sneezing going on. Today, I sneezed and felt a pop in my rib cage and sharp pain at the same time. It totally took my breath away and the spot feels very sore. Every sneeze since has been super painful and I think I'd like to come in and get this checked out.",
-    "demographics": {
-      "age": "Between 60 - 65",
-      "gender": "Male"
-    },
-    "problem_list": [
-      "Reactive arthritis",
-      "Dysplastic nevus",
-      "PAF (paroxysmal atrial fibrillation)",
-      "Post-traumatic osteoarthritis of right knee",
-      "TIA due to embolism",
-      "Psoriatic arthritis",
-      "APC (atrial premature contractions)",
-      "PFO (patent foramen ovale)",
-      "Sinus bradycardia",
-      "Acute pain",
-      "Floater, vitreous",
-      "Macrocytosis without anemia",
-      "Neurocardiogenic pre-syncope",
-      "HTN (hypertension)",
-      "Hyperlipidemia"
-    ],
-    "diagnoses": {
-      "past_year": [
-        "Hyperlipidemia, unspecified hyperlipidemia type",
-        "Hypertension, essential, benign",
-        "Hypertension, unspecified type",
-        "Reactive arthritis, unspecified site",
-        "Primary hypertension",
-        "Tachycardia"
+      "id": "INBOX_A-00000-of-00001-21",
+      "problem_list_snomed": [
+        {
+          "input_text": "Collagenous colitis",
+          "cui": "C0238067",
+          "sctid": "19311003",
+          "snomed_name": "Collagenous colitis"
+        },
+        {
+          "input_text": "Closed fracture of orbital floor with routine healing",
+          "cui": "C0747052",
+          "sctid": "11303761000119101",
+          "snomed_name": "Closed fracture of orbital floor"
+        },
+        {
+          "input_text": "Fracture of clavicle, right, closed",
+          "cui": "C2076425",
+          "sctid": "10741801000119106",
+          "snomed_name": "Closed fracture of right clavicle"
+        },
+        {
+          "input_text": "Pain in left shoulder",
+          "cui": "C5700073",
+          "sctid": "1260145003",
+          "snomed_name": "Pain of left shoulder region"
+        },
+        {
+          "input_text": "Pulmonary nodule",
+          "cui": "C0034079",
+          "sctid": "786838002",
+          "snomed_name": "Nodule of lung"
+        },
+        {
+          "input_text": "Abnormal transaminases",
+          "cui": "C1328397",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Alcohol use disorder, severe, in sustained remission",
+          "cui": "C4509037",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Presence of right artificial knee joint",
+          "cui": "C2911535",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Multiple traumatic injuries",
+          "cui": "C0026771",
+          "sctid": "262519004",
+          "snomed_name": "Multiple trauma"
+        },
+        {
+          "input_text": "Fatigue",
+          "cui": "C0015672",
+          "sctid": "139126000",
+          "snomed_name": "Fatigue"
+        },
+        {
+          "input_text": "Bronchitis",
+          "cui": "C0006277",
+          "sctid": "32398004",
+          "snomed_name": "Bronchitis"
+        },
+        {
+          "input_text": "Oral lichen planus",
+          "cui": "C0206139",
+          "sctid": "235049008",
+          "snomed_name": "Oral lichen planus"
+        },
+        {
+          "input_text": "Lichen planus",
+          "cui": "C0023646",
+          "sctid": "156377007",
+          "snomed_name": "Lichen planus"
+        },
+        {
+          "input_text": "Total knee replacement status, right",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Elevated BP without diagnosis of hypertension",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Osteoporosis without current pathological fracture",
+          "cui": "C2896472",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Insomnia",
+          "cui": "C1950154",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Cystocele",
+          "cui": "C0010695",
+          "sctid": "266657007",
+          "snomed_name": "Cystocele"
+        },
+        {
+          "input_text": "Upper extremity pain",
+          "cui": "C0239377",
+          "sctid": "102556003",
+          "snomed_name": "Arm pain"
+        }
       ],
-      "older": []
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Diarrhea, unspecified type",
+          "cui": "C0011991",
+          "sctid": "162103003",
+          "snomed_name": "Diarrhea"
+        },
+        {
+          "input_text": "Alcohol use disorder, severe, in early remission",
+          "cui": "C4509036",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Moderate episode of recurrent major depressive disorder",
+          "cui": "C0338890",
+          "sctid": "191611001",
+          "snomed_name": "Recurrent major depressive episodes, moderate"
+        },
+        {
+          "input_text": "Uncomplicated alcohol dependence",
+          "cui": "C2874383",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "SDH (subdural hematoma)",
+          "cui": "C0018946",
+          "sctid": "155393009",
+          "snomed_name": "Subdural hematoma"
+        },
+        {
+          "input_text": "Pain of right upper extremity",
+          "cui": "C4718731",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Closed fracture of proximal end of right humerus with routine healing, unspecified fracture morphology, subsequent encounter",
+          "cui": "C2103775",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "GAD (generalized anxiety disorder)",
+          "cui": "C0270549",
+          "sctid": "192401002",
+          "snomed_name": "Generalized anxiety disorder"
+        },
+        {
+          "input_text": "Medication management",
+          "cui": "C0150270",
+          "sctid": "182832007",
+          "snomed_name": "Medication management"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-21-M1",
+          "sent_at": "2025-01-13T22:28:50",
+          "text": "Hi Dr.,\n\nThis past week I have noticed I am peeing a lot more. Like, maybe I used to pee three or four times a day, but now I pee that much every hour. And every time I pee, I feel like a lot comes out, its not just a little dribble. I have been drinking water but I feel like that cant be it, I am not drinking much more than usual. Any thoughts as to what could be going on? Am I okay?",
+          "expected": {
+            "triage": "URGENT",
+            "level": 2,
+            "relevancy": 7
+          }
+        }
+      ]
     },
-    "medications": [
-      "METOPROLOL SUCCINATE ER 50 MG TABLET,EXTENDED RELEASE 24 HR",
-      "AMLODIPINE 5 MG TABLET",
-      "OMEPRAZOLE 20 MG CAPSULE,DELAYED RELEASE",
-      "APIXABAN 5 MG TABLET",
-      "CIMZIA 400 MG/2 ML (200 MG/ML X 2) SUBCUTANEOUS SYRINGE KIT"
-    ],
-    "level": 2,
-    "relevancy": 7,
-    "id": "INBOX_A-00000-of-00001-23",
-    "problem_list_snomed": [
-      {
-        "input_text": "Reactive arthritis",
-        "cui": "C0085435",
-        "sctid": "239783001",
-        "snomed_name": "Reactive arthritis"
+    {
+      "demographics": {
+        "age": "Between 25 - 30",
+        "gender": "Female"
       },
-      {
-        "input_text": "Dysplastic nevus",
-        "cui": "C0205748",
-        "sctid": "189759009",
-        "snomed_name": "Dysplastic naevus"
+      "problem_list": [
+        "Vaginitis",
+        "Vocal cord strain",
+        "PID (acute pelvic inflammatory disease)",
+        "Generalized anxiety disorder",
+        "Laryngopharyngeal reflux (LPR)",
+        "Change in voice",
+        "Bladder pain",
+        "Eating disorder",
+        "Psychiatric disorder",
+        "Irritable bowel syndrome with diarrhea",
+        "Memory loss",
+        "Excessive anger",
+        "OAB (overactive bladder)",
+        "Bipolar disorder",
+        "Migraine without status migrainosus, not intractable",
+        "Mixed incontinence",
+        "Dysuria",
+        "IIH (idiopathic intracranial hypertension)",
+        "Elevated TSH",
+        "Cigarette nicotine dependence with nicotine-induced disorder"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Breast mass in female",
+          "Palpitation",
+          "IC (interstitial cystitis)",
+          "Post-traumatic stress disorder, chronic",
+          "Depression, major, recurrent, in remission",
+          "Memory change"
+        ],
+        "older": []
       },
-      {
-        "input_text": "PAF (paroxysmal atrial fibrillation)",
-        "cui": "C0235480",
-        "sctid": "195081002",
-        "snomed_name": "Paroxysmal atrial fibrillation"
+      "medications": [
+        "ALBUTEROL SULFATE HFA 90 MCG/ACTUATION AEROSOL INHALER",
+        "LEVOCETIRIZINE 5 MG TABLET",
+        "PRAZOSIN 1 MG CAPSULE",
+        "OMEPRAZOLE 20 MG CAPSULE,DELAYED RELEASE",
+        "LITHIUM CARBONATE ER 300 MG TABLET,EXTENDED RELEASE",
+        "FUROSEMIDE 20 MG TABLET",
+        "LEVONORGESTREL 20 MCG/24 HOURS (7 YRS) 52 MG INTRAUTERINE DEVICE",
+        "SERTRALINE 25 MG TABLET",
+        "VIBEGRON 75 MG TABLET",
+        "GABAPENTIN 400 MG CAPSULE"
+      ],
+      "id": "INBOX_A-00000-of-00001-22",
+      "problem_list_snomed": [
+        {
+          "input_text": "Vaginitis",
+          "cui": "C0042267",
+          "sctid": "393596009",
+          "snomed_name": "Vaginitis"
+        },
+        {
+          "input_text": "Vocal cord strain",
+          "cui": "C1998354",
+          "sctid": "428240008",
+          "snomed_name": "Vocal cord strain"
+        },
+        {
+          "input_text": "PID (acute pelvic inflammatory disease)",
+          "cui": "C0149959",
+          "sctid": "198173002",
+          "snomed_name": "Acute pelvic inflammatory disease"
+        },
+        {
+          "input_text": "Generalized anxiety disorder",
+          "cui": "C0270549",
+          "sctid": "192401002",
+          "snomed_name": "Generalized anxiety disorder"
+        },
+        {
+          "input_text": "Laryngopharyngeal reflux (LPR)",
+          "cui": "C1168250",
+          "sctid": "414581006",
+          "snomed_name": "Laryngopharyngeal reflux"
+        },
+        {
+          "input_text": "Change in voice",
+          "cui": "C0518179",
+          "sctid": "274657005",
+          "snomed_name": "Change in voice (finding)"
+        },
+        {
+          "input_text": "Bladder pain",
+          "cui": "C0232849",
+          "sctid": "15803009",
+          "snomed_name": "Bladder pain"
+        },
+        {
+          "input_text": "Eating disorder",
+          "cui": "C0013473",
+          "sctid": "72366004",
+          "snomed_name": "Eating disorder"
+        },
+        {
+          "input_text": "Psychiatric disorder",
+          "cui": "C0004936",
+          "sctid": "74732009",
+          "snomed_name": "Mental disorder, NOS"
+        },
+        {
+          "input_text": "Irritable bowel syndrome with diarrhea",
+          "cui": "C0348898",
+          "sctid": "197125005",
+          "snomed_name": "Irritable bowel syndrome with diarrhea"
+        },
+        {
+          "input_text": "Memory loss",
+          "cui": "C0751295",
+          "sctid": "162199006",
+          "snomed_name": "Loss of memory"
+        },
+        {
+          "input_text": "Excessive anger",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "OAB (overactive bladder)",
+          "cui": "C0878773",
+          "sctid": "236633002",
+          "snomed_name": "Overactive bladder"
+        },
+        {
+          "input_text": "Bipolar disorder",
+          "cui": "C0005586",
+          "sctid": "13746004",
+          "snomed_name": "Bipolar disorder, NOS"
+        },
+        {
+          "input_text": "Migraine without status migrainosus, not intractable",
+          "cui": "C2875155",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Mixed incontinence",
+          "cui": "C0869256",
+          "sctid": "413343005",
+          "snomed_name": "Mixed urinary incontinence"
+        },
+        {
+          "input_text": "Dysuria",
+          "cui": "C0013428",
+          "sctid": "139423000",
+          "snomed_name": "Dysuria"
+        },
+        {
+          "input_text": "IIH (idiopathic intracranial hypertension)",
+          "cui": "C0033845",
+          "sctid": "68267002",
+          "snomed_name": "Pseudotumor cerebri"
+        },
+        {
+          "input_text": "Elevated TSH",
+          "cui": "C0586553",
+          "sctid": "309080005",
+          "snomed_name": "Raised TSH level"
+        },
+        {
+          "input_text": "Cigarette nicotine dependence with nicotine-induced disorder",
+          "cui": "C3509181",
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Breast mass in female",
+          "cui": "C0848050",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Palpitation",
+          "cui": "C0030252",
+          "sctid": "139224009",
+          "snomed_name": "Palpitations"
+        },
+        {
+          "input_text": "IC (interstitial cystitis)",
+          "cui": "C0282488",
+          "sctid": "197834003",
+          "snomed_name": "Interstitial cystitis"
+        },
+        {
+          "input_text": "Post-traumatic stress disorder, chronic",
+          "cui": "C0730525",
+          "sctid": "154968005",
+          "snomed_name": "Chronic post-traumatic stress disorder"
+        },
+        {
+          "input_text": "Depression, major, recurrent, in remission",
+          "cui": "C0270477",
+          "sctid": "68019004",
+          "snomed_name": "Recurrent major depression in remission"
+        },
+        {
+          "input_text": "Memory change",
+          "cui": "C1822023",
+          "sctid": null,
+          "snomed_name": null
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-22-M1",
+          "sent_at": "2025-10-07T15:03:51",
+          "text": "Hi Doctor, \n\nAs you know, I have been getting menstural cramps for years now, but lately they have gotten worse. I used to tolerate them okay but the cramps are so bad that I can barely move at all, and they're getting worse every month. The only thing that works is heating pads. But even then it's not helping much. So yeah it's gotten to the point that I really wanted to schedule something with you to talk about this. I don't known if I need a stronger NSAID or if there is a new type of medication that can help or if there is something WRONG WITH ME but I really want to try something. \n\nThanks",
+          "expected": {
+            "triage": "ROUTINE",
+            "level": 4,
+            "relevancy": 3
+          }
+        }
+      ]
+    },
+    {
+      "demographics": {
+        "age": "Between 60 - 65",
+        "gender": "Male"
       },
-      {
-        "input_text": "Post-traumatic osteoarthritis of right knee",
-        "cui": "C3507344",
-        "sctid": null,
-        "snomed_name": null
+      "problem_list": [
+        "Reactive arthritis",
+        "Dysplastic nevus",
+        "PAF (paroxysmal atrial fibrillation)",
+        "Post-traumatic osteoarthritis of right knee",
+        "TIA due to embolism",
+        "Psoriatic arthritis",
+        "APC (atrial premature contractions)",
+        "PFO (patent foramen ovale)",
+        "Sinus bradycardia",
+        "Acute pain",
+        "Floater, vitreous",
+        "Macrocytosis without anemia",
+        "Neurocardiogenic pre-syncope",
+        "HTN (hypertension)",
+        "Hyperlipidemia"
+      ],
+      "diagnoses": {
+        "past_year": [
+          "Hyperlipidemia, unspecified hyperlipidemia type",
+          "Hypertension, essential, benign",
+          "Hypertension, unspecified type",
+          "Reactive arthritis, unspecified site",
+          "Primary hypertension",
+          "Tachycardia"
+        ],
+        "older": []
       },
-      {
-        "input_text": "TIA due to embolism",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "Psoriatic arthritis",
-        "cui": "C0003872",
-        "sctid": "33339001",
-        "snomed_name": "Psoriatic arthritis"
-      },
-      {
-        "input_text": "APC (atrial premature contractions)",
-        "cui": "C0162832",
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "PFO (patent foramen ovale)",
-        "cui": "C0016522",
-        "sctid": "268316001",
-        "snomed_name": "Patent foramen ovale"
-      },
-      {
-        "input_text": "Sinus bradycardia",
-        "cui": "C0085610",
-        "sctid": "49710005",
-        "snomed_name": "Sinus bradycardia"
-      },
-      {
-        "input_text": "Acute pain",
-        "cui": "C0184567",
-        "sctid": "130986009",
-        "snomed_name": "Acute onset pain"
-      },
-      {
-        "input_text": "Floater, vitreous",
-        "cui": "C0016242",
-        "sctid": "155202007",
-        "snomed_name": "Vitreous floaters"
-      },
-      {
-        "input_text": "Macrocytosis without anemia",
-        "cui": "C0472701",
-        "sctid": "191401004",
-        "snomed_name": "Macrocytosis - no anemia"
-      },
-      {
-        "input_text": "Neurocardiogenic pre-syncope",
-        "cui": null,
-        "sctid": null,
-        "snomed_name": null
-      },
-      {
-        "input_text": "HTN (hypertension)",
-        "cui": "C0020538",
-        "sctid": "38341003",
-        "snomed_name": "Hypertensive disease"
-      },
-      {
-        "input_text": "Hyperlipidemia",
-        "cui": "C0020473",
-        "sctid": "154739000",
-        "snomed_name": "Hyperlipidemia"
-      }
-    ],
-    "diagnosis_list_snomed": [
-      {
-        "input_text": "Hyperlipidemia, unspecified hyperlipidemia type",
-        "cui": "C0020473",
-        "sctid": "154739000",
-        "snomed_name": "Hyperlipidemia"
-      },
-      {
-        "input_text": "Hypertension, essential, benign",
-        "cui": "C0155583",
-        "sctid": "194758001",
-        "snomed_name": "Benign essential hypertension (disorder)"
-      },
-      {
-        "input_text": "Hypertension, unspecified type",
-        "cui": "C0020538",
-        "sctid": "38341003",
-        "snomed_name": "Hypertensive disease"
-      },
-      {
-        "input_text": "Reactive arthritis, unspecified site",
-        "cui": "C0085435",
-        "sctid": "239783001",
-        "snomed_name": "Reactive arthritis"
-      },
-      {
-        "input_text": "Primary hypertension",
-        "cui": "C0085580",
-        "sctid": "194757006",
-        "snomed_name": "Essential hypertension"
-      },
-      {
-        "input_text": "Tachycardia",
-        "cui": "C0039231",
-        "sctid": "6285003",
-        "snomed_name": "Tachycardia"
-      }
-    ]
-  }
-]
+      "medications": [
+        "METOPROLOL SUCCINATE ER 50 MG TABLET,EXTENDED RELEASE 24 HR",
+        "AMLODIPINE 5 MG TABLET",
+        "OMEPRAZOLE 20 MG CAPSULE,DELAYED RELEASE",
+        "APIXABAN 5 MG TABLET",
+        "CIMZIA 400 MG/2 ML (200 MG/ML X 2) SUBCUTANEOUS SYRINGE KIT"
+      ],
+      "id": "INBOX_A-00000-of-00001-23",
+      "problem_list_snomed": [
+        {
+          "input_text": "Reactive arthritis",
+          "cui": "C0085435",
+          "sctid": "239783001",
+          "snomed_name": "Reactive arthritis"
+        },
+        {
+          "input_text": "Dysplastic nevus",
+          "cui": "C0205748",
+          "sctid": "189759009",
+          "snomed_name": "Dysplastic naevus"
+        },
+        {
+          "input_text": "PAF (paroxysmal atrial fibrillation)",
+          "cui": "C0235480",
+          "sctid": "195081002",
+          "snomed_name": "Paroxysmal atrial fibrillation"
+        },
+        {
+          "input_text": "Post-traumatic osteoarthritis of right knee",
+          "cui": "C3507344",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "TIA due to embolism",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "Psoriatic arthritis",
+          "cui": "C0003872",
+          "sctid": "33339001",
+          "snomed_name": "Psoriatic arthritis"
+        },
+        {
+          "input_text": "APC (atrial premature contractions)",
+          "cui": "C0162832",
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "PFO (patent foramen ovale)",
+          "cui": "C0016522",
+          "sctid": "268316001",
+          "snomed_name": "Patent foramen ovale"
+        },
+        {
+          "input_text": "Sinus bradycardia",
+          "cui": "C0085610",
+          "sctid": "49710005",
+          "snomed_name": "Sinus bradycardia"
+        },
+        {
+          "input_text": "Acute pain",
+          "cui": "C0184567",
+          "sctid": "130986009",
+          "snomed_name": "Acute onset pain"
+        },
+        {
+          "input_text": "Floater, vitreous",
+          "cui": "C0016242",
+          "sctid": "155202007",
+          "snomed_name": "Vitreous floaters"
+        },
+        {
+          "input_text": "Macrocytosis without anemia",
+          "cui": "C0472701",
+          "sctid": "191401004",
+          "snomed_name": "Macrocytosis - no anemia"
+        },
+        {
+          "input_text": "Neurocardiogenic pre-syncope",
+          "cui": null,
+          "sctid": null,
+          "snomed_name": null
+        },
+        {
+          "input_text": "HTN (hypertension)",
+          "cui": "C0020538",
+          "sctid": "38341003",
+          "snomed_name": "Hypertensive disease"
+        },
+        {
+          "input_text": "Hyperlipidemia",
+          "cui": "C0020473",
+          "sctid": "154739000",
+          "snomed_name": "Hyperlipidemia"
+        }
+      ],
+      "diagnosis_list_snomed": [
+        {
+          "input_text": "Hyperlipidemia, unspecified hyperlipidemia type",
+          "cui": "C0020473",
+          "sctid": "154739000",
+          "snomed_name": "Hyperlipidemia"
+        },
+        {
+          "input_text": "Hypertension, essential, benign",
+          "cui": "C0155583",
+          "sctid": "194758001",
+          "snomed_name": "Benign essential hypertension (disorder)"
+        },
+        {
+          "input_text": "Hypertension, unspecified type",
+          "cui": "C0020538",
+          "sctid": "38341003",
+          "snomed_name": "Hypertensive disease"
+        },
+        {
+          "input_text": "Reactive arthritis, unspecified site",
+          "cui": "C0085435",
+          "sctid": "239783001",
+          "snomed_name": "Reactive arthritis"
+        },
+        {
+          "input_text": "Primary hypertension",
+          "cui": "C0085580",
+          "sctid": "194757006",
+          "snomed_name": "Essential hypertension"
+        },
+        {
+          "input_text": "Tachycardia",
+          "cui": "C0039231",
+          "sctid": "6285003",
+          "snomed_name": "Tachycardia"
+        }
+      ],
+      "messages": [
+        {
+          "message_id": "INBOX_A-00000-of-00001-23-M1",
+          "sent_at": "2025-01-16T17:08:52",
+          "text": "Doctor S, \n\nSo I have been getting over a cold, lots of sneezing going on. Today, I sneezed and felt a pop in my rib cage and sharp pain at the same time. It totally took my breath away and the spot feels very sore. Every sneeze since has been super painful and I think I'd like to come in and get this checked out.",
+          "expected": {
+            "triage": "URGENT",
+            "level": 2,
+            "relevancy": 7
+          }
+        }
+      ]
+    }
+  ]
+}
