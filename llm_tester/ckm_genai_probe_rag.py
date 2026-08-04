@@ -320,26 +320,57 @@ def embed_texts(texts, model=EMBED_MODEL, host=OLLAMA_HOST, batch_size=64):
     return vectors
 
 
+# def chat_ollama_response(system, user, model=CHAT_MODEL, host=OLLAMA_HOST, options=None):
+#     """Single-turn chat completion with a separate system prompt, via /api/chat."""
+#     payload = {
+#         "model": model,
+#         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+#         "stream": False,
+#         "options": options or GEN_OPTIONS,
+#     }
+#     try:
+#         r = requests.post(f"{host}/api/chat", json=payload, timeout=300)
+#         r.raise_for_status()
+#         return r.json()["message"]["content"].strip()
+#     except requests.exceptions.RequestException as e:
+#         print(f"Error generating chat response: {e}")
+        # return None
+
 def chat_ollama_response(system, user, model=CHAT_MODEL, host=OLLAMA_HOST, options=None):
     """Single-turn chat completion with a separate system prompt, via /api/chat."""
+    opts = options or GEN_OPTIONS
     payload = {
         "model": model,
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
         "stream": False,
-        "options": options or GEN_OPTIONS,
+        "options": opts,
     }
-    try:
-        r = requests.post(f"{host}/api/chat", json=payload, timeout=300)
-        r.raise_for_status()
-        return r.json()["message"]["content"].strip()
-    except requests.exceptions.RequestException as e:
-        print(f"Error generating chat response: {e}")
-        return None
+    r = requests.post(f"{host}/api/chat", json=payload, timeout=300)
+    r.raise_for_status()
+    body = r.json()
+    body["_request_options"] = opts      # not from Ollama; what we sent
+    body["_request_model"] = model       # what we asked for, vs body["model"] loaded
+    return body["message"]["content"].strip(), body
 
+# def chat_ollama_response(system, user, model=CHAT_MODEL, host=OLLAMA_HOST, options=None):
+#     """Single-turn chat completion with a separate system prompt, via /api/chat."""
+#     payload = {
+#         "model": model,
+#         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+#         "stream": False,
+#         "options": options or GEN_OPTIONS,
+#     }
+#     r = requests.post(f"{host}/api/chat", json=payload, timeout=300)
+#     r.raise_for_status()
+#     body = r.json()
+#     return body["message"]["content"].strip(), body
 
 # Smoke test both helpers before spending time on ingestion.
 print("embedding dim:", len(embed_texts(["test"])[0]))
 print("chat:", chat_ollama_response("Reply in exactly one word.", "Say OK."))
+
+raw, meta = chat_ollama_response("You are terse.", "Say OK.")
+print("meta:", meta["prompt_eval_count"], raw)
 
 """### 9. PDF loading and chunking
 
@@ -647,36 +678,53 @@ withholds it, so the same message can be scored with and without structured cont
 difference attributed to the EHR.
 """
 
-def format_ehr(patient):
+def format_ehr(patient, use_ckm_stage=True):
     """Render a patient's structured EHR context as a compact text block."""
-    d = patient["demographics"]
-    diag = patient["demographics"]
+    demo = patient.get("demographics", {})
+    problems = patient.get("problem_list") or []
+    diagnoses = patient.get("diagnoses", {}).get("past_year") or []
+    meds = patient.get("medications") or []
+
     lines = [
-        f"Age/gender: {d['age']} {d['gender']}", # Keep
-        f"Problems: {', '.join(patient['problem_list']) if patient['problem_list'] else 'none recorded'}",
-        f"Diagnosis: {', '.join(patient['diagnoses']['past_year']) if patient['diagnoses'] else 'none recorded'}",
-        f"CKM stage: {patient.get('ckm_stage_label', 'not staged')}",
+        f"Age/gender: {demo.get('age', 'unknown')} {demo.get('gender', 'unknown')}",
+        f"Problems: {', '.join(problems) if problems else 'none recorded'}",
+        f"Past-year diagnoses: {', '.join(diagnoses) if diagnoses else 'none recorded'}",
+        f"Medications: {'; '.join(meds) if meds else 'none recorded'}",
     ]
-
-    # if patient["medications"]:
-    #     med_strings = []
-    #     for m in patient["medications"]:
-    #         if isinstance(m, dict):
-    #             # Assume m is a dictionary with 'name', 'dose', 'class', 'started' keys
-    #             med_strings.append(f"{m.get('name', 'N/A')} {m.get('dose', 'N/A')} ({m.get('class', 'N/A')}, started {m.get('started', 'N/A')})")
-    #         else:
-    #             # If m is not a dict, treat it as a simple medication name string
-    #             med_strings.append(str(m))
-    #     meds = "; ".join(med_strings)
-    # else:
-    #     meds = "none recorded"
-
-    #lines.append(f"Medications: {meds}")
-
+    if use_ckm_stage:
+        lines.append(f"CKM stage: {patient.get('ckm_stage_label') or 'not staged'}")
     return "\n".join(lines)
 
+# def format_ehr(patient):
+#     """Render a patient's structured EHR context as a compact text block."""
+#     d = patient["demographics"]
+#     diag = patient["demographics"]
+#     lines = [
+#         f"Age/gender: {d['age']} {d['gender']}", # Keep
+#         f"Problems: {', '.join(patient['problem_list']) if patient['problem_list'] else 'none recorded'}",
+#         f"Diagnosis: {', '.join(patient['diagnoses']['past_year']) if patient['diagnoses'] else 'none recorded'}",
+#         f"CKM stage: {patient.get('ckm_stage_label', 'not staged')}",
+#     ]
 
-print(format_ehr(CORPUS["patients"][0]))
+#     # if patient["medications"]:
+#     #     med_strings = []
+#     #     for m in patient["medications"]:
+#     #         if isinstance(m, dict):
+#     #             # Assume m is a dictionary with 'name', 'dose', 'class', 'started' keys
+#     #             med_strings.append(f"{m.get('name', 'N/A')} {m.get('dose', 'N/A')} ({m.get('class', 'N/A')}, started {m.get('started', 'N/A')})")
+#     #         else:
+#     #             # If m is not a dict, treat it as a simple medication name string
+#     #             med_strings.append(str(m))
+#     #     meds = "; ".join(med_strings)
+#     # else:
+#     #     meds = "none recorded"
+
+#     #lines.append(f"Medications: {meds}")
+
+#     return "\n".join(lines)
+
+
+# print(format_ehr(CORPUS["patients"][0]))
 
 """### 14. Set up triage function
 
@@ -695,10 +743,10 @@ Three switches, each isolating one contribution:
 TRIAGE_SYSTEM = (
     "You are a medical expert reviewing patient-portal messages for a "
     "cardiovascular-kidney-metabolic (CKM) care team. Weigh the patient's structured EHR "
-    "data as heavily as the words of the message: patients routinely minimize symptoms, "
+    "data as heavily as the words of the message where patients routinely minimize symptoms, "
     "offer benign explanations, and bury red flags in casual language. Ground clinical "
     "reasoning in the provided guideline context and cite it with [S#] tags where it "
-    "applies. Respond with a single JSON object and nothing else - no preamble, no "
+    "applies. Respond with a single JSON object and nothing else, no preamble, no "
     "markdown fences."
 )
 
@@ -741,42 +789,89 @@ def _parse_json_response(raw):
             return None
     return None
 
-
-def triage_message(patient, message, use_ehr=True, use_rag=True, use_ckm_stage=True):
+def triage_message(patient, message, use_ehr=True, use_rag=True, use_ckm_stage=False):
     """Run one message through the model. Returns the parsed verdict plus provenance."""
     if use_rag:
-        # Retrieve on the message text plus problem list and past-year diagnoses:
-        # the message alone is often too vague to hit the right guideline section.
-        parts = [
-            message["text"],
-            *patient.get("problem_list", []),
-            *patient.get("diagnoses", {}).get("past_year", []),
-        ]
-        if use_ckm_stage:
-            parts.append(str(patient.get("ckm_stage_label") or ""))
-        context, refs = _format_context(retrieve(" ".join(p for p in parts if p)))
+        # Retrieve on the message text, enriched with structured EHR terms only when
+        # use_ehr is on: the message alone is often too vague to hit the right
+        # guideline section, but enriching it regardless would leak structured data
+        # into the EHR-withheld conditions via the retrieval channel.
+        parts = [message["text"]]
+        if use_ehr:
+            parts += patient.get("problem_list", [])
+            parts += patient.get("diagnoses", {}).get("past_year", [])
+            if use_ckm_stage:
+                parts.append(str(patient.get("ckm_stage_label") or ""))
+        query = " ".join(p for p in parts if p)
+        context, refs = _format_context(retrieve(query))
     else:
-        context, refs = "(no guideline context provided)", []
+        query, context, refs = "", "(no guideline context provided)", []
 
     user = TRIAGE_TEMPLATE.format(
         triage_defs=TRIAGE_DEFS,
-        ehr=format_ehr(patient) if use_ehr else "(structured EHR data withheld)",
+        ehr=format_ehr(patient, use_ckm_stage) if use_ehr else "(structured EHR data withheld)",
         context=context,
         sent_at=message["sent_at"],
         message=message["text"],
         codes=list(TRIAGE_RANK),
     )
-    raw = chat_ollama_response(TRIAGE_SYSTEM, user)
+ #   raw = chat_ollama_response(TRIAGE_SYSTEM, user)
+    raw, meta = chat_ollama_response(TRIAGE_SYSTEM, user)
     return {
         "message_id": message["message_id"],
         "id": patient.get("id", "UNKNOWN_PATIENT_ID"),
         "raw": raw,
         "parsed": _parse_json_response(raw),
+        "query": query,
         "retrieved": refs,
         "use_ehr": use_ehr,
         "use_rag": use_rag,
         "use_ckm_stage": use_ckm_stage,
+        "prompt_tokens": meta.get("prompt_eval_count"),
+        "eval_tokens": meta.get("eval_count"),
+        "gen_options": meta["_request_options"],
+        "model": meta.get("model", meta["_request_model"]),
     }
+
+# def triage_message(patient, message, use_ehr=True, use_rag=True, use_ckm_stage=False):
+#     """Run one message through the model. Returns the parsed verdict plus provenance."""
+#     if use_rag:
+#         # Retrieve on the message text plus problem list and past-year diagnoses:
+#         # the message alone is often too vague to hit the right guideline section.
+#         parts = [
+#             message["text"],
+#             *patient.get("problem_list", []),
+#             *patient.get("diagnoses", {}).get("past_year", []),
+#         ]
+#         if use_ckm_stage:
+#             parts.append(str(patient.get("ckm_stage_label") or ""))
+#             #print("parts:", parts)
+#         context, refs = _format_context(retrieve(" ".join(p for p in parts if p)))
+#     else:
+#         context, refs = "(no guideline context provided)", []
+
+#     user = TRIAGE_TEMPLATE.format(
+#         triage_defs=TRIAGE_DEFS,
+#         ehr=format_ehr(patient) if use_ehr else "(structured EHR data withheld)",
+#         context=context,
+#         sent_at=message["sent_at"],
+#         message=message["text"],
+#         codes=list(TRIAGE_RANK),
+#     )
+
+#     print("context", context)
+
+#     raw = chat_ollama_response(TRIAGE_SYSTEM, user)
+#     return {
+#         "message_id": message["message_id"],
+#         "id": patient.get("id", "UNKNOWN_PATIENT_ID"),
+#         "raw": raw,
+#         "parsed": _parse_json_response(raw),
+#         "retrieved": refs,
+#         "use_ehr": use_ehr,
+#         "use_rag": use_rag,
+#         "use_ckm_stage": use_ckm_stage,
+#     }
 
 
 # Single-case demo: the harder half of the paired probe item.
@@ -913,6 +1008,22 @@ print("\nSummary:", json.dumps(summarize(results_full, "EHR + RAG + CKM Staging 
 results_full.to_csv(RESULTS_PATH, index=False)
 
 print(f"Wrote {len(results_full)} rows to {RESULTS_PATH}")
+
+user = "What is your purpose?"
+a, _ = chat_ollama_response(TRIAGE_SYSTEM, user)
+b, _ = chat_ollama_response(TRIAGE_SYSTEM, user)
+print("identical:", a == b)
+
+for p in CORPUS["patients"]:
+    for m in p["messages"]:
+        off = triage_message(p, m, use_ckm_stage=False)
+        on  = triage_message(p, m, use_ckm_stage=True)
+        changed = off["parsed"].get("triage") != on["parsed"].get("triage")
+        print(f"{p['id']} {m['message_id']} {changed}")
+
+off["parsed"].get("triage")
+
+on["parsed"].get("triage")
 
 """### Where does it fail?
 
