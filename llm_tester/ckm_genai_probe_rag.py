@@ -742,48 +742,40 @@ def _parse_json_response(raw):
     return None
 
 
-def triage_message(patient, message, use_ehr=True, use_rag=True, use_ckm_stg = True):
+def triage_message(patient, message, use_ehr=True, use_rag=True, use_ckm_stage=True):
     """Run one message through the model. Returns the parsed verdict plus provenance."""
-    codes = list(TRIAGE_RANK)
-
     if use_rag:
-        # Retrieve on the message text plus the problem list and past year diag: the message alone is often
-        # too vague to retrieve the right guideline section.
-        if use_ckm_stg:
-          query = message["text"] + " " + " ".join(patient["problem_list"]) + " " + " ".join(patient['diagnoses']['past_year']) + " " + " ".join(patient['ckm_stage_label'])
-        else:
-          query = message["text"] + " " + " ".join(patient["problem_list"]) + " " + " ".join(patient['diagnoses']['past_year'])
-
-        hits = retrieve(query)
-        context, refs = _format_context(hits)
+        # Retrieve on the message text plus problem list and past-year diagnoses:
+        # the message alone is often too vague to hit the right guideline section.
+        parts = [
+            message["text"],
+            *patient.get("problem_list", []),
+            *patient.get("diagnoses", {}).get("past_year", []),
+        ]
+        if use_ckm_stage:
+            parts.append(str(patient.get("ckm_stage_label") or ""))
+        context, refs = _format_context(retrieve(" ".join(p for p in parts if p)))
     else:
-        hits, refs = [], []
-        context = "(no guideline context provided)"
-
-    ##print(context)
-
-    ehr = format_ehr(patient) if use_ehr else "(structured EHR data withheld)"
+        context, refs = "(no guideline context provided)", []
 
     user = TRIAGE_TEMPLATE.format(
         triage_defs=TRIAGE_DEFS,
-        ehr=ehr,
+        ehr=format_ehr(patient) if use_ehr else "(structured EHR data withheld)",
         context=context,
         sent_at=message["sent_at"],
         message=message["text"],
-        codes=codes,
+        codes=list(TRIAGE_RANK),
     )
-
     raw = chat_ollama_response(TRIAGE_SYSTEM, user)
-    parsed = _parse_json_response(raw)
-
     return {
         "message_id": message["message_id"],
-        "id": patient.get("id", "UNKNOWN_PATIENT_ID"), # Safely get id
+        "id": patient.get("id", "UNKNOWN_PATIENT_ID"),
         "raw": raw,
-        "parsed": parsed,
+        "parsed": _parse_json_response(raw),
         "retrieved": refs,
         "use_ehr": use_ehr,
         "use_rag": use_rag,
+        "use_ckm_stage": use_ckm_stage,
     }
 
 
@@ -854,13 +846,13 @@ def score_one(expected, result):
     }
 
 
-def evaluate(cases=CASES, use_ehr=True, use_rag=True, verbose=True):
+def evaluate(cases=CASES, use_ehr=True, use_rag=True, use_ckm_stage=True, verbose=True):
     """Run every case and return a per-message DataFrame."""
     rows = []
     for i, (patient, message) in enumerate(cases, 1):
         if verbose:
             print(f"[{i}/{len(cases)}] {message['message_id']} ...", end=" ")
-        result = triage_message(patient, message, use_ehr=use_ehr, use_rag=use_rag)
+        result = triage_message(patient, message, use_ehr=use_ehr, use_rag=use_rag, use_ckm_stage=use_ckm_stage)
         scored = score_one(message["expected"], result)
         if verbose:
             mark = "OK  " if scored["correct"] else "MISS"
@@ -870,6 +862,7 @@ def evaluate(cases=CASES, use_ehr=True, use_rag=True, verbose=True):
             "id": patient["id"],
             "use_ehr": use_ehr,
             "use_rag": use_rag,
+            "use_ckm_stage": use_ckm_stage,
             **scored,
             "rationale": (result["parsed"] or {}).get("rationale", ""),
             "recommended_action": (result["parsed"] or {}).get("recommended_action", ""),
@@ -894,12 +887,32 @@ def summarize(df, label=""):
 
 """### Run the full evaluation"""
 
-results_full = evaluate(use_ehr=True, use_rag=True)
+RESULTS_PATH = "/content/ckm_probe_results_full_all.csv"
+
+results_full = evaluate(use_ehr=True, use_rag=True, use_ckm_stage=True)
 
 display(results_full[["message_id", "expected", "predicted", "correct",
                       "severity_distance"]])
 
-print("\nSummary:", json.dumps(summarize(results_full, "EHR + RAG"), indent=2))
+print("\nSummary:", json.dumps(summarize(results_full, "EHR + RAG + CKM Staging Known"), indent=2))
+
+results_full.to_csv(RESULTS_PATH, index=False)
+
+print(f"Wrote {len(results_full)} rows to {RESULTS_PATH}")
+
+# if results are same, maybe try restarting ollama from the beginning
+RESULTS_PATH = "/content/ckm_probe_results_full_no_ckm_stg.csv"
+
+results_full = evaluate(use_ehr=True, use_rag=True, use_ckm_stage=False)
+
+display(results_full[["message_id", "expected", "predicted", "correct",
+                      "severity_distance"]])
+
+print("\nSummary:", json.dumps(summarize(results_full, "EHR + RAG + CKM Staging Known"), indent=2))
+
+results_full.to_csv(RESULTS_PATH, index=False)
+
+print(f"Wrote {len(results_full)} rows to {RESULTS_PATH}")
 
 """### Where does it fail?
 
@@ -943,16 +956,16 @@ This runs 4 × 11 = 44 generations; expect several minutes.
 """
 
 conditions = [
-    ("free text only", False, False),
-    ("RAG only",       False, True),
-    ("EHR only",       True,  False),
-    ("EHR + RAG",      True,  True),
+#    ("free text only", False, False, False),
+#    ("RAG only", False, True, False),
+#    ("EHR only", True,  False, False),
+    ("EHR + RAG + CKM Staging Known", True,  True, True),
+    ("EHR + RAG + CKM Staging Not Known", True,  True, False),
 ]
-
 ablation_frames = []
-for label, use_ehr, use_rag in conditions:
+for label, use_ehr, use_rag, use_ckm_stage in conditions:
     print(f"\n=== {label} ===")
-    df = evaluate(use_ehr=use_ehr, use_rag=use_rag, verbose=False)
+    df = evaluate(use_ehr=use_ehr, use_rag=use_rag, use_ckm_stage=use_ckm_stage, verbose=False)
     df["condition"] = label
     ablation_frames.append(df)
     print(json.dumps(summarize(df, label), indent=2))
@@ -962,19 +975,19 @@ ablation = pd.concat(ablation_frames, ignore_index=True)
 print("\n=== Headline ===")
 display(pd.DataFrame([summarize(d, d["condition"].iloc[0]) for d in ablation_frames]))
 
-print("\n=== Accuracy on the requires_ehr subset (the EHR-dependent items) ===")
-display(
-    ablation[ablation["requires_ehr"]]
-    .groupby("condition")["correct"].agg(["mean", "count"])
-    .rename(columns={"mean": "accuracy", "count": "n"})
-    .reindex([c[0] for c in conditions])
-)
+# print("\n=== Accuracy on the requires_ehr subset (the EHR-dependent items) ===")
+# display(
+#     ablation[ablation["requires_ehr"]]
+#     .groupby("condition")["correct"].agg(["mean", "count"])
+#     .rename(columns={"mean": "accuracy", "count": "n"})
+#     .reindex([c[0] for c in conditions])
+# )
 
-print("\n=== Accuracy by message ambiguity ===")
-display(
-    ablation.pivot_table(index="condition", columns="ambiguity", values="correct", aggfunc="mean")
-    .reindex([c[0] for c in conditions])
-)
+# print("\n=== Accuracy by message ambiguity ===")
+# display(
+#     ablation.pivot_table(index="condition", columns="ambiguity", values="correct", aggfunc="mean")
+#     .reindex([c[0] for c in conditions])
+#)
 
 """### Persist the run
 
@@ -992,10 +1005,6 @@ ablation_out["corpus_id"] = CORPUS["corpus_id"]
 ablation_out.to_csv(RESULTS_PATH, index=False)
 
 print(f"Wrote {len(ablation_out)} rows to {RESULTS_PATH}")
-
-#!pip freeze > requirements.txt
-
-# pip install -r requirements.txt for new notebook
 
 """---
 ### 17. Setup RAG extention (future)
