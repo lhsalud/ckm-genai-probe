@@ -520,7 +520,7 @@ def _format_context(hits):
 
 
 RAG_SYSTEM_PROMPT = (
-    "You are a careful clinical-informatics assistant. Answer ONLY from the "
+    "You are a medical expert. You specialize in understanding the urgency of medical queries. Answer ONLY from the "
     "provided context. If the answer is not in the context, say you cannot find "
     "it in the provided documents - do not use outside knowledge and do not "
     "guess. Cite every claim with the bracketed source tags shown in the context "
@@ -622,10 +622,10 @@ All data is synthetic. No real patient information.
 
 import json
 
-PATIENTS_PATH = "/content/ckm_patients.json"   # upload via the Files pane
+PATIENTS_PATH = "/content/ckm_pts_segments_1_staged.json"   # upload via the Files pane
 
 if not os.path.exists(PATIENTS_PATH):
-    raise FileNotFoundError(f"Not found: {PATIENTS_PATH}\nUpload ckm_patients.json via the Files pane.")
+    raise FileNotFoundError(f"Not found: {PATIENTS_PATH}\nUpload ckm_pts_segments_1_staged.json via the Files pane.")
 
 with open(PATIENTS_PATH) as f:
     CORPUS = json.load(f)
@@ -650,29 +650,28 @@ difference attributed to the EHR.
 def format_ehr(patient):
     """Render a patient's structured EHR context as a compact text block."""
     d = patient["demographics"]
+    diag = patient["demographics"]
     lines = [
-        f"Patient ID: {patient['patient_id']}",
-        f"Age/Sex: {d['age']} {d['sex']}",
-        f"CKM stage: {patient.get('ckm_stage', 'not staged')}",
-        f"Problems: {', '.join(patient['conditions']) if patient['conditions'] else 'none recorded'}",
+        f"Age/gender: {d['age']} {d['gender']}", # Keep
+        f"Problems: {', '.join(patient['problem_list']) if patient['problem_list'] else 'none recorded'}",
+        f"Diagnosis: {', '.join(patient['diagnoses']['past_year']) if patient['diagnoses'] else 'none recorded'}",
+        f"CKM stage: {patient.get('ckm_stage_label', 'not staged')}",
     ]
 
-    if patient["medications"]:
-        meds = "; ".join(f"{m['name']} {m['dose']} ({m['class']}, started {m['started']})"
-                         for m in patient["medications"])
-    else:
-        meds = "none recorded"
-    lines.append(f"Medications: {meds}")
+    # if patient["medications"]:
+    #     med_strings = []
+    #     for m in patient["medications"]:
+    #         if isinstance(m, dict):
+    #             # Assume m is a dictionary with 'name', 'dose', 'class', 'started' keys
+    #             med_strings.append(f"{m.get('name', 'N/A')} {m.get('dose', 'N/A')} ({m.get('class', 'N/A')}, started {m.get('started', 'N/A')})")
+    #         else:
+    #             # If m is not a dict, treat it as a simple medication name string
+    #             med_strings.append(str(m))
+    #     meds = "; ".join(med_strings)
+    # else:
+    #     meds = "none recorded"
 
-    v = patient["vitals"]
-    lines.append(
-        f"Vitals ({v['date']}): BP {v['bp']}, HR {v['heart_rate']}, "
-        f"weight {v['weight_lb']} lb, BMI {v['bmi']}"
-    )
-
-    labs = "; ".join(f"{k} {lab['value']} {lab['unit']} ({lab['date']})"
-                     for k, lab in patient["labs"].items())
-    lines.append(f"Labs: {labs}")
+    #lines.append(f"Medications: {meds}")
 
     return "\n".join(lines)
 
@@ -694,7 +693,7 @@ Three switches, each isolating one contribution:
 """
 
 TRIAGE_SYSTEM = (
-    "You are a clinical triage assistant reviewing patient-portal messages for a "
+    "You are a medical expert reviewing patient-portal messages for a "
     "cardiovascular-kidney-metabolic (CKM) care team. Weigh the patient's structured EHR "
     "data as heavily as the words of the message: patients routinely minimize symptoms, "
     "offer benign explanations, and bury red flags in casual language. Ground clinical "
@@ -713,7 +712,7 @@ Guideline context:
 {context}
 
 Patient portal message (sent {sent_at}):
-\"\"\"{message}\"\"\"
+{message}
 
 Return a JSON object with exactly these keys:
 {{
@@ -743,19 +742,25 @@ def _parse_json_response(raw):
     return None
 
 
-def triage_message(patient, message, use_ehr=True, use_rag=True):
+def triage_message(patient, message, use_ehr=True, use_rag=True, use_ckm_stg = True):
     """Run one message through the model. Returns the parsed verdict plus provenance."""
     codes = list(TRIAGE_RANK)
 
     if use_rag:
-        # Retrieve on the message text plus the problem list: the message alone is often
+        # Retrieve on the message text plus the problem list and past year diag: the message alone is often
         # too vague to retrieve the right guideline section.
-        query = message["text"] + " " + " ".join(patient["conditions"])
+        if use_ckm_stg:
+          query = message["text"] + " " + " ".join(patient["problem_list"]) + " " + " ".join(patient['diagnoses']['past_year']) + " " + " ".join(patient['ckm_stage_label'])
+        else:
+          query = message["text"] + " " + " ".join(patient["problem_list"]) + " " + " ".join(patient['diagnoses']['past_year'])
+
         hits = retrieve(query)
         context, refs = _format_context(hits)
     else:
         hits, refs = [], []
         context = "(no guideline context provided)"
+
+    ##print(context)
 
     ehr = format_ehr(patient) if use_ehr else "(structured EHR data withheld)"
 
@@ -773,7 +778,7 @@ def triage_message(patient, message, use_ehr=True, use_rag=True):
 
     return {
         "message_id": message["message_id"],
-        "patient_id": patient["patient_id"],
+        "id": patient.get("id", "UNKNOWN_PATIENT_ID"), # Safely get id
         "raw": raw,
         "parsed": parsed,
         "retrieved": refs,
@@ -787,7 +792,7 @@ _p = CORPUS["patients"][0]
 _m = _p["messages"][0]
 _r = triage_message(_p, _m)
 print("MESSAGE:", _m["text"], "\n")
-print("EXPECTED:", _m["expected"]["triage"], "|", _m["expected"]["key_action"], "\n")
+#print("EXPECTED:", _m["expected"]["triage"], "|", _m["expected"]["key_action"], "\n")
 print("MODEL:", json.dumps(_r["parsed"], indent=2) if _r["parsed"] else _r["raw"])
 
 """### 15. Define triage scoring
@@ -837,8 +842,6 @@ def score_one(expected, result):
         parsed.get("recommended_action", ""),
         " ".join(parsed.get("red_flags", []) or []),
     ]).lower()
-    terms = expected["must_reference"]
-    hits = sum(1 for t in terms if t.lower() in blob)
 
     return {
         "predicted": pred_code,
@@ -848,7 +851,6 @@ def score_one(expected, result):
         "severity_distance": dist,
         "under_triage": dist < 0,
         "over_triage": dist > 0,
-        "reference_recall": hits / len(terms) if terms else None,
     }
 
 
@@ -865,9 +867,7 @@ def evaluate(cases=CASES, use_ehr=True, use_rag=True, verbose=True):
             print(f"{mark} expected={scored['expected']} predicted={scored['predicted']}")
         rows.append({
             "message_id": message["message_id"],
-            "patient_id": patient["patient_id"],
-            "ambiguity": message["expected"]["ambiguity"],
-            "requires_ehr": message["expected"]["requires_ehr"],
+            "id": patient["id"],
             "use_ehr": use_ehr,
             "use_rag": use_rag,
             **scored,
@@ -888,7 +888,7 @@ def summarize(df, label=""):
         "under_triage_rate": round(df["under_triage"].fillna(False).mean(), 3),
         "over_triage_rate": round(df["over_triage"].fillna(False).mean(), 3),
         "mean_abs_severity_distance": round(df["severity_distance"].abs().mean(), 3),
-        "reference_recall": round(df["reference_recall"].dropna().mean(), 3),
+        #"reference_recall": round(df["reference_recall"].dropna().mean(), 3),
         "parse_failure_rate": round(1 - df["parse_ok"].mean(), 3),
     }
 
@@ -897,7 +897,7 @@ def summarize(df, label=""):
 results_full = evaluate(use_ehr=True, use_rag=True)
 
 display(results_full[["message_id", "expected", "predicted", "correct",
-                      "severity_distance", "reference_recall", "ambiguity", "requires_ehr"]])
+                      "severity_distance"]])
 
 print("\nSummary:", json.dumps(summarize(results_full, "EHR + RAG"), indent=2))
 
@@ -915,7 +915,7 @@ else:
     for _, row in misses.iterrows():
         direction = "UNDER-triaged" if row["under_triage"] else "OVER-triaged" if row["over_triage"] else "unparseable"
         print(f"{row['message_id']}  expected={row['expected']}  predicted={row['predicted']}  ({direction})")
-        print(f"  ambiguity={row['ambiguity']}  requires_ehr={row['requires_ehr']}")
+        #print(f"  ambiguity={row['ambiguity']}  requires_ehr={row['requires_ehr']}")
         print(f"  rationale: {row['rationale'][:220]}\n")
 
 # Confusion matrix over the ordered levels.
